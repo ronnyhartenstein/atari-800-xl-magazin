@@ -88,13 +88,14 @@ body {
   <div class="box" role="dialog" aria-labelledby="help-t">
     <h2 id="help-t">ROLLERBALL II</h2>
     <ul>
-      <li>Schiebe Rohrteile ins schwarze Loch. Die Pfeilrichtung ist die Richtung, in die das Teil rutscht. Du kannst auch direkt auf ein Teil neben dem Loch tippen.</li>
+      <li>Schiebe Rohrteile ins schwarze Loch. Die Pfeile bewegen das Loch: Das Teil auf der Seite, in die du drückst, rutscht hinein. Du kannst auch direkt auf ein Teil neben dem Loch tippen.</li>
+      <li>Beim Start wählst du Feldgröße (Klein 10×7, Mittel 14×9, Original 18×11) und Schwierigkeit (Leicht 90 s und langsame Kugel, Normal 60 s wie im Original, Schwer 35 s und schnelle Kugel). Die Bestleistung zählt je Einstellung.</li>
       <li>Mit FEUER (Leertaste oder Enter) rollt die Kugel links los. Ist der Zeitbalken rechts leer, rollt sie von selbst.</li>
       <li>Jedes befahrene Teil zählt: Gerade 100, Kreuzung 70, Kurve 50.</li>
       <li>Erreicht die Kugel den Ausgang rechts, gibt es 25 Punkte für jede übrige Zeiteinheit. Loch, Rand oder ein Teil ohne Anschluss beenden die Runde.</li>
     </ul>
     <p class="foot">Original: Thomas Tausend, „Rollerball II“, Computer Kontakt 6-7/86. Farben, Grafik und Laufregeln wie im Listing, der Zeichensatz stammt aus dem freien AltirraOS (Avery Lee). Tasten: Pfeile oder WASD, Leertaste, M für Ton, F für Vollbild.</p>
-    <div class="row"><button class="main" id="h-close">Weiter</button><button id="h-new">Neues Spiel</button></div>
+    <div class="row"><button class="main" id="h-close">Weiter</button><button id="h-new">Neues Spiel / Einstellungen</button></div>
   </div>
 </div>
 
@@ -103,9 +104,13 @@ body {
 "use strict";
 // ---------- Atari-Daten ----------
 const SW = 320, SH = 192;          // Bildschirm des Originals: 40x24 Zeichen
-const UNITS = 88;                  // Zeitbalken: 88 Player-Bytes à 2 Zeilen
-const TIME = 60;                   // Sekunden bis der Balken leer ist
-const SPEED = 7;                   // Felder pro Sekunde beim Rollen
+// Feldgrößen und Schwierigkeit, beim Start im Menü gewählt (ORIGINAL/NORMAL entspricht dem Listing)
+const SIZES = [{ name: "KLEIN", cols: 10, rows: 7 }, { name: "MITTEL", cols: 14, rows: 9 }, { name: "ORIGINAL", cols: 18, rows: 11 }];
+const LEVELS = [{ name: "LEICHT", time: 90, speed: 5 }, { name: "NORMAL", time: 60, speed: 7 }, { name: "SCHWER", time: 35, speed: 9 }];
+let cfg = { size: 2, level: 1 };
+try { const c = JSON.parse(localStorage.getItem("rollerball2-cfg")); if (c && SIZES[c.size] && LEVELS[c.level]) cfg = c; } catch (e) {}
+let COLS, ROWS, UNITS, TIME, SPEED;  // Zeitbalken: eine Einheit = ein Player-Byte = 2 Zeilen
+const BW = () => (COLS + 2) * 16, BH = () => ROWS * 16 + 16;
 const C = {                        // PAL-Farben der Register aus dem Listing
   gray: "#444444", text: "#aaaaaa", ochre: "#c6b332", green: "#4a8b00",
   trail: "#a93a98", ball: "#650900", bar: "#000078", warn: "#5a0011",
@@ -161,17 +166,25 @@ let state = "title", st = 0;          // Zustand und Zeit darin
 let playT = 0, cleared = 0, warnT = 0;
 let slide = null, steps = [], si = 0, stepT = 0, painted = false;
 let ball = null, crashAt = null, bonusT = 0, bottomAlt = false, best = false;
-let flicker = C.pf1, flickT = 0, fireLock = 0;
-try { hs = +localStorage.getItem("rollerball2-hs") || 0; } catch (e) {}
+let flicker = C.pf1, flickT = 0, fireLock = 0, menuSel = 2;
+const hsKey = () => `rollerball2-hs-${cfg.size}-${cfg.level}`;
+function applyCfg() {
+  const z = SIZES[cfg.size], l = LEVELS[cfg.level];
+  COLS = z.cols; ROWS = z.rows; UNITS = ROWS * 8; TIME = l.time; SPEED = l.speed;
+  try { hs = +localStorage.getItem(hsKey()) || 0; localStorage.setItem("rollerball2-cfg", JSON.stringify(cfg)); } catch (e) { hs = hs || 0; }
+}
+applyCfg();
 
 function newGame() {
-  F = Array.from({ length: 20 }, () => new Array(13).fill(0));
-  trail = Array.from({ length: 20 }, () => new Array(13).fill(false));
-  for (let s = 1; s <= 18; s++) for (let z = 1; z <= 11; z++) F[s][z] = 1 + Math.floor(Math.random() * 7);
-  hole = { s: 4 + Math.floor(Math.random() * 10), z: 2 + Math.floor(Math.random() * 8) };
-  zin = 2 + Math.floor(Math.random() * 8);
-  zout = 2 + Math.floor(Math.random() * 8);
-  F[19][zout] = 9;
+  applyCfg();
+  const rnd = n => Math.floor(Math.random() * n);
+  F = Array.from({ length: COLS + 2 }, () => new Array(ROWS + 2).fill(0));
+  trail = Array.from({ length: COLS + 2 }, () => new Array(ROWS + 2).fill(false));
+  for (let s = 1; s <= COLS; s++) for (let z = 1; z <= ROWS; z++) F[s][z] = 1 + rnd(7);
+  hole = { s: 2 + rnd(COLS - 3), z: 2 + rnd(ROWS - 3) };
+  zin = 2 + rnd(ROWS - 3);
+  zout = 2 + rnd(ROWS - 3);
+  F[COLS + 1][zout] = 9;
   sc = 0; scored = false; warned = false; bottomAlt = false; cleared = 0; playT = 0;
   slide = null; ball = null; crashAt = null;
   setState("build"); sfx.barFill();
@@ -179,13 +192,14 @@ function newGame() {
 function setState(s) { state = s; st = 0; }
 
 // ---------- Eingabe-Logik ----------
-const MOVES = { up: [0, 1], down: [0, -1], left: [1, 0], right: [-1, 0] };
+// Gespiegelt gegenüber dem Original: die Pfeile bewegen das Loch, das Nachbarteil rutscht entgegen
+const MOVES = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
 function push(dir) {
   if (state !== "play") return;
   if (slide) slide.t = 1, endSlide();
   const [ds, dz] = MOVES[dir];
   const us = hole.s + ds, uz = hole.z + dz;
-  if (uz <= 0 || uz >= 12 || us <= 0 || us >= 19) { sfx.blocked(); return; }
+  if (uz <= 0 || uz > ROWS || us <= 0 || us > COLS) { sfx.blocked(); return; }
   const t = F[us][uz];
   F[hole.s][hole.z] = t; F[us][uz] = 8;
   slide = { t: 0, type: t, fs: us, fz: uz, ts: hole.s, tz: hole.z };
@@ -193,11 +207,24 @@ function push(dir) {
   sfx.move();
 }
 function endSlide() { slide = null; }
+function menuInput(dir) {
+  if (dir === "up") menuSel = (menuSel + 2) % 3;
+  else if (dir === "down") menuSel = (menuSel + 1) % 3;
+  else if (menuSel < 2) menuChange(menuSel, dir === "left" ? -1 : 1);
+  else return;
+  sfx.move();
+}
+function menuChange(row, d) {
+  if (row === 0) cfg.size = (cfg.size + d + 3) % 3; else cfg.level = (cfg.level + d + 3) % 3;
+  menuSel = row; applyCfg();
+}
 function fire() {
   if (fireLock > 0) return;
-  if (state === "title" || state === "fail" || state === "win") { fireLock = 0.25; sfx.unlock(); newGame(); }
+  if (state === "title") { fireLock = 0.25; sfx.unlock(); menuSel = 2; setState("menu"); }
+  else if (state === "menu") { fireLock = 0.25; sfx.unlock(); newGame(); }
+  else if (state === "fail" || state === "win") { fireLock = 0.25; sfx.unlock(); newGame(); }
   else if (state === "play") launch();
-  else if (state === "startwait") { fireLock = 0.25; best = sc >= hs; if (best) { hs = sc; try { localStorage.setItem("rollerball2-hs", hs); } catch (e) {} } setState("win"); }
+  else if (state === "startwait") { fireLock = 0.25; best = sc >= hs; if (best) { hs = sc; try { localStorage.setItem(hsKey(), hs); } catch (e) {} } setState("win"); }
 }
 function launch() {
   if (slide) endSlide();
@@ -222,7 +249,7 @@ function update(dt) {
   flickT += dt; if (flickT > 0.07) { flickT = 0; flicker = `hsl(${Math.floor(Math.random() * 16) * 22.5} 70% ${45 + Math.random() * 30}%)`; }
   if (slide) { slide.t += dt / 0.09; if (slide.t >= 1) endSlide(); }
   if (state === "build") {
-    if (st >= 1.2) { F[hole.s][hole.z] = 8; setState("play"); sfx.chord(); ball = center(0, zin); }
+    if (st >= 1.2) { setState("play"); sfx.chord(); ball = center(0, zin); }
   } else if (state === "play") {
     if (heldDir) { heldT -= dt; if (heldT <= 0) { push(heldDir); heldT = 0.12; } }
     playT += dt; cleared = Math.min(UNITS, Math.floor(UNITS * playT / TIME));
@@ -234,7 +261,7 @@ function update(dt) {
     const p = steps[si];
     if (p.k === "blocked") { crash(p.s, p.z); return; }
     stepT += dt * SPEED;
-    const a = center(p.s, p.z), b = p.k === "win" ? { x: 308, y: p.nz * 16 } : center(p.ns, p.nz);
+    const a = center(p.s, p.z), b = p.k === "win" ? { x: (COLS + 1) * 16 + 4, y: p.nz * 16 } : center(p.ns, p.nz);
     const lim = p.k === "crash" ? 0.42 : 1, t = Math.min(stepT, lim);
     ball = { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
     if (p.k === "move" && !painted && stepT >= 0.5) {
@@ -263,27 +290,37 @@ function resize() {
   const dpr = Math.min(window.devicePixelRatio || 1, 3);
   const w = Math.round(innerWidth * dpr), h = Math.round(innerHeight * dpr);
   cv.width = w; cv.height = h;
-  let s = Math.min(w / SW, h / SH);
+}
+function layout(sw, sh) {
+  const w = cv.width, h = cv.height;
+  let s = Math.min(w / sw, h / sh);
   if (s >= 2) s = Math.floor(s);
   scale = s;
-  ox = Math.floor((w - SW * s) / 2);
+  ox = Math.floor((w - sw * s) / 2);
   const portrait = innerHeight > innerWidth * 1.15;
-  oy = Math.floor((h - SH * s) * (portrait ? 0.32 : 0.5));
+  oy = Math.floor((h - sh * s) * (portrait ? 0.32 : 0.5));
 }
 function textLine(row, str) {
-  ctx.fillStyle = C.gray; ctx.fillRect(0, row * 8, SW, 8);
+  ctx.fillStyle = C.gray; ctx.fillRect(0, row * 8, BW(), 8);
   const g = glyphs(C.text);
-  for (let i = 0; i < str.length && i < 40; i++) {
+  for (let i = 0; i < str.length && i < BW() / 8; i++) {
     const code = toInternal(str.charCodeAt(i));
     if (code) ctx.drawImage(g, code * 8, 0, 8, 8, i * 8, row * 8, 8, 8);
   }
 }
 function topText() {
+  const n = BW() / 8;
+  if (n < 40) return (scored ? " >>> Punkte: " + sc + " <<<" : " >>> Punkte: 0").padEnd(n);
   const base = "  >>>      Ihre Punktzahl: 0      ".padEnd(40).split("");
   if (scored) { const s = sc + " <<<"; for (let i = 0; i < s.length; i++) base[27 + i] = s[i]; }
   return base.join("");
 }
 function bottomText() {
+  const n = BW() / 8;
+  if (n < 40) {
+    if (bottomAlt) return (n >= 32 ? "   *** Bitte START druecken! ***" : " *** START druecken! ***").padEnd(n);
+    return (n >= 32 ? " > ROLLERBALL II (c) T.Tausend <" : " > ROLLERBALL II <").padEnd(n);
+  }
   const base = "  > ROLLERBALL II (c) Thomas Tausend <".padEnd(40).split("");
   if (bottomAlt) { const s = "   *** Bitte START druecken! ***"; for (let i = 0; i < s.length; i++) base[4 + i] = s[i]; }
   return base.join("");
@@ -293,19 +330,22 @@ function drawBall(x, y) {
   for (let r = 0; r < 4; r++) for (let k = 0; k < 4; k++) if (BALL[r] & (8 >> k)) ctx.fillRect(x - 4 + k * 2, y - 4 + r * 2, 2, 2);
 }
 function drawBoard() {
-  ctx.fillStyle = "#000"; ctx.fillRect(0, 0, SW, SH);
+  ctx.fillStyle = "#000"; ctx.fillRect(0, 0, BW(), BH());
   textLine(0, topText());
-  textLine(23, bottomText());
+  textLine(ROWS * 2 + 1, bottomText());
   const building = state === "build";
-  const reveal = building ? Math.floor(18 * Math.max(0, st - 0.6) / 0.6) : 18;
-  for (let s = 1; s <= reveal; s++) for (let z = 1; z <= 11; z++) {
+  const reveal = building ? Math.floor(COLS * Math.max(0, st - 0.6) / 0.6) : COLS;
+  for (let s = 1; s <= reveal; s++) for (let z = 1; z <= ROWS; z++) {
     const t = F[s][z];
-    if (t === 8 || (slide && s === slide.ts && z === slide.tz)) continue;
-    ctx.drawImage((trail[s][z] ? TRAIL : TILE)[t], s * 16, z * 16 - 8);
+    if (building && s === hole.s && z === hole.z) { /* Loch erst nach dem Aufbau */ }
+    else if (t === 8 || (slide && s === slide.ts && z === slide.tz)) continue;
+    const tt = (building && s === hole.s && z === hole.z) ? (F[s][z] = F[s][z] === 8 ? 1 + Math.floor(Math.random() * 7) : F[s][z]) : t;
+    if (building && s === hole.s && z === hole.z && st < 1.2) { ctx.drawImage(TILE[tt], s * 16, z * 16 - 8); continue; }
+    ctx.drawImage((trail[s][z] ? TRAIL : TILE)[tt], s * 16, z * 16 - 8);
   }
   if (!building) {
     ctx.drawImage(TILE[7], 0, zin * 16 - 8);
-    ctx.drawImage(TILE[1], 0, 0, 8, 16, 304, zout * 16 - 8, 8, 16);
+    ctx.drawImage(TILE[1], 0, 0, 8, 16, (COLS + 1) * 16, zout * 16 - 8, 8, 16);
   }
   if (slide) {
     const e = 1 - (1 - slide.t) * (1 - slide.t);
@@ -314,7 +354,7 @@ function drawBoard() {
   }
   // Zeitbalken (Player 1)
   const from = building ? UNITS - Math.min(UNITS, Math.floor(UNITS * st / 0.6)) : cleared;
-  if (from < UNITS) { ctx.fillStyle = warned ? C.warn : C.bar; ctx.fillRect(312, 8 + from * 2, 8, (UNITS - from) * 2); }
+  if (from < UNITS) { ctx.fillStyle = warned ? C.warn : C.bar; ctx.fillRect((COLS + 1) * 16 + 8, 8 + from * 2, 8, (UNITS - from) * 2); }
   // Kugel (Player 0)
   if (ball && !(state === "crash" && Math.floor(st * 8) % 2)) drawBall(Math.round(ball.x * scale) / scale, Math.round(ball.y * scale) / scale);
 }
@@ -342,12 +382,35 @@ function printLines(lines) {   // [[logische Zeile, [[text, invers], ...]], ...]
   for (const [line, segs] of lines) { let i = line * 40; for (const [t, inv] of segs) i = bigText(cells, t, i, inv); }
   return cells;
 }
+// Auswahlmenü im Stil der GRAPHICS-1-Bildschirme
+const MENU_ROWS = [7, 13, 19];
+function drawMenu() {
+  const cells = [];
+  const put = (text, row, col) => {
+    col = col ?? Math.max(0, Math.floor((20 - text.length) / 2));
+    return (color) => { for (let i = 0; i < text.length; i++) { const a = text.charCodeAt(i); if (a !== 32) cells.push({ idx: row * 20 + col + i, g: toInternal(a) & 63, col: color }); } };
+  };
+  const z = SIZES[cfg.size], l = LEVELS[cfg.level];
+  const on = i => menuSel === i ? C.pf3 : C.pf0;
+  put("ROLLERBALL II", 1)(C.pf0);
+  put("SPIELFELD", 5)(C.pf2);
+  put(`< ${z.name} ${z.cols}X${z.rows} >`, 7)(on(0));
+  put("SCHWIERIGKEIT", 11)(C.pf2);
+  put(`< ${l.name} >`, 13)(on(1));
+  put(`${l.time} SEKUNDEN`, 15)(C.pf1);
+  put(menuSel === 2 ? ">>> START <<<" : "START", 19)(on(2));
+  put("FEUER = START", 22)(C.pf2);
+  drawBig(cells, false, "#000");
+}
 function render() {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.fillStyle = "#000"; ctx.fillRect(0, 0, cv.width, cv.height);
+  const board = !["title", "menu", "fail", "win"].includes(state);
+  if (board) layout(BW(), BH()); else layout(SW, SH);
   ctx.setTransform(scale, 0, 0, scale, ox, oy);
   ctx.imageSmoothingEnabled = false;
-  if (state === "title") {
+  if (state === "menu") drawMenu();
+  else if (state === "title") {
     const cells = [];
     bigText(cells, "ROLLERBALL", 0 * 20 + 5, false);
     bigText(cells, "VON", 2 * 20 + 9, true);
@@ -436,7 +499,7 @@ const help = document.getElementById("help");
 function showHelp(on) { help.hidden = !on; }
 document.getElementById("b-help").addEventListener("click", () => showHelp(true));
 document.getElementById("h-close").addEventListener("click", () => showHelp(false));
-document.getElementById("h-new").addEventListener("click", () => { showHelp(false); sfx.unlock(); newGame(); });
+document.getElementById("h-new").addEventListener("click", () => { showHelp(false); sfx.unlock(); heldDir = null; menuSel = 2; setState("menu"); });
 help.addEventListener("pointerdown", e => { if (e.target === help) showHelp(false); });
 
 const sndBtn = document.getElementById("b-snd");
@@ -464,7 +527,7 @@ document.querySelectorAll("#pad [data-dir]").forEach(el => {
   const dir = el.dataset.dir;
   el.addEventListener("pointerdown", e => {
     e.preventDefault(); el.setPointerCapture?.(e.pointerId); sfx.unlock(); press(el, true);
-    if (state === "play") { push(dir); heldDir = dir; heldT = 0.24; } else fire();
+    if (state === "play") { push(dir); heldDir = dir; heldT = 0.24; } else if (state === "menu") menuInput(dir); else fire();
   });
   const up = () => { press(el, false); if (heldDir === dir) heldDir = null; };
   el.addEventListener("pointerup", up); el.addEventListener("pointercancel", up); el.addEventListener("lostpointercapture", up);
@@ -475,20 +538,26 @@ fireBtn.addEventListener("pointerdown", e => { e.preventDefault(); sfx.unlock();
 
 cv.addEventListener("pointerdown", e => {
   e.preventDefault(); sfx.unlock();
-  if (state !== "play") { fire(); return; }
   const dpr = cv.width / innerWidth;
   const x = (e.clientX * dpr - ox) / scale, y = (e.clientY * dpr - oy) / scale;
+  if (state === "menu") {
+    const row = Math.floor(y / 8), i = MENU_ROWS.findIndex(r => Math.abs(row - r) <= 2);
+    if (i === 2) fire();
+    else if (i >= 0) { menuChange(i, x < SW / 2 ? -1 : 1); sfx.move(); }
+    return;
+  }
+  if (state !== "play") { fire(); return; }
   const s = Math.floor(x / 16), z = Math.floor((y + 8) / 16);
   const ds = s - hole.s, dz = z - hole.z;
   if (Math.abs(ds) + Math.abs(dz) !== 1) return;
-  push(dz === 1 ? "up" : dz === -1 ? "down" : ds === 1 ? "left" : "right");
+  push(dz === 1 ? "down" : dz === -1 ? "up" : ds === 1 ? "right" : "left");
 });
 
 const KEYS = { ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right", w: "up", s: "down", a: "left", d: "right" };
 addEventListener("keydown", e => {
   if (!help.hidden) { if (e.key === "Escape") showHelp(false); return; }
   const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
-  if (KEYS[k]) { e.preventDefault(); sfx.unlock(); if (!e.repeat) { push(KEYS[k]); heldDir = KEYS[k]; heldT = 0.24; } }
+  if (KEYS[k]) { e.preventDefault(); sfx.unlock(); if (state === "menu") menuInput(KEYS[k]); else if (!e.repeat) { push(KEYS[k]); heldDir = KEYS[k]; heldT = 0.24; } }
   else if (k === " " || k === "Enter") { e.preventDefault(); sfx.unlock(); if (!e.repeat) fire(); }
   else if (k === "m") { sfx.toggle(); syncSnd(); }
   else if (k === "f" && fsOk) toggleFs();
