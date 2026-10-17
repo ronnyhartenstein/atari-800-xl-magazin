@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html, body { margin: 0; }</style>
+<title>Rollerball II Neuauflage</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Layout: Spielfeld als Bühne, Anzeigen direkt darüber, Steuerung darunter; die Seite bleibt ruhig drumherum */
+:root {
+  --bg: #e9e4da;
+  --panel: #f6f3ec;
+  --fg: #23201b;
+  --muted: #6b6457;
+  --line: #cfc7b6;
+  --accent: #d2492a;       /* Kugel- und Feuerrot */
+  --accent-ink: #ffffff;
+  --board: #13213a;        /* Spielfeld bleibt in beiden Themen dunkel */
+  --f-pixel: "Press Start 2P", ui-monospace, "Courier New", monospace;
+  --f-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #171a20; --panel: #20242c; --fg: #ebe7df; --muted: #a2a8b3; --line: #343a45;
+    --accent: #ef6a48; --accent-ink: #171a20; --board: #0e1830;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #171a20; --panel: #20242c; --fg: #ebe7df; --muted: #a2a8b3; --line: #343a45;
+  --accent: #ef6a48; --accent-ink: #171a20; --board: #0e1830;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 24px 56px; display: grid; gap: 16px; }
+h1 { font-family: var(--f-pixel); font-weight: 400; font-size: clamp(1.1rem, 4.5vw, 1.6rem); line-height: 1.3; margin: 0; }
+header p { margin: 8px 0 0; color: var(--muted); max-width: 66ch; }
+.stage { background: var(--board); border-radius: 14px; padding: clamp(8px, 2vw, 16px); display: grid; gap: 10px; position: relative; }
+.hud { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; font-family: var(--f-pixel); font-size: clamp(.55rem, 1.8vw, .75rem); color: #dfe6f5; }
+.hud b { color: #ffd166; font-weight: 400; font-variant-numeric: tabular-nums; }
+.timebar { flex: 1 1 160px; min-width: 120px; height: 12px; background: #24375c; border-radius: 6px; overflow: hidden; }
+.timebar i { display: block; height: 100%; width: 100%; background: #4cc9f0; border-radius: 6px; transform-origin: left; }
+.timebar.low i { background: #ef476f; }
+canvas { display: block; width: 100%; height: auto; touch-action: none; border-radius: 8px; }
+#msg {
+  position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 16px;
+  background: rgba(8, 14, 28, .78); border-radius: 14px; color: #f2f4f8;
+}
+#msg .box { display: grid; gap: 14px; justify-items: center; max-width: 34ch; }
+#msg h2 { font-family: var(--f-pixel); font-weight: 400; font-size: clamp(.9rem, 3.5vw, 1.3rem); margin: 0; line-height: 1.4; }
+#msg p { margin: 0; color: #c8d0df; }
+#msg .big { font-family: var(--f-pixel); font-size: clamp(.8rem, 3vw, 1rem); color: #ffd166; }
+.btn {
+  font-family: var(--f-pixel); font-size: .75rem; cursor: pointer; user-select: none; -webkit-user-select: none; touch-action: manipulation;
+  border: 1px solid var(--line); background: var(--panel); color: var(--fg);
+  border-radius: 8px; padding: 12px 16px; box-shadow: 0 3px 0 var(--line);
+}
+.btn.down, .btn:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--line); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.btn.fire { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+#msg .btn { border-color: #ffd166; background: #ffd166; color: #13213a; box-shadow: 0 3px 0 #b8902f; }
+.deck { display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "pad side fire"; gap: 16px; align-items: center; }
+.pad { grid-area: pad; } .side { grid-area: side; justify-content: center; } .fire.round { grid-area: fire; }
+@media (max-width: 560px) { .deck { grid-template-columns: auto auto; grid-template-areas: "pad fire" "side side"; justify-content: space-between; } .side { justify-content: flex-start; } }
+.pad { display: grid; grid-template-columns: repeat(3, 52px); grid-template-rows: repeat(3, 52px); gap: 4px; }
+.pad .btn { padding: 0; font-size: .8rem; }
+.pad .u { grid-column: 2; grid-row: 1; } .pad .l { grid-column: 1; grid-row: 2; } .pad .r { grid-column: 3; grid-row: 2; } .pad .d { grid-column: 2; grid-row: 3; }
+.side { display: flex; flex-wrap: wrap; gap: 8px; }
+.fire.round { margin-right: 8px; }
+.fire.round { width: 92px; height: 92px; border-radius: 50%; padding: 0; }
+.rules { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; display: grid; gap: 8px; }
+.rules h2 { font-size: 1rem; margin: 0; }
+.rules p, .rules ul { margin: 0; max-width: 70ch; }
+.rules ul { padding-left: 1.2em; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); font-size: .9rem; }
+.foot { color: var(--muted); font-size: .85rem; margin: 0; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>ROLLERBALL II</h1>
+    <p>Neuauflage des Abtipp-Spiels von Thomas Tausend aus Computer Kontakt 6-7/86. Gleiche Regeln wie das BASIC-Original, nur flüssiger: Schiebe Rohrteile ins Loch, baue der Kugel einen Weg zum Ausgang und schick sie los, bevor die Zeit abläuft.</p>
+  </header>
+
+  <div class="stage">
+    <div class="hud">
+      <span>PUNKTE <b id="score">0</b></span>
+      <span>REKORD <b id="best">0</b></span>
+      <div class="timebar" id="timebar" aria-label="verbleibende Zeit"><i id="timefill"></i></div>
+    </div>
+    <canvas id="board" aria-label="Spielfeld"></canvas>
+    <div id="msg">
+      <div class="box">
+        <h2 id="msg-title">ROLLERBALL II</h2>
+        <p id="msg-text">Das Loch wandert, wenn du ein Nachbarteil hineinschiebst. Die Kugel startet links und muss rechts hinaus.</p>
+        <div class="big" id="msg-big"></div>
+        <button class="btn" id="msg-btn">SPIEL STARTEN</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="deck">
+    <div class="pad" aria-label="Teil schieben">
+      <button class="btn u" data-dir="up" aria-label="Teil nach oben schieben">▲</button>
+      <button class="btn l" data-dir="left" aria-label="Teil nach links schieben">◀</button>
+      <button class="btn r" data-dir="right" aria-label="Teil nach rechts schieben">▶</button>
+      <button class="btn d" data-dir="down" aria-label="Teil nach unten schieben">▼</button>
+    </div>
+    <div class="side">
+      <button class="btn" id="b-new">NEUES SPIEL</button>
+      <button class="btn" id="b-sound">TON AN</button>
+    </div>
+    <button class="btn fire round" id="b-fire">LOS!</button>
+  </div>
+
+  <div class="rules">
+    <h2>So geht's</h2>
+    <ul>
+      <li>Pfeiltasten oder Steuerkreuz schieben das passende Nachbarteil ins Loch. Du kannst auch einfach auf ein Teil neben dem Loch tippen.</li>
+      <li>Leertaste, Enter oder LOS! schickt die Kugel los. Läuft der Zeitbalken ab, rollt sie von selbst.</li>
+      <li>Jedes befahrene Teil bringt Punkte: Gerade 100, Kreuzung 70, Kurve 50. Eine Kreuzung zählt bei jeder Durchfahrt.</li>
+      <li>Rollt die Kugel ins Loch, gegen eine Wand oder aus dem Feld, ist die Runde vorbei. Erreicht sie den Ausgang, gibt es für die übrige Zeit einen Bonus.</li>
+    </ul>
+    <p class="legend"><span>Feld 18 × 11 Teile</span><span>7 Teilesorten</span><span>Zeit pro Runde 60 Sekunden</span></p>
+  </div>
+  <p class="foot">Originalspiel: Thomas Tausend, „Rollerball II“, Computer Kontakt 6-7/86, S. 77–79. Diese Neuauflage übernimmt Spielfeld, Teile, Laufregeln und Punkte aus dem Listing.</p>
+</div>
+
+<script>
+(() => {
+  // ---------- Regeln aus dem Original-Listing ----------
+  // Bewegungsrichtung der Kugel: 1 runter, 2 links, 3 hoch, 4 rechts (wie im BASIC-Programm)
+  const MOVE = { 1: [0, 1], 2: [-1, 0], 3: [0, -1], 4: [1, 0] };
+  // I$ aus Zeile 80: pro Teil vier Ziffern, Index = aktuelle Richtung, Wert = neue Richtung (0 = kein Durchkommen)
+  const ROUTE = "0204103012340021014020034300";
+  const route = (t, r) => +ROUTE[(t - 1) * 4 + (r - 1)];
+  const POINTS = [0, 100, 100, 70, 50, 50, 50, 50]; // Zeile 73
+  // Öffnungen je Teil (für die Grafik): N, O, S, W
+  const OPEN = { 1: "OW", 2: "NS", 3: "NOSW", 4: "SW", 5: "OS", 6: "NW", 7: "NO" };
+  const COLS = 18, ROWS = 11, TIME = 60;
+
+  // ---------- Zustand ----------
+  let grid, hole, entryRow, exitRow, filled, state, timeLeft, score, best = 0;
+  let slide = null;   // laufende Schiebe-Animation
+  let ball = null;    // Kugel während des Rollens
+  try { best = +localStorage.getItem("rollerball2-best") || 0; } catch (e) {}
+
+  function newGame() {
+    grid = [];
+    for (let x = 0; x <= COLS + 1; x++) { grid[x] = []; for (let y = 0; y <= ROWS + 1; y++) grid[x][y] = 0; }
+    for (let x = 1; x <= COLS; x++) for (let y = 1; y <= ROWS; y++) grid[x][y] = 1 + Math.floor(Math.random() * 7);
+    hole = { x: 4 + Math.floor(Math.random() * 10), y: 2 + Math.floor(Math.random() * 8) }; // Zeilen 100/101
+    grid[hole.x][hole.y] = 8;
+    entryRow = 2 + Math.floor(Math.random() * 8);  // Zeile 103
+    exitRow = 2 + Math.floor(Math.random() * 8);   // Zeile 105
+    grid[0][entryRow] = 7;                         // Anfangsstück ist eine Kurve vom Typ 7
+    grid[COLS + 1][exitRow] = 9;                   // Ausgang
+    filled = new Set(); score = 0; timeLeft = TIME; slide = null;
+    ball = { x: 0, y: entryRow, dir: 1, t: 0, phase: "drop", drop: 0 };
+    state = "play";
+    hideMsg(); updateHud();
+  }
+
+  // ---------- Schieben ----------
+  const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
+  function push(dirName) {
+    if (state !== "play" || slide) return;
+    const [dx, dy] = DIRS[dirName];
+    // Das Teil auf der Gegenseite des Lochs bewegt sich in Pfeilrichtung (Zeilen 118-121)
+    const sx = hole.x - dx, sy = hole.y - dy;
+    if (sx < 1 || sx > COLS || sy < 1 || sy > ROWS) { sfx.bump(); return; }
+    slide = { from: { x: sx, y: sy }, to: { x: hole.x, y: hole.y }, type: grid[sx][sy], t: 0 };
+    grid[sx][sy] = 8; grid[hole.x][hole.y] = 0;
+    hole = { x: sx, y: sy };
+    sfx.slide();
+  }
+  function tapAt(cx, cy) {
+    if (state !== "play") return;
+    const dx = hole.x - cx, dy = hole.y - cy;
+    if (Math.abs(dx) + Math.abs(dy) !== 1) return;
+    push(dx === 1 ? "right" : dx === -1 ? "left" : dy === 1 ? "down" : "up");
+  }
+
+  // ---------- Kugel ----------
+  function launch() {
+    if (state !== "play") return;
+    if (slide) finishSlide();
+    state = "roll"; ball.phase = "drop"; ball.drop = 0;
+    sfx.launch();
+  }
+  function finishSlide() { grid[slide.to.x][slide.to.y] = slide.type; slide = null; }
+
+  // Weg durch ein Teil: Eintritt an einer Seite, Austritt an einer anderen
+  const SIDE_OF_MOVE = { 1: "N", 2: "O", 3: "S", 4: "W" };   // Eintrittsseite bei Bewegung r
+  const SIDE_TO_MOVE = { N: 3, O: 4, S: 1, W: 2 };          // Austrittsseite -> Bewegung
+  const MOVE_TO_SIDE = { 1: "S", 2: "W", 3: "N", 4: "O" };
+  const SIDE_PT = { N: [0.5, 0], O: [1, 0.5], S: [0.5, 1], W: [0, 0.5] };
+  function pointOnPath(inSide, outSide, f) {
+    const a = SIDE_PT[inSide], b = SIDE_PT[outSide];
+    if (a[0] === 1 - b[0] && a[1] === 1 - b[1]) return [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f]; // gerade
+    const cx = a[0] === 0.5 ? b[0] : a[0], cy = a[1] === 0.5 ? b[1] : a[1]; // Ecke als Mittelpunkt
+    const a0 = Math.atan2(a[1] - cy, a[0] - cx), a1 = Math.atan2(b[1] - cy, b[0] - cx);
+    let d = a1 - a0; if (d > Math.PI) d -= 2 * Math.PI; if (d < -Math.PI) d += 2 * Math.PI;
+    const ang = a0 + d * f;
+    return [cx + 0.5 * Math.cos(ang), cy + 0.5 * Math.sin(ang)];
+  }
+
+  function stepBall(dt) {
+    if (ball.phase === "drop") {
+      ball.drop += dt * 2.2;
+      if (ball.drop >= 1) { ball.phase = "tile"; ball.t = 0; ball.inSide = "N"; ball.outSide = MOVE_TO_SIDE[route(7, 1)]; ball.dir = route(7, 1); markFilled(0, entryRow, 7); }
+      return;
+    }
+    ball.t += dt * 3.2;
+    if (ball.t < 1) return;
+    // Kugel verlässt das Teil: nächstes Feld bestimmen (Zeilen 143-151)
+    const [mx, my] = MOVE[ball.dir];
+    const nx = ball.x + mx, ny = ball.y + my;
+    const t = (nx >= 0 && nx <= COLS + 1 && ny >= 0 && ny <= ROWS + 1) ? grid[nx][ny] : 0;
+    if (t === 9) return win(nx, ny);
+    if (t === 0 || t === 8) return lose(t === 8 ? "Die Kugel ist ins Loch gefallen." : "Die Kugel ist gegen den Rand gerollt.", nx, ny);
+    const r = route(t, ball.dir);
+    if (r === 0) return lose("Das Teil passt nicht, die Kugel bleibt stecken.", nx, ny);
+    ball.x = nx; ball.y = ny; ball.inSide = SIDE_OF_MOVE[ball.dir]; ball.outSide = MOVE_TO_SIDE[r]; ball.dir = r; ball.t = 0;
+    markFilled(nx, ny, t);
+  }
+  function markFilled(x, y, t) {
+    filled.add(x + "," + y + "," + ball.inSide + ball.outSide);
+    if (x >= 1 && x <= COLS) { score += POINTS[t]; sfx.tick(); updateHud(); }
+  }
+
+  // ---------- Rundenende ----------
+  function lose(text, x, y) {
+    state = "over"; ball.crash = { x, y };
+    sfx.fail();
+    setBest();
+    showMsg("FEHLER!", text, score + " PUNKTE", "NOCHMAL");
+  }
+  function win(x, y) {
+    state = "bonus"; ball.x = x; ball.y = y; ball.inSide = "W"; ball.outSide = "O"; ball.t = 0;
+    bonusLeft = Math.round(timeLeft / TIME * 87); // Zeilen 173-176: 25 Punkte je übriger Zeiteinheit
+    sfx.win();
+  }
+  let bonusLeft = 0, bonusAcc = 0;
+  function stepBonus(dt) {
+    ball.t = Math.min(1, ball.t + dt * 3);
+    bonusAcc += dt;
+    while (bonusAcc > 0.02 && bonusLeft > 0) { bonusAcc -= 0.02; bonusLeft--; score += 25; timeLeft = Math.max(0, timeLeft - TIME / 87); }
+    updateHud();
+    if (bonusLeft <= 0 && ball.t >= 1) {
+      state = "over"; const record = score > best; setBest();
+      showMsg("GRATULIERE!", record ? "Neue Bestleistung!" : "Die Kugel hat den Ausgang erreicht.", score + " PUNKTE", "NOCHMAL");
+    }
+  }
+  function setBest() {
+    if (score > best) { best = score; try { localStorage.setItem("rollerball2-best", String(best)); } catch (e) {} }
+    updateHud();
+  }
+
+  // ---------- Anzeige ----------
+  const $score = document.getElementById("score"), $best = document.getElementById("best");
+  const $fill = document.getElementById("timefill"), $bar = document.getElementById("timebar");
+  function updateHud() {
+    $score.textContent = score; $best.textContent = best;
+    const f = Math.max(0, timeLeft / TIME);
+    $fill.style.transform = `scaleX(${f})`;
+    $bar.classList.toggle("low", f < 20 / 87); // Zeile 114: Warnung im letzten Abschnitt
+  }
+  const $msg = document.getElementById("msg");
+  function showMsg(title, text, big, btn) {
+    document.getElementById("msg-title").textContent = title;
+    document.getElementById("msg-text").textContent = text;
+    document.getElementById("msg-big").textContent = big || "";
+    document.getElementById("msg-btn").textContent = btn;
+    $msg.hidden = false;
+    document.getElementById("msg-btn").focus({ preventScroll: true });
+  }
+  function hideMsg() { $msg.hidden = true; }
+
+  // ---------- Zeichnen ----------
+  const cv = document.getElementById("board"), ctx = cv.getContext("2d");
+  let cell = 32, dpr = 1;
+  const GW = COLS + 2, GH = ROWS + 2;  // inkl. Rand für Ein- und Ausgang und Kugelstart
+  function resize() {
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    const w = cv.parentElement.clientWidth - 2 * parseFloat(getComputedStyle(cv.parentElement).paddingLeft);
+    cell = Math.max(12, Math.floor(w / GW));
+    cv.width = GW * cell * dpr; cv.height = GH * cell * dpr;
+    cv.style.width = GW * cell + "px"; cv.style.height = GH * cell + "px";
+  }
+  const C = { bg: "#13213a", tile: "#1d3155", tileEdge: "#2a4572", pipe: "#7f93b8", pipeCore: "#2b3a57", trail: "#ffd166", hole: "#0a1222", ball: "#ef4a2a", exit: "#06d6a0" };
+
+  function drawPipe(px, py, t, s, alpha) {
+    const open = OPEN[t]; if (!open) return;
+    ctx.save(); ctx.translate(px, py); ctx.globalAlpha = alpha ?? 1;
+    ctx.fillStyle = C.tile; ctx.strokeStyle = C.tileEdge; ctx.lineWidth = 1;
+    roundRect(1.5, 1.5, s - 3, s - 3, s * 0.14); ctx.fill(); ctx.stroke();
+    const sides = open.split("");
+    const paths = t === 3 ? [["N", "S"], ["O", "W"]] : [sides];
+    for (const [w, lw] of [[C.pipe, 0.42], [C.pipeCore, 0.22]]) {
+      ctx.strokeStyle = w; ctx.lineWidth = s * lw; ctx.lineCap = "butt";
+      for (const [a, b] of paths) strokePath(a, b, s);
+    }
+    ctx.restore();
+  }
+  function strokePath(a, b, s) {
+    ctx.beginPath();
+    for (let i = 0; i <= 16; i++) { const [x, y] = pointOnPath(a, b, i / 16); i ? ctx.lineTo(x * s, y * s) : ctx.moveTo(x * s, y * s); }
+    ctx.stroke();
+  }
+  function roundRect(x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+  function drawTrail(x, y, a, b, s, upto) {
+    ctx.save(); ctx.translate(x * s, y * s); ctx.strokeStyle = C.trail; ctx.lineWidth = s * 0.16; ctx.lineCap = "round";
+    ctx.beginPath();
+    for (let i = 0; i <= 16; i++) { const f = (i / 16) * (upto ?? 1); const [px, py] = pointOnPath(a, b, f); i ? ctx.lineTo(px * s, py * s) : ctx.moveTo(px * s, py * s); }
+    ctx.stroke(); ctx.restore();
+  }
+
+  function render() {
+    const s = cell;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = C.bg; ctx.fillRect(0, 0, GW * s, GH * s);
+    // Teile
+    for (let x = 0; x <= COLS + 1; x++) for (let y = 0; y <= ROWS + 1; y++) {
+      const t = grid[x][y];
+      if (slide && ((x === slide.to.x && y === slide.to.y))) continue;
+      if (t >= 1 && t <= 7) drawPipe(x * s, y * s, t, s);
+      else if (t === 8) { ctx.fillStyle = C.hole; ctx.fillRect(x * s + 2, y * s + 2, s - 4, s - 4); }
+      else if (t === 9) { ctx.fillStyle = C.exit; ctx.fillRect(x * s, y * s + s * 0.29, s * 0.5, s * 0.42); ctx.beginPath(); ctx.moveTo(x * s + s * 0.45, y * s + s * 0.15); ctx.lineTo(x * s + s * 0.95, y * s + s * 0.5); ctx.lineTo(x * s + s * 0.45, y * s + s * 0.85); ctx.closePath(); ctx.fill(); }
+    }
+    if (slide) {
+      const e = easeOut(slide.t);
+      const px = (slide.from.x + (slide.to.x - slide.from.x) * e) * s, py = (slide.from.y + (slide.to.y - slide.from.y) * e) * s;
+      drawPipe(px, py, slide.type, s);
+    }
+    // Spur
+    for (const k of filled) {
+      const [x, y, sides] = k.split(",");
+      const cur = ball && (state === "roll") && +x === ball.x && +y === ball.y && sides === ball.inSide + ball.outSide;
+      drawTrail(+x, +y, sides[0], sides[1], s, cur ? Math.min(1, ball.t) : 1);
+    }
+    // Kugel
+    if (ball && state !== "idle") {
+      let bx, by;
+      if (ball.phase === "drop") {
+        bx = 0.5 * s; by = (state === "roll" ? 0.5 + (entryRow - 0.5) * easeIn(ball.drop) : 0.5) * s;
+      } else {
+        const [fx, fy] = pointOnPath(ball.inSide, ball.outSide, Math.min(1, ball.t));
+        bx = (ball.x + fx) * s; by = (ball.y + fy) * s;
+      }
+      const r = s * 0.24;
+      const g = ctx.createRadialGradient(bx - r * 0.35, by - r * 0.35, r * 0.1, bx, by, r);
+      g.addColorStop(0, "#ffd0b8"); g.addColorStop(0.35, C.ball); g.addColorStop(1, "#8e1d0b");
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(bx, by, r, 0, Math.PI * 2); ctx.fill();
+    }
+    if (ball && ball.crash) {
+      const { x, y } = ball.crash; ctx.strokeStyle = "#ef476f"; ctx.lineWidth = 3;
+      ctx.strokeRect(x * s + 3, y * s + 3, s - 6, s - 6);
+    }
+  }
+  const easeOut = t => 1 - (1 - t) * (1 - t), easeIn = t => t * t;
+
+  // ---------- Ton ----------
+  let actx = null, soundOn = false;
+  function tone(freq, dur, type = "square", vol = 0.06, slideTo) {
+    if (!soundOn || !actx) return;
+    const t0 = actx.currentTime, o = actx.createOscillator(), g = actx.createGain();
+    o.type = type; o.frequency.setValueAtTime(freq, t0);
+    if (slideTo) o.frequency.exponentialRampToValueAtTime(slideTo, t0 + dur);
+    g.gain.setValueAtTime(vol, t0); g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+    o.connect(g).connect(actx.destination); o.start(t0); o.stop(t0 + dur + 0.02);
+  }
+  const sfx = {
+    slide: () => tone(180, 0.06, "triangle", 0.08),
+    bump: () => tone(90, 0.08, "square", 0.04),
+    launch: () => tone(300, 0.25, "square", 0.05, 900),
+    tick: () => tone(520 + Math.random() * 60, 0.05, "square", 0.03),
+    fail: () => tone(600, 0.9, "sawtooth", 0.05, 60),
+    win: () => [523, 659, 784, 1046].forEach((f, i) => setTimeout(() => tone(f, 0.3, "square", 0.05), i * 140)),
+    warn: () => tone(1200, 0.04, "square", 0.02)
+  };
+  const $sound = document.getElementById("b-sound");
+  $sound.addEventListener("click", () => {
+    soundOn = !soundOn;
+    if (soundOn && !actx) { try { actx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { soundOn = false; } }
+    actx?.resume?.();
+    $sound.textContent = soundOn ? "TON AUS" : "TON AN";
+  });
+
+  // ---------- Schleife ----------
+  let last = performance.now(), warnAcc = 0;
+  function frame(now) {
+    const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    if (slide) { slide.t += dt * 9; if (slide.t >= 1) finishSlide(); }
+    if (state === "play") {
+      timeLeft -= dt;
+      if (timeLeft / TIME < 20 / 87) { warnAcc += dt; if (warnAcc > 0.5) { warnAcc = 0; sfx.warn(); } }
+      if (timeLeft <= 0) { timeLeft = 0; launch(); }
+      updateHud();
+    } else if (state === "roll") stepBall(dt);
+    else if (state === "bonus") stepBonus(dt);
+    render();
+    requestAnimationFrame(frame);
+  }
+
+  // ---------- Eingabe ----------
+  const KEYS = { ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right", w: "up", s: "down", a: "left", d: "right" };
+  window.addEventListener("keydown", e => {
+    if (e.target.closest && e.target.closest("input, textarea")) return;
+    if (e.key in KEYS) { push(KEYS[e.key]); e.preventDefault(); }
+    else if (e.key === " " || e.key === "Enter") {
+      if (!$msg.hidden) { if (document.activeElement !== document.getElementById("msg-btn")) { newGame(); e.preventDefault(); } return; }
+      launch(); e.preventDefault();
+    }
+    else if (e.key === "n" || e.key === "N") newGame();
+  });
+  document.querySelectorAll("[data-dir]").forEach(el => el.addEventListener("pointerdown", e => { e.preventDefault(); push(el.dataset.dir); }));
+  document.getElementById("b-fire").addEventListener("click", launch);
+  document.getElementById("b-new").addEventListener("click", newGame);
+  document.getElementById("msg-btn").addEventListener("click", newGame);
+  cv.addEventListener("pointerdown", e => {
+    const r = cv.getBoundingClientRect();
+    tapAt(Math.floor((e.clientX - r.left) / r.width * GW), Math.floor((e.clientY - r.top) / r.height * GH));
+  });
+  window.addEventListener("resize", () => { resize(); render(); });
+
+  // Start: ein fertiges Feld im Hintergrund, Startbildschirm davor
+  newGame(); state = "idle"; showMsg("ROLLERBALL II", "Schiebe Rohrteile ins Loch und bau der Kugel einen Weg von links zum Ausgang rechts. Dann LOS!", "", "SPIEL STARTEN");
+  resize(); updateHud(); requestAnimationFrame(frame);
+})();
+</script>
