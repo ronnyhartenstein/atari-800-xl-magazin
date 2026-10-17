@@ -13,8 +13,6 @@
   --ctl-on: rgba(255, 255, 255, .34);
   --ctl-line: rgba(255, 255, 255, .38);
   --ctl-ink: rgba(255, 255, 255, .82);
-  --fire: rgba(203, 111, 86, .30);
-  --fire-on: rgba(203, 111, 86, .62);
   --panel: rgba(12, 12, 16, .92);
   --fg: #e8e8e8;
   --muted: #aaaaaa;
@@ -43,20 +41,16 @@ body {
 .ctl.on { background: var(--ctl-on); }
 .ctl:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .ctl svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
-#pad { position: fixed; left: calc(env(safe-area-inset-left, 0px) + 14px); bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
-  width: 168px; height: 168px; }
-#pad .ctl { position: absolute; width: 58px; height: 58px; border-radius: 14px; }
-#pad .u { left: 55px; top: 0; } #pad .d { left: 55px; bottom: 0; }
-#pad .l { left: 0; top: 55px; } #pad .r { right: 0; top: 55px; }
-#fire { right: calc(env(safe-area-inset-right, 0px) + 20px); bottom: calc(env(safe-area-inset-bottom, 0px) + 26px);
-  width: 96px; height: 96px; border-radius: 50%; background: var(--fire); border-color: rgba(255, 160, 130, .5); font-size: 14px; }
-#fire.on { background: var(--fire-on); }
 #tools { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 10px); right: calc(env(safe-area-inset-right, 0px) + 12px); display: flex; gap: 8px; }
 #tools .ctl { position: static; width: 42px; height: 42px; border-radius: 50%; }
 #tools .ctl svg { width: 20px; height: 20px; }
 #rot { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 18px); left: 16px; right: 170px; margin: 0;
   color: var(--muted); font-size: 13px; line-height: 1.35; display: none; }
 @media (orientation: portrait) and (pointer: coarse) { #rot { display: block; } }
+#tip { position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 14px); transform: translateX(-50%);
+  margin: 0; padding: 8px 14px; border-radius: 999px; background: rgba(0, 0, 0, .7); color: var(--fg); font-size: 14px;
+  white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity .4s; }
+#tip.on { opacity: 1; }
 #help { position: fixed; inset: 0; display: grid; place-items: center; padding: 16px; background: rgba(0, 0, 0, .55); }
 #help .box { background: var(--panel); border: 1px solid #333; border-radius: 12px; padding: 18px 20px; max-width: 560px; width: 100%;
   max-height: calc(100dvh - 32px); overflow: auto; display: grid; gap: 10px; font-size: 15px; line-height: 1.5; user-select: text; -webkit-user-select: text; }
@@ -69,15 +63,9 @@ body {
 </style>
 
 <canvas id="scr" aria-label="Spielfeld Rollerball II"></canvas>
+<p id="tip">Wischen schiebt das Loch, Doppeltipp startet die Kugel</p>
 <p id="rot">Tipp: Handy quer halten, dann füllt das Spielfeld den Bildschirm.</p>
 
-<div id="pad" aria-label="Teil schieben">
-  <button class="ctl u" data-dir="up" aria-label="Teil nach oben schieben"><svg viewBox="0 0 24 24"><path d="M5 15l7-7 7 7"/></svg></button>
-  <button class="ctl l" data-dir="left" aria-label="Teil nach links schieben"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-  <button class="ctl r" data-dir="right" aria-label="Teil nach rechts schieben"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
-  <button class="ctl d" data-dir="down" aria-label="Teil nach unten schieben"><svg viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"/></svg></button>
-</div>
-<button class="ctl" id="fire" aria-label="Feuerknopf">FEUER</button>
 <div id="tools">
   <button class="ctl" id="b-help" aria-label="Spielregeln"><svg viewBox="0 0 24 24"><path d="M9.2 9a3 3 0 1 1 4.3 2.7c-.9.4-1.5 1.2-1.5 2.1v.7"/><path d="M12 18.2v.1"/></svg></button>
   <button class="ctl" id="b-snd" aria-label="Ton aus"><svg viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path class="w" d="M15.5 9a4.5 4.5 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/><path class="x" d="M16 9.5l5 5M21 9.5l-5 5" style="display:none"/></svg></button>
@@ -88,9 +76,9 @@ body {
   <div class="box" role="dialog" aria-labelledby="help-t">
     <h2 id="help-t">ROLLERBALL II</h2>
     <ul>
-      <li>Schiebe Rohrteile ins schwarze Loch. Die Pfeile bewegen das Loch: Das Teil auf der Seite, in die du drückst, rutscht hinein. Du kannst auch direkt auf ein Teil neben dem Loch tippen.</li>
+      <li>Finger halten und in eine Richtung wischen: Das Loch wandert in diese Richtung, das Nachbarteil rutscht hinein. Weiterwischen ohne abzusetzen schiebt gleich das nächste Teil. Mit der Tastatur machen das die Pfeiltasten.</li>
       <li>Beim Start wählst du Feldgröße (Klein 10×7, Mittel 14×9, Original 18×11) und Schwierigkeit (Leicht 90 s und langsame Kugel, Normal 60 s wie im Original, Schwer 35 s und schnelle Kugel). Die Bestleistung zählt je Einstellung.</li>
-      <li>Mit FEUER (Leertaste oder Enter) rollt die Kugel links los. Ist der Zeitbalken rechts leer, rollt sie von selbst.</li>
+      <li>Doppelt tippen (oder Leertaste, Enter) schickt die Kugel links los. Ist der Zeitbalken rechts leer, rollt sie von selbst. In Menü und Textbildschirmen genügt ein Tipp, im Menü wählt Wischen hoch/runter die Zeile und links/rechts den Wert.</li>
       <li>Jedes befahrene Teil zählt: Gerade 100, Kreuzung 70, Kurve 50.</li>
       <li>Erreicht die Kugel den Ausgang rechts, gibt es 25 Punkte für jede übrige Zeiteinheit. Loch, Rand oder ein Teil ohne Anschluss beenden die Runde.</li>
     </ul>
@@ -190,9 +178,15 @@ function newGame() {
   setState("build"); sfx.barFill();
 }
 function setState(s) { state = s; st = 0; }
+let tipShown = 0;
+function showTip() {
+  if (tipShown >= 2) return; tipShown++;
+  const el = document.getElementById("tip"); el.classList.add("on");
+  setTimeout(() => el.classList.remove("on"), 3500);
+}
 
 // ---------- Eingabe-Logik ----------
-// Gespiegelt gegenüber dem Original: die Pfeile bewegen das Loch, das Nachbarteil rutscht entgegen
+// Gespiegelt gegenüber dem Original: Wischen und Pfeile bewegen das Loch, das Nachbarteil rutscht entgegen
 const MOVES = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
 function push(dir) {
   if (state !== "play") return;
@@ -249,7 +243,7 @@ function update(dt) {
   flickT += dt; if (flickT > 0.07) { flickT = 0; flicker = `hsl(${Math.floor(Math.random() * 16) * 22.5} 70% ${45 + Math.random() * 30}%)`; }
   if (slide) { slide.t += dt / 0.09; if (slide.t >= 1) endSlide(); }
   if (state === "build") {
-    if (st >= 1.2) { setState("play"); sfx.chord(); ball = center(0, zin); }
+    if (st >= 1.2) { F[hole.s][hole.z] = 8; showTip(); setState("play"); sfx.chord(); ball = center(0, zin); }
   } else if (state === "play") {
     if (heldDir) { heldT -= dt; if (heldT <= 0) { push(heldDir); heldT = 0.12; } }
     playT += dt; cleared = Math.min(UNITS, Math.floor(UNITS * playT / TIME));
@@ -337,11 +331,8 @@ function drawBoard() {
   const reveal = building ? Math.floor(COLS * Math.max(0, st - 0.6) / 0.6) : COLS;
   for (let s = 1; s <= reveal; s++) for (let z = 1; z <= ROWS; z++) {
     const t = F[s][z];
-    if (building && s === hole.s && z === hole.z) { /* Loch erst nach dem Aufbau */ }
-    else if (t === 8 || (slide && s === slide.ts && z === slide.tz)) continue;
-    const tt = (building && s === hole.s && z === hole.z) ? (F[s][z] = F[s][z] === 8 ? 1 + Math.floor(Math.random() * 7) : F[s][z]) : t;
-    if (building && s === hole.s && z === hole.z && st < 1.2) { ctx.drawImage(TILE[tt], s * 16, z * 16 - 8); continue; }
-    ctx.drawImage((trail[s][z] ? TRAIL : TILE)[tt], s * 16, z * 16 - 8);
+    if (t === 8 || (slide && s === slide.ts && z === slide.tz)) continue;
+    ctx.drawImage((trail[s][z] ? TRAIL : TILE)[t], s * 16, z * 16 - 8);
   }
   if (!building) {
     ctx.drawImage(TILE[7], 0, zin * 16 - 8);
@@ -522,36 +513,43 @@ async function toggleFs() {
 }
 fsBtn.addEventListener("click", toggleFs);
 
-function press(el, on) { el.classList.toggle("on", on); }
-document.querySelectorAll("#pad [data-dir]").forEach(el => {
-  const dir = el.dataset.dir;
-  el.addEventListener("pointerdown", e => {
-    e.preventDefault(); el.setPointerCapture?.(e.pointerId); sfx.unlock(); press(el, true);
-    if (state === "play") { push(dir); heldDir = dir; heldT = 0.24; } else if (state === "menu") menuInput(dir); else fire();
-  });
-  const up = () => { press(el, false); if (heldDir === dir) heldDir = null; };
-  el.addEventListener("pointerup", up); el.addEventListener("pointercancel", up); el.addEventListener("lostpointercapture", up);
-});
-const fireBtn = document.getElementById("fire");
-fireBtn.addEventListener("pointerdown", e => { e.preventDefault(); sfx.unlock(); press(fireBtn, true); fire(); });
-["pointerup", "pointercancel", "pointerleave"].forEach(t => fireBtn.addEventListener(t, () => press(fireBtn, false)));
 
+// Wischen: das Loch wandert in Wischrichtung; Tippen ist Feuer, im Spiel per Doppeltipp
+let touch = null, lastTap = 0;
+const toLogical = e => { const dpr = cv.width / innerWidth; return { x: (e.clientX * dpr - ox) / scale, y: (e.clientY * dpr - oy) / scale }; };
 cv.addEventListener("pointerdown", e => {
-  e.preventDefault(); sfx.unlock();
-  const dpr = cv.width / innerWidth;
-  const x = (e.clientX * dpr - ox) / scale, y = (e.clientY * dpr - oy) / scale;
+  e.preventDefault(); sfx.unlock(); cv.setPointerCapture?.(e.pointerId);
+  touch = { id: e.pointerId, x: e.clientX, y: e.clientY, swiped: false };
+});
+cv.addEventListener("pointermove", e => {
+  if (!touch || e.pointerId !== touch.id) return;
+  const dx = e.clientX - touch.x, dy = e.clientY - touch.y;
+  if (Math.max(Math.abs(dx), Math.abs(dy)) < 28) return;
+  const dir = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "right" : "left") : (dy > 0 ? "down" : "up");
+  touch.x = e.clientX; touch.y = e.clientY; touch.swiped = true;   // weiterwischen schiebt das nächste Teil
+  if (state === "play") push(dir);
+  else if (state === "menu") menuInput(dir);
+});
+const endTouch = e => {
+  if (!touch || e.pointerId !== touch.id) return;
+  const t = touch; touch = null;
+  if (t.swiped || e.type === "pointercancel") return;
+  const { x, y } = toLogical(e);
   if (state === "menu") {
     const row = Math.floor(y / 8), i = MENU_ROWS.findIndex(r => Math.abs(row - r) <= 2);
     if (i === 2) fire();
     else if (i >= 0) { menuChange(i, x < SW / 2 ? -1 : 1); sfx.move(); }
     return;
   }
-  if (state !== "play") { fire(); return; }
-  const s = Math.floor(x / 16), z = Math.floor((y + 8) / 16);
-  const ds = s - hole.s, dz = z - hole.z;
-  if (Math.abs(ds) + Math.abs(dz) !== 1) return;
-  push(dz === 1 ? "down" : dz === -1 ? "up" : ds === 1 ? "right" : "left");
-});
+  if (state === "play") {
+    const now = performance.now();
+    if (now - lastTap < 350) { lastTap = 0; fire(); } else lastTap = now;
+    return;
+  }
+  fire();
+};
+cv.addEventListener("pointerup", endTouch);
+cv.addEventListener("pointercancel", endTouch);
 
 const KEYS = { ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right", w: "up", s: "down", a: "left", d: "right" };
 addEventListener("keydown", e => {
