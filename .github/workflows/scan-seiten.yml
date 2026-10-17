@@ -1,0 +1,40 @@
+name: Scan-Seiten ausschneiden
+
+# Lädt den Scan von Computer Kontakt 6-7/86 und legt die Seiten mit dem
+# Rollerball-Listing unter scans/ ab. Startet bei Änderungen am Script oder
+# von Hand unter "Actions" mit eigenen Seitenzahlen.
+on:
+  push:
+    paths:
+      - tools/scan_seiten.py
+      - .github/workflows/scan-seiten.yml
+  workflow_dispatch:
+    inputs:
+      von:
+        description: Erste PDF-Seite
+        default: "76"
+      bis:
+        description: Letzte PDF-Seite
+        default: "78"
+
+permissions:
+  contents: write
+
+jobs:
+  seiten:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - run: pip install pypdf==4.3.1 pillow==10.4.0
+      - run: python3 tools/scan_seiten.py --von "${{ github.event.inputs.von || '76' }}" --bis "${{ github.event.inputs.bis || '78' }}"
+      - name: Ergebnis einchecken
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scans
+          git diff --cached --quiet || git commit -m "Scan-Seiten aus Computer Kontakt 6-7/86 ausgeschnitten"
+          git push

@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rollerball II im Browser</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Layout: Monitor oben (der Atari-Bildschirm ist das Werk), Bedienung darunter, Listing und Herkunft als ruhige Spalte */
+:root {
+  --bg: #e9e4da;          /* Gehäuse-Beige des 800 XL */
+  --panel: #f6f3ec;
+  --fg: #23201b;
+  --muted: #6b6457;
+  --line: #cfc7b6;
+  --accent: #b5462a;      /* rote Funktionstasten */
+  --accent-ink: #ffffff;
+  --warn: #8a5a00;
+  --bezel: #2a2723;
+  --f-pixel: "Press Start 2P", ui-monospace, "Courier New", monospace;
+  --f-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1b1916; --panel: #25221e; --fg: #ece6da; --muted: #a59d8d; --line: #3a362f;
+    --accent: #e0694a; --accent-ink: #1b1916; --warn: #f0b860; --bezel: #0d0c0b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1b1916; --panel: #25221e; --fg: #ece6da; --muted: #a59d8d; --line: #3a362f;
+  --accent: #e0694a; --accent-ink: #1b1916; --warn: #f0b860; --bezel: #0d0c0b;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 24px 64px; display: grid; gap: 20px; }
+h1 { font-family: var(--f-pixel); font-weight: 400; font-size: clamp(1.1rem, 4.5vw, 1.6rem); line-height: 1.3; margin: 0; text-wrap: balance; }
+header p { margin: 8px 0 0; color: var(--muted); max-width: 65ch; }
+.monitor { background: var(--bezel); border-radius: 14px; padding: clamp(10px, 3vw, 22px); }
+#border { border-radius: 6px; padding: 4.5% 6%; transition: background .2s; }
+canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; image-rendering: crisp-edges; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.key {
+  font-family: var(--f-pixel); font-size: .8rem; cursor: pointer; user-select: none; -webkit-user-select: none; touch-action: manipulation;
+  border: 1px solid var(--line); background: var(--panel); color: var(--fg);
+  border-radius: 6px; padding: 14px 16px; min-width: 56px;
+  box-shadow: 0 3px 0 var(--line);
+}
+.key:active, .key.down { transform: translateY(2px); box-shadow: 0 1px 0 var(--line); }
+.key.fn { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.key:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.spacer { flex: 1; }
+.toggle { display: flex; gap: 6px; align-items: center; font-size: .9rem; color: var(--muted); }
+.toggle input { accent-color: var(--accent); width: 18px; height: 18px; }
+.hint { color: var(--muted); font-size: .9rem; margin: 0; }
+.note { border-left: 4px solid var(--warn); background: var(--panel); padding: 12px 16px; border-radius: 0 6px 6px 0; }
+.note p { margin: 0; max-width: 68ch; }
+.note p + p { margin-top: 8px; }
+.note strong { color: var(--warn); }
+details { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; }
+summary { cursor: pointer; padding: 10px 14px; font-weight: 700; }
+pre { margin: 0; padding: 0 14px 14px; overflow-x: auto; font-family: var(--f-mono); font-size: .85rem; line-height: 1.45; }
+code { font-family: var(--f-mono); }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>ROLLERBALL II</h1>
+    <p>Das Listing aus dem Chat, ausgeführt von einem kleinen Atari-BASIC-Interpreter mit 40×24-Textbildschirm. Der Aufbau des Spielfelds dauert im Originaltempo ein paar Sekunden, wie auf dem echten 800 XL. Das Spiel selbst läuft immer im Originaltempo.</p>
+  </header>
+
+  <div class="monitor"><div id="border"><canvas id="screen" width="320" height="192" aria-label="Atari-Bildschirm"></canvas></div></div>
+
+  <div class="controls">
+    <button class="key" id="k-left" aria-label="Ball nach links">◀</button>
+    <button class="key" id="k-right" aria-label="Ball nach rechts">▶</button>
+    <button class="key fn" id="k-start">START</button>
+    <span class="spacer"></span>
+    <label class="toggle"><input type="checkbox" id="turbo"> Spielfeld schnell aufbauen</label>
+    <button class="key" id="k-reset">RUN</button>
+  </div>
+  <p class="hint">Tastatur: Pfeiltasten oder A/D lenken, Enter ist START. Der Ball fliegt waagerecht weiter, bis er eine Wand (#) trifft. Jedes X bringt 100 Punkte.</p>
+
+  <div class="note">
+    <p><strong>Achtung, wahrscheinlich nicht das Original.</strong> Gemini hat dieses Listing vermutlich nicht vom Scan abgelesen, sondern neu geschrieben. Zeile 90 nutzt <code>ELSE</code>, das kennt Atari BASIC nicht, der echte Atari würde die Zeile beim Eintippen ablehnen. Auch passt das Spiel nicht zu den drehbaren Rohrteilen, an die du dich erinnerst.</p>
+    <p>Damit es trotzdem läuft, versteht dieser Interpreter <code>ELSE</code>. Außerdem nutzt er alle 40 Spalten, während der Atari ab Werk links zwei Spalten Rand lässt. Mit Rand würde das Spielfeld verrutschen.</p>
+  </div>
+
+  <details>
+    <summary>BASIC-Listing anzeigen</summary>
+    <pre id="listing-view"></pre>
+  </details>
+</div>
+
+<script type="text/plain" id="listing">
+10 REM *** ROLLERBALL II (1986) ***
+20 REM ORIGINAL BY THOMAS TAUSEND
+30 GRAPHICS 0:SETCOLOR 2,0,0:SETCOLOR 4,0,0:PRINT "   *** ROLLERBALL II ***"
+40 POKE 752,1:X=20:Y=12:SCORE=0:DIR=1
+50 REM FIELD GENERATION
+60 FOR I=1 TO 40:PRINT "#";:NEXT I
+70 FOR I=1 TO 20:PRINT "#";:SPACES=INT(RND(0)*30)+4
+80 FOR J=1 TO 38:IF J=SPACES THEN PRINT "X";:GOTO 100
+90 IF RND(0)>0.85 THEN PRINT "#"; ELSE PRINT " ";
+100 NEXT J:PRINT "#";:NEXT I
+110 FOR I=1 TO 40:PRINT "#";:NEXT I
+120 REM MAIN GAME LOOP
+130 POSITION X,Y:PRINT "O";
+140 K=PEEK(764):IF K=255 THEN GOTO 180
+150 POKE 764,255:REM RESET KEY
+160 IF K=134 THEN DIR=-1:REM LEFT ARROW / A
+170 IF K=135 THEN DIR=1:REM RIGHT ARROW / D
+180 POSITION X,Y:PRINT " ";
+190 X=X+DIR:IF X<1 OR X>38 THEN GOTO 250
+200 REM COLLISION CHECK
+210 LOCATE X,Y,HIT
+220 IF HIT=35 THEN GOTO 250:REM HIT WALL (#)
+230 IF HIT=88 THEN SCORE=SCORE+100:REM HIT TARGET (X)
+240 POSITION X,Y:PRINT "O";:POKE 77,0:GOTO 130
+250 GRAPHICS 0:PRINT "GAME OVER! SCORE: ";SCORE
+260 PRINT "PRESS START TO RESTART":IF PEEK(53279)<>6 THEN GOTO 260
+270 GOTO 30
+</script>
+
+<script>
+(() => {
+  const SRC = document.getElementById("listing").textContent.trim();
+  document.getElementById("listing-view").textContent = SRC;
+
+  // ---------- Bildschirm (GRAPHICS 0, 40x24) ----------
+  const COLS = 40, ROWS = 24;
+  const cv = document.getElementById("screen"), ctx = cv.getContext("2d");
+  const borderEl = document.getElementById("border");
+  let scr, cx, cy, dirty = true;
+  const colreg = [0x28, 0xCA, 0x94, 0x46, 0x00]; // Atari-Standardfarben (Hue*16+Lum)
+  function atariRGB(v) {
+    const hue = v >> 4, lum = v & 15;
+    const l = 0.06 + lum / 15 * 0.88;
+    if (hue === 0) { const g = Math.round(l * 255); return `rgb(${g},${g},${g})`; }
+    const ang = (hue - 1) * 25.7 + 40;
+    return `hsl(${ang % 360} 55% ${Math.round(l * 100)}%)`;
+  }
+  function cls() { scr = new Uint8Array(COLS * ROWS).fill(32); cx = 0; cy = 0; dirty = true; }
+  function scroll() { scr.copyWithin(0, COLS); scr.fill(32, COLS * (ROWS - 1)); cy = ROWS - 1; }
+  function putc(c) {
+    scr[cy * COLS + cx] = c; cx++;
+    if (cx >= COLS) { cx = 0; cy++; if (cy >= ROWS) scroll(); }
+    dirty = true;
+  }
+  function newline() { cx = 0; cy++; if (cy >= ROWS) scroll(); dirty = true; }
+  function draw() {
+    const bg = atariRGB(colreg[2]);
+    const fg = atariRGB((colreg[2] & 0xF0) | (colreg[1] & 0x0F));
+    borderEl.style.background = atariRGB(colreg[4]);
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, 320, 192);
+    ctx.font = '8px "Press Start 2P", monospace'; ctx.textBaseline = "top";
+    const curOn = mem[752] !== 1;
+    for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) {
+      const c = scr[y * COLS + x];
+      const isCur = curOn && x === cx && y === cy;
+      if (isCur) { ctx.fillStyle = fg; ctx.fillRect(x * 8, y * 8, 8, 8); }
+      if (c !== 32) { ctx.fillStyle = isCur ? bg : fg; ctx.fillText(String.fromCharCode(c), x * 8, y * 8 + 1); }
+    }
+    dirty = false;
+  }
+
+  // ---------- Speicher und Eingabe ----------
+  let mem = {}; let startHeld = false;
+  const peek = a => a === 53279 ? (startHeld ? 6 : 7) : (a in mem ? mem[a] : (a === 764 ? 255 : 0));
+  function pressKey(code) { mem[764] = code; }
+
+  // ---------- Tokenizer ----------
+  const KW = new Set(["REM","PRINT","GRAPHICS","SETCOLOR","POKE","FOR","TO","STEP","NEXT","IF","THEN","ELSE","GOTO","GOSUB","RETURN","POSITION","LOCATE","END","STOP","LET","AND","OR","NOT","RND","INT","PEEK","ABS","SOUND"]);
+  function tokenize(text) {
+    const t = []; let i = 0;
+    while (i < text.length) {
+      const ch = text[i];
+      if (ch === " ") { i++; continue; }
+      if (ch === '"') { let j = text.indexOf('"', i + 1); if (j < 0) j = text.length; t.push({ k: "s", v: text.slice(i + 1, j) }); i = j + 1; continue; }
+      if (/[0-9.]/.test(ch)) { let j = i; while (j < text.length && /[0-9.]/.test(text[j])) j++; t.push({ k: "n", v: parseFloat(text.slice(i, j)) }); i = j; continue; }
+      if (/[A-Z]/i.test(ch)) {
+        let j = i; while (j < text.length && /[A-Z0-9]/i.test(text[j])) j++;
+        const w = text.slice(i, j).toUpperCase();
+        if (w === "REM") { t.push({ k: "kw", v: "REM" }); break; }
+        t.push({ k: KW.has(w) ? "kw" : "id", v: w }); i = j; continue;
+      }
+      const two = text.slice(i, i + 2);
+      if (two === "<>" || two === "<=" || two === ">=") { t.push({ k: "op", v: two }); i += 2; continue; }
+      t.push({ k: "op", v: ch }); i++;
+    }
+    return t;
+  }
+  const prog = SRC.split("\n").map(l => { const m = l.match(/^\s*(\d+)\s?(.*)$/); return { n: +m[1], t: tokenize(m[2]) }; }).sort((a, b) => a.n - b.n);
+  const lineIndex = n => { const i = prog.findIndex(l => l.n === n); if (i < 0) throw err(12); return i; };
+
+  // ---------- Interpreter ----------
+  let vars, forStack, li, tp, halted, waitCount;
+  function err(n) { const e = new Error("ERROR- " + n); e.basic = n; return e; }
+  const tok = () => prog[li].t[tp];
+  const isOp = (v) => { const x = tok(); return x && x.k === "op" && x.v === v; };
+  const isKw = (v) => { const x = tok(); return x && x.k === "kw" && x.v === v; };
+  function expect(v) { const x = tok(); if (!x || x.v !== v) throw err(17); tp++; }
+
+  function expr() { return orE(); }
+  function orE() { let a = andE(); while (isKw("OR")) { tp++; const b = andE(); a = (a || b) ? 1 : 0; } return a; }
+  function andE() { let a = notE(); while (isKw("AND")) { tp++; const b = notE(); a = (a && b) ? 1 : 0; } return a; }
+  function notE() { if (isKw("NOT")) { tp++; return notE() ? 0 : 1; } return rel(); }
+  function rel() {
+    let a = add();
+    for (;;) {
+      const x = tok(); if (!x || x.k !== "op" || !["=","<",">","<>","<=",">="].includes(x.v)) return a;
+      tp++; const b = add();
+      a = { "=": a === b, "<": a < b, ">": a > b, "<>": a !== b, "<=": a <= b, ">=": a >= b }[x.v] ? 1 : 0;
+    }
+  }
+  function add() { let a = mul(); for (;;) { if (isOp("+")) { tp++; a += mul(); } else if (isOp("-")) { tp++; a -= mul(); } else return a; } }
+  function mul() { let a = unary(); for (;;) { if (isOp("*")) { tp++; a *= unary(); } else if (isOp("/")) { tp++; const b = unary(); if (b === 0) throw err(11); a /= b; } else return a; } }
+  function unary() { if (isOp("-")) { tp++; return -unary(); } if (isOp("+")) { tp++; return unary(); } return atom(); }
+  function atom() {
+    const x = tok(); if (!x) throw err(17);
+    if (x.k === "n") { tp++; return x.v; }
+    if (x.k === "op" && x.v === "(") { tp++; const v = expr(); expect(")"); return v; }
+    if (x.k === "kw" && ["RND","INT","PEEK","ABS"].includes(x.v)) {
+      tp++; expect("("); const a = expr(); expect(")");
+      if (x.v === "RND") return Math.random();
+      if (x.v === "INT") return Math.floor(a);
+      if (x.v === "ABS") return Math.abs(a);
+      return peek(Math.floor(a));
+    }
+    if (x.k === "id") { tp++; return vars[x.v] || 0; }
+    throw err(17);
+  }
+  const atStmtEnd = () => { const x = tok(); return !x || (x.k === "op" && x.v === ":") || (x.k === "kw" && x.v === "ELSE"); };
+  function fmt(n) {
+    if (Number.isInteger(n)) return String(n);
+    let s = String(+n.toPrecision(9)); if (s.startsWith("0.")) s = s.slice(1); else if (s.startsWith("-0.")) s = "-" + s.slice(2); return s;
+  }
+  function gotoLine(n) { li = lineIndex(n); tp = 0; }
+  function skipLine() { li++; tp = 0; }
+
+  function statement() {
+    const x = tok();
+    if (!x) return;
+    if (x.k === "op" && x.v === ":") { tp++; return; }
+    if (x.k === "id") return assign();
+    tp++;
+    switch (x.v) {
+      case "REM": skipLine(); return;
+      case "LET": return assign();
+      case "GRAPHICS": expr(); cls(); mem[752] = 0; return;
+      case "SETCOLOR": { const r = expr(); expect(","); const h = expr(); expect(","); const l = expr(); colreg[r] = ((h & 15) << 4) | (l & 14); dirty = true; return; }
+      case "POKE": { const a = expr(); expect(","); const v = expr(); mem[Math.floor(a)] = Math.floor(v) & 255; dirty = true; return; }
+      case "SOUND": expr(); expect(","); expr(); expect(","); expr(); expect(","); expr(); return;
+      case "POSITION": { const px = expr(); expect(","); const py = expr(); cx = Math.floor(px); cy = Math.floor(py); if (cx < 0 || cx >= COLS || cy < 0 || cy >= ROWS) throw err(141); dirty = true; return; }
+      case "LOCATE": { const px = expr(); expect(","); const py = expr(); expect(","); const v = tok(); tp++;
+        const lx = Math.floor(px), ly = Math.floor(py); if (lx < 0 || lx >= COLS || ly < 0 || ly >= ROWS) throw err(141);
+        vars[v.v] = scr[ly * COLS + lx]; cx = lx + 1; cy = ly; if (cx >= COLS) { cx = 0; cy = Math.min(cy + 1, ROWS - 1); } return; }
+      case "PRINT": {
+        let nl = true;
+        while (!atStmtEnd()) {
+          if (isOp(";")) { tp++; nl = false; continue; }
+          if (isOp(",")) { tp++; nl = false; do putc(32); while (cx % 10 !== 0); continue; }
+          nl = true;
+          const t = tok();
+          const s = t.k === "s" ? (tp++, t.v) : fmt(expr());
+          for (const c of s) putc(c.charCodeAt(0));
+        }
+        if (nl) newline();
+        return;
+      }
+      case "FOR": {
+        const v = tok().v; tp++; expect("="); vars[v] = expr(); if (!isKw("TO")) throw err(17); tp++;
+        const lim = expr(); let st = 1; if (isKw("STEP")) { tp++; st = expr(); }
+        for (let i = forStack.length - 1; i >= 0; i--) if (forStack[i].v === v) { forStack.length = i; break; }
+        forStack.push({ v, lim, st, li, tp }); return;
+      }
+      case "NEXT": {
+        const v = tok().v; tp++;
+        let i = forStack.length - 1; while (i >= 0 && forStack[i].v !== v) i--;
+        if (i < 0) throw err(13);
+        forStack.length = i + 1; const f = forStack[i];
+        vars[v] += f.st;
+        if (f.st >= 0 ? vars[v] <= f.lim : vars[v] >= f.lim) { li = f.li; tp = f.tp; } else forStack.length = i;
+        return;
+      }
+      case "IF": {
+        const c = expr(); if (!isKw("THEN")) throw err(17); tp++;
+        const t = tok();
+        const elseAt = prog[li].t.findIndex((q, k) => k >= tp && q.k === "kw" && q.v === "ELSE");
+        if (c) {
+          if (t && t.k === "n") { gotoLine(t.v); return; }
+          if (elseAt >= 0) pendingElseSkip = { li, at: elseAt };
+          return;
+        }
+        if (elseAt >= 0) { tp = elseAt + 1; return; }
+        skipLine(); return;
+      }
+      case "ELSE": skipLine(); return;
+      case "GOTO": gotoLine(Math.floor(expr())); return;
+      case "END": case "STOP": halted = true; return;
+      default: throw err(17);
+    }
+  }
+  let pendingElseSkip = null;
+  function assign() { const v = tok().v; tp++; expect("="); vars[v] = expr(); }
+
+  function step() {
+    if (li >= prog.length) { halted = true; newline(); for (const c of "READY") putc(c.charCodeAt(0)); newline(); mem[752] = 0; return; }
+    if (tp >= prog[li].t.length) { skipLine(); return; }
+    const before = li;
+    statement();
+    if (pendingElseSkip && li === before) { const x = tok(); if (x && x.k === "kw" && x.v === "ELSE") { pendingElseSkip = null; skipLine(); } }
+    else if (li !== before) pendingElseSkip = null;
+  }
+
+  function run() {
+    vars = {}; forStack = []; mem = {}; li = 0; tp = 0; halted = false; pendingElseSkip = null;
+    colreg.splice(0, 5, 0x28, 0xCA, 0x94, 0x46, 0x00); cls();
+  }
+
+  // Originaltempo: ca. 300 BASIC-Anweisungen pro Sekunde; "Schnell aufbauen" beschleunigt nur den Spielfeldaufbau (Zeilen 30-110)
+  const turbo = document.getElementById("turbo");
+  try { turbo.checked = localStorage.getItem("rb-turbo") === "1"; } catch (e) {}
+  turbo.addEventListener("change", () => { try { localStorage.setItem("rb-turbo", turbo.checked ? "1" : "0"); } catch (e) {} });
+  let last = performance.now(), budget = 0;
+  function frame(now) {
+    const dt = Math.min(100, now - last); last = now;
+    if (!halted) {
+      const fast = turbo.checked && prog[li] && prog[li].n < 120;
+      budget += dt * (fast ? 6 : 0.3);
+      if (!fast) budget = Math.min(budget, 30);
+      try { while (budget >= 1 && !halted) { step(); budget--; } }
+      catch (e) {
+        halted = true; newline();
+        const msg = (e.basic ? "ERROR-   " + e.basic + " AT LINE " + (prog[li] ? prog[li].n : "?") : "ERROR " + e.message);
+        for (const c of msg) putc(c.charCodeAt(0)); newline(); mem[752] = 0;
+      }
+    } else budget = 0;
+    if (dirty) draw();
+    requestAnimationFrame(frame);
+  }
+
+  // ---------- Bedienung ----------
+  const KEYMAP = { ArrowLeft: 134, a: 134, A: 134, ArrowRight: 135, d: 135, D: 135 };
+  window.addEventListener("keydown", e => {
+    if (e.target.closest && e.target.closest("input, textarea")) return;
+    if (e.key in KEYMAP) { pressKey(KEYMAP[e.key]); e.preventDefault(); }
+    else if (e.key === "Enter" || e.key === "F2") { startHeld = true; e.preventDefault(); }
+  });
+  window.addEventListener("keyup", e => { if (e.key === "Enter" || e.key === "F2") startHeld = false; });
+  function hold(el, down, up) {
+    el.addEventListener("pointerdown", e => { e.preventDefault(); el.classList.add("down"); down(); });
+    const rel = () => { el.classList.remove("down"); up && up(); };
+    el.addEventListener("pointerup", rel); el.addEventListener("pointerleave", rel); el.addEventListener("pointercancel", rel);
+  }
+  hold(document.getElementById("k-left"), () => pressKey(134));
+  hold(document.getElementById("k-right"), () => pressKey(135));
+  hold(document.getElementById("k-start"), () => { startHeld = true; }, () => { startHeld = false; });
+  document.getElementById("k-reset").addEventListener("click", run);
+
+  run();
+  const go = () => requestAnimationFrame(t => { last = t; frame(t); });
+  (document.fonts && document.fonts.load) ? document.fonts.load('8px "Press Start 2P"').then(go, go) : go();
+})();
+</script>
+</html>
