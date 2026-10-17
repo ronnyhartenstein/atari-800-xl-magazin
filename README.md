@@ -13,6 +13,8 @@ Grundlage sind die OCR-Volltexte der Scans auf archive.org bzw. Atarimania; unsi
 ## Rollerball
 
 - [`rollerball/`](rollerball/index.html): das Rollerball-Listing aus dem Chat, lauffähig im Browser über einen kleinen Atari-BASIC-Interpreter. Achtung, das Listing ist sehr wahrscheinlich eine KI-Nachbildung und nicht der Originalcode aus dem Heft.
+- [`rollerball/rollerball2.txt`](rollerball/rollerball2.txt): das Original-Listing „Rollerball II“ von Thomas Tausend (Computer Kontakt 6-7/86, S. 77–79), abgetippt vom Scan. Grafik- und Cursorzeichen stehen als Platzhalter wie `{^A}` oder `{DOWN}` drin.
+- [`rollerball/ROLLER.LST`](rollerball/ROLLER.LST): dasselbe Listing als ATASCII-Datei, im Emulator (z. B. Altirra) per `ENTER "D:ROLLER.LST"` laden und mit `RUN` starten. Erzeugt mit [`tools/atascii_lst.py`](tools/atascii_lst.py).
 - [`tools/scan_seiten.py`](tools/scan_seiten.py): lädt den Scan von Computer Kontakt 6-7/86 von archive.org und schneidet Seiten heraus (Standard: 76 bis 78), als PDF und als Bilder in voller Auflösung. Läuft automatisch als GitHub Action und legt das Ergebnis unter `scans/` ab.
 
 ## Inhalt (geplant)
