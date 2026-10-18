@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rollerball II</title>
+<meta name="description" content="Rollerball II von Thomas Tausend (Computer Kontakt 6-7/86): im Atari-800-XL-Emulator oder als Neuauflage spielen">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
+<style>
+/* Startseite im Look des Originals: schwarzer Grund, Ocker-Titel, Atari-Grau */
+:root {
+  --bg: #000000; --fg: #e8e8e8; --muted: #aaaaaa; --ochre: #c6b332; --green: #4a8b00;
+  --tile: #444444; --trail: #a93a98;
+  --f-display: "VT323", ui-monospace, "Courier New", monospace;
+  --f-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--f-body); line-height: 1.5; }
+main { max-width: 640px; margin: 0 auto; padding: 40px 16px 56px; }
+h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(44px, 13vw, 64px); line-height: 1; color: var(--ochre); margin: 0 0 8px; letter-spacing: 2px; }
+.sub { color: var(--muted); margin: 0 0 32px; }
+a { color: var(--ochre); }
+.play { display: grid; gap: 14px; margin-bottom: 32px; }
+.play a { display: block; text-decoration: none; color: var(--fg); background: var(--tile);
+  border-top: 3px solid var(--green); border-left: 3px solid var(--green); padding: 16px 18px; }
+.play a:hover, .play a:focus-visible { background: #555555; outline: 2px solid var(--trail); outline-offset: 2px; }
+.play strong { display: block; font-family: var(--f-display); font-weight: 400; font-size: 32px; line-height: 1.1; color: var(--ochre); }
+.play span { color: var(--muted); font-size: 15px; }
+p { margin: 0 0 12px; }
+footer { margin-top: 32px; color: var(--muted); font-size: 14px; }
+</style>
+<main>
+  <h1>ROLLERBALL II</h1>
+  <p class="sub">von Thomas Tausend, Computer Kontakt Juni/Juli 1986, Seite 77 bis 79</p>
+  <div class="play">
+    <a href="spielen.html"><strong>Original spielen</strong><span>Das abgetippte BASIC-Listing läuft in einem emulierten Atari 800 XL. Pfeiltasten schieben, Leertaste startet die Kugel.</span></a>
+    <a href="modern.html"><strong>Neuauflage spielen</strong><span>Gleiche Farben und Regeln, im Vollbild, mit Wischsteuerung fürs Handy, drei Feldgrößen und drei Schwierigkeitsgraden.</span></a>
+  </div>
+  <p>Ein Schiebepuzzle mit Rohrteilen: Bau einen Weg, bevor die Zeit abläuft, dann rollt die Kugel hindurch bis zum Ausgang.</p>
+  <p>Wie das Listing vom Scan in den Emulator kam, steht in der <a href="https://github.com/ronnyhartenstein/atari-800-xl-magazin/blob/main/rollerball/README.md">Beschreibung auf GitHub</a>.</p>
+  <footer><a href="../">Zum Atari-Hefte Register</a></footer>
+</main>
+</html>

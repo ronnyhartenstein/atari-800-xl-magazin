@@ -4,11 +4,22 @@ Sammlung abgetippter Texte und Listings aus Zeitschriften rund um den Atari 800 
 
 > ⚠️ Platzhalter: Diese README ist noch ein Dummy und wird später ausgebaut.
 
-## Inhaltsverzeichnisse ATARImagazin 1987
+## Online
+
+Alles läuft auch direkt im Browser, über GitHub Pages:
+
+- Heft-Register: https://blog.rh-flow.de/atari-800-xl-magazin/
+- Rollerball II: https://blog.rh-flow.de/atari-800-xl-magazin/rollerball/
+
+Die Action [`pages.yml`](.github/workflows/pages.yml) veröffentlicht bei jedem Push auf `main` die Dateien `index.html`, `rollerball/`, `data/` und `scans/`. Dafür muss unter Settings → Pages als Source „GitHub Actions“ gewählt sein. Die Adresse unter blog.rh-flow.de ergibt sich daraus, dass die Benutzerseite `ronnyhartenstein.github.io` diese Domain hat; Projektseiten landen dann automatisch im Unterordner mit dem Repo-Namen.
+
+## Inhaltsverzeichnisse ATARImagazin 1987 und Computer Kontakt 1984–1988
 
 [`index.html`](index.html) listet die Inhaltsverzeichnisse aller sechs Hefte des ATARImagazins (Verlag Rätz-Eberle) von 1987, mit Suchfeld und Filtern (nur Listings, nur XL/XE, Spieletests). Die Datei läuft ohne Build direkt im Browser, auch auf dem Handy: einfach öffnen.
 
 Grundlage sind die OCR-Volltexte der Scans auf archive.org bzw. Atarimania; unsichere Einträge sind markiert. Das Heft erschien erst ab Januar 1987, für 1986 gibt es keine Ausgaben.
+
+Dazu kommen alle 30 Hefte der Zeitschrift **Computer Kontakt** (Nr. 1, 5/84, bis Nr. 30, 2-3/88), mit Filter nach Zeitschrift und je Heft Links zum Scan auf archive.org, zum kleinen PDF und zum Zip mit den Seitenbildern in voller Auflösung. Die Einträge sind von den gedruckten Inhaltsseiten abgeschrieben und liegen in [`data/computerkontakt/inhalt.json`](data/computerkontakt/inhalt.json); [`tools/ck_index.py`](tools/ck_index.py) schreibt sie in `index.html`. Die Inhaltsseiten lassen sich mit den von Hand startbaren Actions „Computer-Kontakt-OCR laden“ ([`tools/ck_ocr.py`](tools/ck_ocr.py)) und „Computer-Kontakt-Inhaltsseiten“ ([`tools/ck_inhalt.py`](tools/ck_inhalt.py)) neu aus den Scans holen.
 
 ## Rollerball
 
