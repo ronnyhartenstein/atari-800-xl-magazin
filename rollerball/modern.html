@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rollerball II Neuauflage</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="theme-color" content="#000000">
+<style>
+/* Vollbild-Spielfeld im Look des Atari-Originals, Steuerung halbtransparent darüber */
+:root {
+  --bg: #000000;
+  --ctl: rgba(255, 255, 255, .13);
+  --ctl-on: rgba(255, 255, 255, .34);
+  --ctl-line: rgba(255, 255, 255, .38);
+  --ctl-ink: rgba(255, 255, 255, .82);
+  --panel: rgba(12, 12, 16, .92);
+  --fg: #e8e8e8;
+  --muted: #aaaaaa;
+  --accent: #c6b332;
+  --f-ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #000000; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #000000; color-scheme: dark; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg); font-family: var(--f-ui);
+  overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none;
+  -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent;
+}
+#scr { position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100dvh; display: block; }
+.ctl {
+  position: fixed; display: grid; place-items: center; padding: 0; cursor: pointer;
+  border: 1.5px solid var(--ctl-line); background: var(--ctl); color: var(--ctl-ink);
+  font: 700 13px/1 var(--f-ui); letter-spacing: .06em; touch-action: none;
+  -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+}
+.ctl.on { background: var(--ctl-on); }
+.ctl:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ctl svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+#tools { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 10px); right: calc(env(safe-area-inset-right, 0px) + 12px); display: flex; gap: 8px; }
+#tools .ctl { position: static; width: 42px; height: 42px; border-radius: 50%; }
+#tools .ctl svg { width: 20px; height: 20px; }
+#rot { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 18px); left: 16px; right: 170px; margin: 0;
+  color: var(--muted); font-size: 13px; line-height: 1.35; display: none; }
+@media (orientation: portrait) and (pointer: coarse) { #rot { display: block; } }
+#tip { position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 14px); transform: translateX(-50%);
+  margin: 0; padding: 8px 14px; border-radius: 999px; background: rgba(0, 0, 0, .7); color: var(--fg); font-size: 14px;
+  white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity .4s; }
+#tip.on { opacity: 1; }
+#help { position: fixed; inset: 0; display: grid; place-items: center; padding: 16px; background: rgba(0, 0, 0, .55); }
+#help .box { background: var(--panel); border: 1px solid #333; border-radius: 12px; padding: 18px 20px; max-width: 560px; width: 100%;
+  max-height: calc(100dvh - 32px); overflow: auto; display: grid; gap: 10px; font-size: 15px; line-height: 1.5; user-select: text; -webkit-user-select: text; }
+#help h2 { margin: 0; font-size: 17px; color: var(--accent); }
+#help p, #help ul { margin: 0; } #help ul { padding-left: 1.2em; }
+#help .foot { color: var(--muted); font-size: 13px; }
+#help .row { display: flex; gap: 10px; flex-wrap: wrap; }
+#help button { font: 600 14px var(--f-ui); padding: 10px 16px; border-radius: 8px; border: 1px solid #555; background: #222; color: var(--fg); cursor: pointer; }
+#help button.main { background: var(--accent); border-color: var(--accent); color: #111; }
+</style>
+
+<canvas id="scr" aria-label="Spielfeld Rollerball II"></canvas>
+<p id="tip">Wischen schiebt das Loch, Doppeltipp startet die Kugel</p>
+<p id="rot">Tipp: Handy quer halten, dann füllt das Spielfeld den Bildschirm.</p>
+
+<div id="tools">
+  <button class="ctl" id="b-help" aria-label="Spielregeln"><svg viewBox="0 0 24 24"><path d="M9.2 9a3 3 0 1 1 4.3 2.7c-.9.4-1.5 1.2-1.5 2.1v.7"/><path d="M12 18.2v.1"/></svg></button>
+  <button class="ctl" id="b-snd" aria-label="Ton aus"><svg viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path class="w" d="M15.5 9a4.5 4.5 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/><path class="x" d="M16 9.5l5 5M21 9.5l-5 5" style="display:none"/></svg></button>
+  <button class="ctl" id="b-fs" aria-label="Vollbild"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
+</div>
+
+<div id="help" hidden>
+  <div class="box" role="dialog" aria-labelledby="help-t">
+    <h2 id="help-t">ROLLERBALL II</h2>
+    <ul>
+      <li>Finger halten und in eine Richtung wischen: Das Loch wandert in diese Richtung, das Nachbarteil rutscht hinein. Weiterwischen ohne abzusetzen schiebt gleich das nächste Teil. Mit der Tastatur machen das die Pfeiltasten.</li>
+      <li>Beim Start wählst du Feldgröße (Klein 10×7, Mittel 14×9, Original 18×11) und Schwierigkeit (Leicht 90 s und langsame Kugel, Normal 60 s wie im Original, Schwer 35 s und schnelle Kugel). Die Bestleistung zählt je Einstellung.</li>
+      <li>Doppelt tippen (oder Leertaste, Enter) schickt die Kugel links los. Ist der Zeitbalken rechts leer, rollt sie von selbst. In Menü und Textbildschirmen genügt ein Tipp, im Menü wählt Wischen hoch/runter die Zeile und links/rechts den Wert.</li>
+      <li>Jedes befahrene Teil zählt: Gerade 100, Kreuzung 70, Kurve 50.</li>
+      <li>Erreicht die Kugel den Ausgang rechts, gibt es 25 Punkte für jede übrige Zeiteinheit. Loch, Rand oder ein Teil ohne Anschluss beenden die Runde.</li>
+    </ul>
+    <p class="foot">Original: Thomas Tausend, „Rollerball II“, Computer Kontakt 6-7/86. Farben, Grafik und Laufregeln wie im Listing, der Zeichensatz stammt aus dem freien AltirraOS (Avery Lee). Tasten: Pfeile oder WASD, Leertaste, M für Ton, F für Vollbild.</p>
+    <div class="row"><button class="main" id="h-close">Weiter</button><button id="h-new">Neues Spiel / Einstellungen</button></div>
+  </div>
+</div>
+
+<script>
+(() => {
+"use strict";
+// ---------- Atari-Daten ----------
+const SW = 320, SH = 192;          // Bildschirm des Originals: 40x24 Zeichen
+// Feldgrößen und Schwierigkeit, beim Start im Menü gewählt (ORIGINAL/NORMAL entspricht dem Listing)
+const SIZES = [{ name: "KLEIN", cols: 10, rows: 7 }, { name: "MITTEL", cols: 14, rows: 9 }, { name: "ORIGINAL", cols: 18, rows: 11 }];
+const LEVELS = [{ name: "LEICHT", time: 90, speed: 5 }, { name: "NORMAL", time: 60, speed: 7 }, { name: "SCHWER", time: 35, speed: 9 }];
+let cfg = { size: 2, level: 1 };
+try { const c = JSON.parse(localStorage.getItem("rollerball2-cfg")); if (c && SIZES[c.size] && LEVELS[c.level]) cfg = c; } catch (e) {}
+let COLS, ROWS, UNITS, TIME, SPEED;  // Zeitbalken: eine Einheit = ein Player-Byte = 2 Zeilen
+const BW = () => (COLS + 2) * 16, BH = () => ROWS * 16 + 16;
+const C = {                        // PAL-Farben der Register aus dem Listing
+  gray: "#444444", text: "#aaaaaa", ochre: "#c6b332", green: "#4a8b00",
+  trail: "#a93a98", ball: "#650900", bar: "#000078", warn: "#5a0011",
+  pf0: "#cb6f56", pf1: "#8ecf32", pf2: "#015d76", pf3: "#a93a98", white: "#ffffff",
+};
+const FONT = Uint8Array.from(atob("AAAAAAAAAAAAGBgYGAAYAABmZmYAAAAAAGb/Zmb/ZgAYPmA8BnwYAABmbBgwZkYAHDYcOG9mOwAAGBgYAAAAAAAOHBgYHA4AAHA4GBg4cAAAZjz/PGYAAAAYGH4YGAAAAAAAAAAYGDAAAAB+AAAAAAAAAAAAGBgAAAYMGDBgQAAAPGZudmY8AAAYOBgYGH4AADxmDBgwfgAAfgwYDGY8AAAMHDxsfgwAAH5gfAZmPAAAPGB8ZmY8AAB+BgwYMDAAADxmPGZmPAAAPGY+Bgw4AAAAGBgAGBgAAAAYGAAYGDAGDBgwGAwGAAAAfgAAfgAAYDAYDBgwYAAAPGYMGAAYAAA8Zm5uYD4AABg8ZmZ+ZgAAfGZ8ZmZ8AAA8ZmBgZjwAAHhsZmZseAAAfmB8YGB+AAB+YHxgYGAAAD5gYG5mPgAAZmZ+ZmZmAAB+GBgYGH4AAAYGBgZmPAAAZmx4eGxmAABgYGBgYH4AAGN3f2tjYwAAZnZ+fm5mAAA8ZmZmZjwAAHxmZnxgYAAAPGZmZmw2AAB8ZmZ8bGYAADxgPAYGPAAAfhgYGBgYAABmZmZmZn4AAGZmZmY8GAAAY2Nrf3djAABmZjw8ZmYAAGZmPBgYGAAAfgwYMGB+AAAeGBgYGB4AAEBgMBgMBgAAeBgYGBh4AAAIHDZjAAAAAAAAAAAA/wAANn9/PhwIABgYGB8fGBgYAwMDAwMDAwMYGBj4+AAAABgYGPj4GBgYAAAA+PgYGBgDBw4cOHDgwMDgcDgcDgcDAQMHDx8/f/8AAAAADw8PD4DA4PD4/P7/Dw8PDwAAAADw8PDwAAAAAP//AAAAAAAAAAAAAAAA//8AAAAA8PDw8AAcHHd3CBwAAAAAHx8YGBgAAAD//wAAABgYGP//GBgYAAA8fn5+PAAAAAAA/////8DAwMDAwMDAAAAA//8YGBgYGBj//wAAAPDw8PDw8PDwGBgYHx8AAAB4YHhgfhgeAAAYPH4YGBgAABgYGH48GAAAGDB+MBgAAAAYDH4MGAAAABg8fn48GAAAADwGPmY+AABgYHxmZnwAAAA8YGBgPAAABgY+ZmY+AAAAPGZ+YDwAAA4YPhgYGAAAAD5mZj4GfABgYHxmZmYAABgAOBgYPAAABgAGBgYGPABgYGx4bGYAADgYGBgYPAAAAGZ/f2tjAAAAfGZmZmYAAAA8ZmZmPAAAAHxmZnxgYAAAPmZmPgYGAAB8ZmBgYAAAAD5gPAZ8AAAYfhgYGA4AAABmZmZmPgAAAGZmZjwYAAAAY2t/PjYAAABmPBg8ZgAAAGZmZj4MeAAAfgwYMH4AABg8fn4YPAAYGBgYGBgYGAB+eHxuZgYACBg4eDgYCAAQGBweHBgQAA=="), c => c.charCodeAt(0));
+// Rohrteile 7x7 in Doppelpixeln, wie im umdefinierten Zeichensatz (1 waagrecht ... 7 oben-rechts)
+const ART = {
+  1: ["YYYYYYY", "YYYYYYY", "#######", "#######", "#######", "YYYYYYY", "YYYYYYY"],
+  2: Array(7).fill("YY###YY"),
+  3: ["YY###YY", "YY###YY", "#######", "#######", "#######", "YY###YY", "YY###YY"],
+  4: ["YYYYYYY", "YYYYYYY", "###YYYY", "####YYY", "#####YY", "Y####YY", "YY###YY"],
+  5: ["YYYYYYY", "YYYYYYY", "YYYY###", "YYY####", "YY#####", "YY####Y", "YY###YY"],
+  6: ["YY###YY", "Y####YY", "####YYY", "####YYY", "###YYYY", "YYYYYYY", "YYYYYYY"],
+  7: ["YY###YY", "YY####Y", "YY#####", "YYY####", "YYYY###", "YYYYYYY", "YYYYYYY"],
+};
+const ROUTE = "0204103012340021014020034300";   // I$ aus Zeile 80
+const POINTS = [0, 100, 100, 70, 50, 50, 50, 50]; // Zeile 73
+const DX = [0, 0, -1, 0, 1], DZ = [0, 1, 0, -1, 0]; // 1 runter, 2 links, 3 hoch, 4 rechts
+const BALL = [0b0110, 0b1111, 0b1111, 0b0110];      // DATA 6,15,15,6
+const route = (t, r) => +ROUTE[t * 4 - 4 + r - 1];
+
+function makeTile(art, pipe) {
+  const c = document.createElement("canvas"); c.width = 16; c.height = 16;
+  const g = c.getContext("2d");
+  g.fillStyle = C.green; g.fillRect(0, 0, 16, 16);
+  for (let r = 0; r < 7; r++) for (let k = 0; k < 7; k++) {
+    g.fillStyle = art[r][k] === "#" ? pipe : C.ochre; g.fillRect(2 + k * 2, 2 + r * 2, 2, 2);
+  }
+  return c;
+}
+const TILE = {}, TRAIL = {};
+for (let t = 1; t <= 7; t++) { TILE[t] = makeTile(ART[t], C.gray); TRAIL[t] = makeTile(ART[t], C.trail); }
+
+const glyphCache = new Map();
+function glyphs(color) {
+  let c = glyphCache.get(color);
+  if (c) return c;
+  c = document.createElement("canvas"); c.width = 1024; c.height = 8;
+  const g = c.getContext("2d"); g.fillStyle = color;
+  for (let i = 0; i < 128; i++) for (let y = 0; y < 8; y++) {
+    const b = FONT[i * 8 + y];
+    for (let x = 0; x < 8; x++) if (b & (0x80 >> x)) g.fillRect(i * 8 + x, y, 1, 1);
+  }
+  glyphCache.set(color, c); return c;
+}
+const toInternal = a => a < 32 ? a + 64 : a < 96 ? a - 32 : a;
+
+// ---------- Zustand ----------
+const cv = document.getElementById("scr"), ctx = cv.getContext("2d");
+let F, trail, hole, zin, zout, sc = 0, scored = false, hs = 0, warned = false;
+let state = "title", st = 0;          // Zustand und Zeit darin
+let playT = 0, cleared = 0, warnT = 0;
+let slide = null, steps = [], si = 0, stepT = 0, painted = false;
+let ball = null, crashAt = null, bonusT = 0, bottomAlt = false, best = false;
+let flicker = C.pf1, flickT = 0, fireLock = 0, menuSel = 2;
+const hsKey = () => `rollerball2-hs-${cfg.size}-${cfg.level}`;
+function applyCfg() {
+  const z = SIZES[cfg.size], l = LEVELS[cfg.level];
+  COLS = z.cols; ROWS = z.rows; UNITS = ROWS * 8; TIME = l.time; SPEED = l.speed;
+  try { hs = +localStorage.getItem(hsKey()) || 0; localStorage.setItem("rollerball2-cfg", JSON.stringify(cfg)); } catch (e) { hs = hs || 0; }
+}
+applyCfg();
+
+function newGame() {
+  applyCfg();
+  const rnd = n => Math.floor(Math.random() * n);
+  F = Array.from({ length: COLS + 2 }, () => new Array(ROWS + 2).fill(0));
+  trail = Array.from({ length: COLS + 2 }, () => new Array(ROWS + 2).fill(false));
+  for (let s = 1; s <= COLS; s++) for (let z = 1; z <= ROWS; z++) F[s][z] = 1 + rnd(7);
+  hole = { s: 2 + rnd(COLS - 3), z: 2 + rnd(ROWS - 3) };
+  zin = 2 + rnd(ROWS - 3);
+  zout = 2 + rnd(ROWS - 3);
+  F[COLS + 1][zout] = 9;
+  sc = 0; scored = false; warned = false; bottomAlt = false; cleared = 0; playT = 0;
+  slide = null; ball = null; crashAt = null;
+  setState("build"); sfx.barFill();
+}
+function setState(s) { state = s; st = 0; }
+let tipShown = 0;
+function showTip() {
+  if (tipShown >= 2) return; tipShown++;
+  const el = document.getElementById("tip"); el.classList.add("on");
+  setTimeout(() => el.classList.remove("on"), 3500);
+}
+
+// ---------- Eingabe-Logik ----------
+// Gespiegelt gegenüber dem Original: Wischen und Pfeile bewegen das Loch, das Nachbarteil rutscht entgegen
+const MOVES = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
+function push(dir) {
+  if (state !== "play") return;
+  if (slide) slide.t = 1, endSlide();
+  const [ds, dz] = MOVES[dir];
+  const us = hole.s + ds, uz = hole.z + dz;
+  if (uz <= 0 || uz > ROWS || us <= 0 || us > COLS) { sfx.blocked(); return; }
+  const t = F[us][uz];
+  F[hole.s][hole.z] = t; F[us][uz] = 8;
+  slide = { t: 0, type: t, fs: us, fz: uz, ts: hole.s, tz: hole.z };
+  hole = { s: us, z: uz };
+  sfx.move();
+}
+function endSlide() { slide = null; }
+function menuInput(dir) {
+  if (dir === "up") menuSel = (menuSel + 2) % 3;
+  else if (dir === "down") menuSel = (menuSel + 1) % 3;
+  else if (menuSel < 2) menuChange(menuSel, dir === "left" ? -1 : 1);
+  else return;
+  sfx.move();
+}
+function menuChange(row, d) {
+  if (row === 0) cfg.size = (cfg.size + d + 3) % 3; else cfg.level = (cfg.level + d + 3) % 3;
+  menuSel = row; applyCfg();
+}
+function fire() {
+  if (fireLock > 0) return;
+  if (state === "title") { fireLock = 0.25; sfx.unlock(); menuSel = 2; setState("menu"); }
+  else if (state === "menu") { fireLock = 0.25; sfx.unlock(); newGame(); }
+  else if (state === "fail" || state === "win") { fireLock = 0.25; sfx.unlock(); newGame(); }
+  else if (state === "play") launch();
+  else if (state === "startwait") { fireLock = 0.25; best = sc >= hs; if (best) { hs = sc; try { localStorage.setItem(hsKey(), hs); } catch (e) {} } setState("win"); }
+}
+function launch() {
+  if (slide) endSlide();
+  steps = []; let s = 0, z = zin, r = 1, t = 7, n = 0;
+  while (true) {
+    if (++n > 800) { steps.push({ k: "crash", s, z, ns: s, nz: z }); break; }
+    r = route(t, r);
+    if (r === 0) { steps.push({ k: "blocked", s, z }); break; }
+    const ns = s + DX[r], nz = z + DZ[r], nt = F[ns][nz];
+    if (nt === 8 || nt === 0) { steps.push({ k: "crash", s, z, ns, nz }); break; }
+    if (nt === 9) { steps.push({ k: "win", s, z, ns, nz }); break; }
+    steps.push({ k: "move", s, z, ns, nz, t: nt }); s = ns; z = nz; t = nt;
+  }
+  si = 0; stepT = 0; painted = false; setState("roll");
+}
+const center = (s, z) => ({ x: s * 16 + 8, y: z * 16 });
+
+// ---------- Ablauf ----------
+let heldDir = null, heldT = 0;
+function update(dt) {
+  st += dt; fireLock = Math.max(0, fireLock - dt);
+  flickT += dt; if (flickT > 0.07) { flickT = 0; flicker = `hsl(${Math.floor(Math.random() * 16) * 22.5} 70% ${45 + Math.random() * 30}%)`; }
+  if (slide) { slide.t += dt / 0.09; if (slide.t >= 1) endSlide(); }
+  if (state === "build") {
+    if (st >= 1.2) { F[hole.s][hole.z] = 8; showTip(); setState("play"); sfx.chord(); ball = center(0, zin); }
+  } else if (state === "play") {
+    if (heldDir) { heldT -= dt; if (heldT <= 0) { push(heldDir); heldT = 0.12; } }
+    playT += dt; cleared = Math.min(UNITS, Math.floor(UNITS * playT / TIME));
+    if (cleared > UNITS - 20) {
+      warned = true; warnT -= dt; if (warnT <= 0) { warnT = 0.16; sfx.warn(); }
+    }
+    if (cleared >= UNITS) launch();
+  } else if (state === "roll") {
+    const p = steps[si];
+    if (p.k === "blocked") { crash(p.s, p.z); return; }
+    stepT += dt * SPEED;
+    const a = center(p.s, p.z), b = p.k === "win" ? { x: (COLS + 1) * 16 + 4, y: p.nz * 16 } : center(p.ns, p.nz);
+    const lim = p.k === "crash" ? 0.42 : 1, t = Math.min(stepT, lim);
+    ball = { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
+    if (p.k === "move" && !painted && stepT >= 0.5) {
+      painted = true; trail[p.ns][p.nz] = true; sc += POINTS[p.t]; scored = true; sfx.roll();
+    }
+    if (stepT >= lim) {
+      if (p.k === "crash") crash(p.ns, p.nz);
+      else if (p.k === "win") { setState("bonus"); bonusT = 0.25; }
+      else { si++; stepT -= 1; painted = false; }
+    }
+  } else if (state === "crash") {
+    if (st >= 1.15) setState("fail");
+  } else if (state === "bonus") {
+    bonusT -= dt;
+    while (bonusT <= 0 && state === "bonus") {
+      if (cleared < UNITS) { cleared++; sc += 25; scored = true; sfx.tick(); bonusT += 0.028; }
+      else { sfx.win(); bottomAlt = true; setState("startwait"); }
+    }
+  }
+}
+function crash(s, z) { crashAt = { s, z }; sfx.crash(); setState("crash"); }
+
+// ---------- Zeichnen ----------
+let scale = 1, ox = 0, oy = 0;
+function resize() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 3);
+  const w = Math.round(innerWidth * dpr), h = Math.round(innerHeight * dpr);
+  cv.width = w; cv.height = h;
+}
+function layout(sw, sh) {
+  const w = cv.width, h = cv.height;
+  let s = Math.min(w / sw, h / sh);
+  if (s >= 2) s = Math.floor(s);
+  scale = s;
+  ox = Math.floor((w - sw * s) / 2);
+  const portrait = innerHeight > innerWidth * 1.15;
+  oy = Math.floor((h - sh * s) * (portrait ? 0.32 : 0.5));
+}
+function textLine(row, str) {
+  ctx.fillStyle = C.gray; ctx.fillRect(0, row * 8, BW(), 8);
+  const g = glyphs(C.text);
+  for (let i = 0; i < str.length && i < BW() / 8; i++) {
+    const code = toInternal(str.charCodeAt(i));
+    if (code) ctx.drawImage(g, code * 8, 0, 8, 8, i * 8, row * 8, 8, 8);
+  }
+}
+function topText() {
+  const n = BW() / 8;
+  if (n < 40) return (scored ? " >>> Punkte: " + sc + " <<<" : " >>> Punkte: 0").padEnd(n);
+  const base = "  >>>      Ihre Punktzahl: 0      ".padEnd(40).split("");
+  if (scored) { const s = sc + " <<<"; for (let i = 0; i < s.length; i++) base[27 + i] = s[i]; }
+  return base.join("");
+}
+function bottomText() {
+  const n = BW() / 8;
+  if (n < 40) {
+    if (bottomAlt) return (n >= 32 ? "   *** Bitte START druecken! ***" : " *** START druecken! ***").padEnd(n);
+    return (n >= 32 ? " > ROLLERBALL II (c) T.Tausend <" : " > ROLLERBALL II <").padEnd(n);
+  }
+  const base = "  > ROLLERBALL II (c) Thomas Tausend <".padEnd(40).split("");
+  if (bottomAlt) { const s = "   *** Bitte START druecken! ***"; for (let i = 0; i < s.length; i++) base[4 + i] = s[i]; }
+  return base.join("");
+}
+function drawBall(x, y) {
+  ctx.fillStyle = C.ball;
+  for (let r = 0; r < 4; r++) for (let k = 0; k < 4; k++) if (BALL[r] & (8 >> k)) ctx.fillRect(x - 4 + k * 2, y - 4 + r * 2, 2, 2);
+}
+function drawBoard() {
+  ctx.fillStyle = "#000"; ctx.fillRect(0, 0, BW(), BH());
+  textLine(0, topText());
+  textLine(ROWS * 2 + 1, bottomText());
+  const building = state === "build";
+  const reveal = building ? Math.floor(COLS * Math.max(0, st - 0.6) / 0.6) : COLS;
+  for (let s = 1; s <= reveal; s++) for (let z = 1; z <= ROWS; z++) {
+    const t = F[s][z];
+    if (t === 8 || (slide && s === slide.ts && z === slide.tz)) continue;
+    ctx.drawImage((trail[s][z] ? TRAIL : TILE)[t], s * 16, z * 16 - 8);
+  }
+  if (!building) {
+    ctx.drawImage(TILE[7], 0, zin * 16 - 8);
+    ctx.drawImage(TILE[1], 0, 0, 8, 16, (COLS + 1) * 16, zout * 16 - 8, 8, 16);
+  }
+  if (slide) {
+    const e = 1 - (1 - slide.t) * (1 - slide.t);
+    const x = (slide.fs + (slide.ts - slide.fs) * e) * 16, y = (slide.fz + (slide.tz - slide.fz) * e) * 16 - 8;
+    ctx.drawImage(TILE[slide.type], Math.round(x * scale) / scale, Math.round(y * scale) / scale);
+  }
+  // Zeitbalken (Player 1)
+  const from = building ? UNITS - Math.min(UNITS, Math.floor(UNITS * st / 0.6)) : cleared;
+  if (from < UNITS) { ctx.fillStyle = warned ? C.warn : C.bar; ctx.fillRect((COLS + 1) * 16 + 8, 8 + from * 2, 8, (UNITS - from) * 2); }
+  // Kugel (Player 0)
+  if (ball && !(state === "crash" && Math.floor(st * 8) % 2)) drawBall(Math.round(ball.x * scale) / scale, Math.round(ball.y * scale) / scale);
+}
+// GRAPHICS 1/2 Textbildschirme; POKE 87,0 lässt PRINT 40 Zeichen pro Zeile schreiben, also zwei Bildzeilen je Zeile
+function bigText(cells, text, idx, inv) {
+  for (const ch of text) {
+    let a = ch.charCodeAt(0); const lower = a >= 97 && a <= 122;
+    if (lower) a -= 32;
+    if (a !== 32) cells.push({ idx, g: toInternal(a) & 63, col: lower ? (inv ? C.pf3 : "flick") : (inv ? C.pf2 : C.pf0) });
+    idx++;
+  }
+  return idx;
+}
+function drawBig(cells, mode7, bg) {
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, SW, SH);
+  const ch = mode7 ? 16 : 8;
+  for (const c of cells) {
+    const col = c.col === "flick" ? (state === "win" ? C.pf1 : flicker) : c.col;
+    const x = (c.idx % 20) * 16, y = Math.floor(c.idx / 20) * ch;
+    if (y + ch <= SH) ctx.drawImage(glyphs(col), c.g * 8, 0, 8, 8, x, y, 16, ch);
+  }
+}
+function printLines(lines) {   // [[logische Zeile, [[text, invers], ...]], ...]
+  const cells = [];
+  for (const [line, segs] of lines) { let i = line * 40; for (const [t, inv] of segs) i = bigText(cells, t, i, inv); }
+  return cells;
+}
+// Auswahlmenü im Stil der GRAPHICS-1-Bildschirme
+const MENU_ROWS = [7, 13, 19];
+function drawMenu() {
+  const cells = [];
+  const put = (text, row, col) => {
+    col = col ?? Math.max(0, Math.floor((20 - text.length) / 2));
+    return (color) => { for (let i = 0; i < text.length; i++) { const a = text.charCodeAt(i); if (a !== 32) cells.push({ idx: row * 20 + col + i, g: toInternal(a) & 63, col: color }); } };
+  };
+  const z = SIZES[cfg.size], l = LEVELS[cfg.level];
+  const on = i => menuSel === i ? C.pf3 : C.pf0;
+  put("ROLLERBALL II", 1)(C.pf0);
+  put("SPIELFELD", 5)(C.pf2);
+  put(`< ${z.name} ${z.cols}X${z.rows} >`, 7)(on(0));
+  put("SCHWIERIGKEIT", 11)(C.pf2);
+  put(`< ${l.name} >`, 13)(on(1));
+  put(`${l.time} SEKUNDEN`, 15)(C.pf1);
+  put(menuSel === 2 ? ">>> START <<<" : "START", 19)(on(2));
+  put("FEUER = START", 22)(C.pf2);
+  drawBig(cells, false, "#000");
+}
+function render() {
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.fillStyle = "#000"; ctx.fillRect(0, 0, cv.width, cv.height);
+  const board = !["title", "menu", "fail", "win"].includes(state);
+  if (board) layout(BW(), BH()); else layout(SW, SH);
+  ctx.setTransform(scale, 0, 0, scale, ox, oy);
+  ctx.imageSmoothingEnabled = false;
+  if (state === "menu") drawMenu();
+  else if (state === "title") {
+    const cells = [];
+    bigText(cells, "ROLLERBALL", 0 * 20 + 5, false);
+    bigText(cells, "VON", 2 * 20 + 9, true);
+    bigText(cells, "thomas tausend", 4 * 20 + 3, true);
+    bigText(cells, "computer kontakt", 7 * 20 + 2, false);
+    bigText(cells, "knopf druecken!", 10 * 20 + 3, false);
+    for (const c of cells) if (Math.floor(c.idx / 20) === 7) c.col = C.pf2;
+    drawBig(cells, true, C.white);
+  } else if (state === "fail") {
+    drawBig(printLines([
+      [2, [["   +++ ", 0], ["fehler", 1], ["! +++", 0]]],
+      [4, [["    " + sc + " ", 0], ["PUNKTE", 1]]],
+      [7, [["     BITTE knopf", 0]]],
+      [8, [["      DRUECKEN!", 0]]],
+    ]), false, "#000");
+  } else if (state === "win") {
+    const l = [
+      [0, [["     GRATULIERE!", 0]]],
+      [2, [["      sie haben", 0]]],
+      [3, [["    " + sc + " ", 0], ["punkte", 1]]],
+      [4, [["     erreicht!", 0]]],
+    ];
+    let n = 6;
+    if (best) { l.push([6, [[" ", 0], ["neue bestleistung", 1]]]); n = 8; }
+    l.push([n, [["  ", 0], ["BESTES", 1], [" ERGEBNIS:", 0]]]);
+    l.push([n + 1, [["    ", 0], [">>>", 1], [" " + hs + " ", 0], ["<<<", 1]]]);
+    l.push([n + 3, [["  ", 0], ["start", 1], [" DRUECKEN!", 0]]]);
+    drawBig(printLines(l), false, "#000");
+  } else drawBoard();
+}
+
+// ---------- Ton (POKEY grob nachgebaut) ----------
+const sfx = (() => {
+  let ac = null, out = null, noise = null, muted = false;
+  try { muted = localStorage.getItem("rollerball2-mute") === "1"; } catch (e) {}
+  const pf = n => 63337 / (2 * (n + 1));
+  function ctxA() {
+    if (!ac) {
+      try {
+        ac = new (window.AudioContext || window.webkitAudioContext)();
+        out = ac.createGain(); out.gain.value = muted ? 0 : 0.22; out.connect(ac.destination);
+        noise = ac.createBuffer(1, ac.sampleRate, ac.sampleRate);
+        const d = noise.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+      } catch (e) { ac = null; }
+    }
+    if (ac && ac.state === "suspended") ac.resume();
+    return ac;
+  }
+  function voice({ type = "square", f = 440, f2, vol = 8, v2, dur = 0.1, at = 0, q }) {
+    const a = ctxA(); if (!a || muted) return;
+    const t0 = a.currentTime + at, g = a.createGain();
+    g.gain.setValueAtTime(vol / 15 * 0.5, t0);
+    if (v2 !== undefined) g.gain.linearRampToValueAtTime(v2 / 15 * 0.5, t0 + dur);
+    g.gain.setValueAtTime(v2 !== undefined ? v2 / 15 * 0.5 : vol / 15 * 0.5, t0 + dur - 0.005);
+    g.gain.linearRampToValueAtTime(0, t0 + dur);
+    let src;
+    if (type === "noise") {
+      src = a.createBufferSource(); src.buffer = noise; src.loop = true;
+      const bp = a.createBiquadFilter(); bp.type = "bandpass"; bp.frequency.value = f; bp.Q.value = q || 1.2;
+      src.connect(bp); bp.connect(g);
+    } else {
+      src = a.createOscillator(); src.type = type; src.frequency.setValueAtTime(f, t0);
+      if (f2) src.frequency.exponentialRampToValueAtTime(f2, t0 + dur);
+      src.connect(g);
+    }
+    g.connect(out); src.start(t0); src.stop(t0 + dur + 0.02);
+  }
+  return {
+    unlock: () => ctxA(),
+    toggle() { muted = !muted; try { localStorage.setItem("rollerball2-mute", muted ? "1" : "0"); } catch (e) {} if (out) out.gain.value = muted ? 0 : 0.22; if (!muted) ctxA(); return muted; },
+    get muted() { return muted; },
+    move: () => voice({ type: "noise", f: 6000, vol: 9, dur: 0.035, q: 0.7 }),
+    blocked: () => { voice({ type: "sawtooth", f: pf(51) / 3, vol: 15, v2: 0, dur: 0.35 }); voice({ type: "sawtooth", f: pf(102) / 3, vol: 15, v2: 0, dur: 0.35 }); },
+    warn: () => voice({ type: "square", f: pf(10), vol: 3, dur: 0.04 }),
+    roll: () => voice({ type: "noise", f: pf(226), vol: 9, dur: 0.07, q: 4 }),
+    crash: () => voice({ type: "sawtooth", f: pf(1) / 3, f2: pf(255) / 3, vol: 10, dur: 1.05 }),
+    barFill: () => voice({ type: "square", f: pf(235), f2: pf(148), vol: 5, dur: 0.6 }),
+    chord: () => { voice({ type: "sawtooth", f: pf(51) / 3, vol: 13, v2: 0, dur: 1.4 }); voice({ type: "sawtooth", f: pf(102) / 3, vol: 13, v2: 0, dur: 1.4 }); },
+    tick: () => voice({ type: "square", f: pf(8), vol: 4, dur: 0.015 }),
+    win: () => [121, 96, 81, 60].forEach((n, i) => voice({ type: "square", f: pf(n), vol: 5, dur: 1.0 - i * 0.12, at: i * 0.12 })),
+  };
+})();
+
+// ---------- Bedienung ----------
+const help = document.getElementById("help");
+function showHelp(on) { help.hidden = !on; }
+document.getElementById("b-help").addEventListener("click", () => showHelp(true));
+document.getElementById("h-close").addEventListener("click", () => showHelp(false));
+document.getElementById("h-new").addEventListener("click", () => { showHelp(false); sfx.unlock(); heldDir = null; menuSel = 2; setState("menu"); });
+help.addEventListener("pointerdown", e => { if (e.target === help) showHelp(false); });
+
+const sndBtn = document.getElementById("b-snd");
+function syncSnd() {
+  sndBtn.querySelector(".w").style.display = sfx.muted ? "none" : "";
+  sndBtn.querySelector(".x").style.display = sfx.muted ? "" : "none";
+  sndBtn.setAttribute("aria-label", sfx.muted ? "Ton an" : "Ton aus");
+}
+sndBtn.addEventListener("click", () => { sfx.toggle(); syncSnd(); });
+syncSnd();
+
+const fsBtn = document.getElementById("b-fs");
+const fsOk = document.fullscreenEnabled || document.webkitFullscreenEnabled;
+if (!fsOk) fsBtn.hidden = true;
+async function toggleFs() {
+  const d = document, el = d.documentElement;
+  if (d.fullscreenElement || d.webkitFullscreenElement) { (d.exitFullscreen || d.webkitExitFullscreen).call(d); return; }
+  try { await (el.requestFullscreen || el.webkitRequestFullscreen).call(el, { navigationUI: "hide" }); } catch (e) { return; }
+  try { await screen.orientation.lock("landscape"); } catch (e) {}
+}
+fsBtn.addEventListener("click", toggleFs);
+
+
+// Wischen: das Loch wandert in Wischrichtung; Tippen ist Feuer, im Spiel per Doppeltipp
+let touch = null, lastTap = 0;
+const toLogical = e => { const dpr = cv.width / innerWidth; return { x: (e.clientX * dpr - ox) / scale, y: (e.clientY * dpr - oy) / scale }; };
+cv.addEventListener("pointerdown", e => {
+  e.preventDefault(); sfx.unlock(); cv.setPointerCapture?.(e.pointerId);
+  touch = { id: e.pointerId, x: e.clientX, y: e.clientY, swiped: false };
+});
+cv.addEventListener("pointermove", e => {
+  if (!touch || e.pointerId !== touch.id) return;
+  const dx = e.clientX - touch.x, dy = e.clientY - touch.y;
+  if (Math.max(Math.abs(dx), Math.abs(dy)) < 28) return;
+  const dir = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "right" : "left") : (dy > 0 ? "down" : "up");
+  touch.x = e.clientX; touch.y = e.clientY; touch.swiped = true;   // weiterwischen schiebt das nächste Teil
+  if (state === "play") push(dir);
+  else if (state === "menu") menuInput(dir);
+});
+const endTouch = e => {
+  if (!touch || e.pointerId !== touch.id) return;
+  const t = touch; touch = null;
+  if (t.swiped || e.type === "pointercancel") return;
+  const { x, y } = toLogical(e);
+  if (state === "menu") {
+    const row = Math.floor(y / 8), i = MENU_ROWS.findIndex(r => Math.abs(row - r) <= 2);
+    if (i === 2) fire();
+    else if (i >= 0) { menuChange(i, x < SW / 2 ? -1 : 1); sfx.move(); }
+    return;
+  }
+  if (state === "play") {
+    const now = performance.now();
+    if (now - lastTap < 350) { lastTap = 0; fire(); } else lastTap = now;
+    return;
+  }
+  fire();
+};
+cv.addEventListener("pointerup", endTouch);
+cv.addEventListener("pointercancel", endTouch);
+
+const KEYS = { ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right", w: "up", s: "down", a: "left", d: "right" };
+addEventListener("keydown", e => {
+  if (!help.hidden) { if (e.key === "Escape") showHelp(false); return; }
+  const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+  if (KEYS[k]) { e.preventDefault(); sfx.unlock(); if (state === "menu") menuInput(KEYS[k]); else if (!e.repeat) { push(KEYS[k]); heldDir = KEYS[k]; heldT = 0.24; } }
+  else if (k === " " || k === "Enter") { e.preventDefault(); sfx.unlock(); if (!e.repeat) fire(); }
+  else if (k === "m") { sfx.toggle(); syncSnd(); }
+  else if (k === "f" && fsOk) toggleFs();
+  else if (k === "?" || k === "h") showHelp(true);
+});
+addEventListener("keyup", e => { const k = e.key.length === 1 ? e.key.toLowerCase() : e.key; if (KEYS[k] === heldDir) heldDir = null; });
+addEventListener("blur", () => { heldDir = null; });
+
+addEventListener("resize", resize);
+let last = performance.now();
+function frame(now) {
+  const dt = Math.min(0.05, (now - last) / 1000); last = now;
+  if (help.hidden) update(dt);
+  render();
+  requestAnimationFrame(frame);
+}
+resize();
+requestAnimationFrame(frame);
+})();
+</script>

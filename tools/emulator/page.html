@@ -1,0 +1,230 @@
+<title>Rollerball II spielen</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Layout: Monitor oben, darunter Joystick-Feld wie am Gehäuse, Herkunft und Listing als ruhige Spalte */
+:root {
+  --bg: #e9e4da;          /* Gehäuse-Beige des 800 XL */
+  --panel: #f6f3ec;
+  --fg: #23201b;
+  --muted: #6b6457;
+  --line: #cfc7b6;
+  --accent: #b5462a;      /* rote Feuertaste */
+  --accent-ink: #ffffff;
+  --start: #c9952c;       /* gelbe START-Taste */
+  --bezel: #2a2723;
+  --f-pixel: "Press Start 2P", ui-monospace, "Courier New", monospace;
+  --f-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1b1916; --panel: #25221e; --fg: #ece6da; --muted: #a59d8d; --line: #3a362f;
+    --accent: #e0694a; --accent-ink: #1b1916; --start: #e0b04a; --bezel: #0d0c0b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1b1916; --panel: #25221e; --fg: #ece6da; --muted: #a59d8d; --line: #3a362f;
+  --accent: #e0694a; --accent-ink: #1b1916; --start: #e0b04a; --bezel: #0d0c0b;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 820px; margin: 0 auto; padding-block: 24px 64px; display: grid; gap: 20px; }
+h1 { font-family: var(--f-pixel); font-weight: 400; font-size: clamp(1.1rem, 4.5vw, 1.6rem); line-height: 1.3; margin: 0; text-wrap: balance; }
+header p { margin: 8px 0 0; color: var(--muted); max-width: 65ch; }
+.monitor { position: relative; background: var(--bezel); border-radius: 14px; padding: clamp(8px, 2.5vw, 18px); }
+canvas { display: block; width: 100%; height: auto; aspect-ratio: 376 / 240; image-rendering: pixelated; border-radius: 4px; background: #000; }
+#overlay {
+  position: absolute; inset: 0; display: grid; place-items: center; text-align: center;
+  font-family: var(--f-pixel); font-size: .75rem; color: #f0e8d8; background: rgba(0,0,0,.55); border-radius: 14px;
+  cursor: pointer; padding: 16px;
+}
+#overlay span { display: block; margin-top: 10px; font-family: var(--f-body); font-size: .9rem; opacity: .85; }
+.deck { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
+.pad { display: grid; grid-template-columns: repeat(3, 56px); grid-template-rows: repeat(3, 56px); gap: 4px; }
+.key {
+  font-family: var(--f-pixel); font-size: .8rem; cursor: pointer; user-select: none; -webkit-user-select: none; touch-action: none;
+  border: 1px solid var(--line); background: var(--panel); color: var(--fg);
+  border-radius: 8px; padding: 0; box-shadow: 0 3px 0 var(--line);
+}
+.key.down { transform: translateY(2px); box-shadow: 0 1px 0 var(--line); }
+.key:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.pad .up { grid-column: 2; grid-row: 1; } .pad .left { grid-column: 1; grid-row: 2; }
+.pad .right { grid-column: 3; grid-row: 2; } .pad .dn { grid-column: 2; grid-row: 3; }
+.fire { width: 96px; height: 96px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.side { display: flex; flex-direction: column; gap: 8px; }
+.side .key { padding: 12px 14px; }
+.start { background: var(--start); color: #23201b; border-color: var(--start); }
+.hint { color: var(--muted); font-size: .9rem; margin: 0; max-width: 70ch; }
+.note { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; display: grid; gap: 8px; }
+.note p { margin: 0; max-width: 70ch; }
+details { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; }
+summary { cursor: pointer; padding: 10px 14px; font-weight: 700; }
+pre { margin: 0; padding: 0 14px 14px; overflow-x: auto; font-family: var(--f-mono); font-size: .8rem; line-height: 1.45; }
+.credits { font-size: .8rem; color: var(--muted); display: grid; gap: 6px; }
+.credits p { margin: 0; max-width: 80ch; }
+a { color: var(--accent); }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>ROLLERBALL II</h1>
+    <p>Von Thomas Tausend, abgedruckt in Computer Kontakt 6-7/86. Das Original-Listing läuft hier auf einem emulierten Atari 800 XL. Schiebe die Rohrteile ins Loch, bis ein Weg von der Kugel links zum Ausgang rechts führt, dann Feuer.</p>
+  </header>
+
+  <div class="monitor">
+    <canvas id="screen" width="376" height="240" aria-label="Atari-Bildschirm"></canvas>
+    <div id="overlay" role="button" tabindex="0">EINSCHALTEN<span>Antippen startet den Atari mit Ton</span></div>
+  </div>
+
+  <div class="deck">
+    <div class="pad" aria-label="Joystick">
+      <button class="key up" data-dir="1" aria-label="hoch">▲</button>
+      <button class="key left" data-dir="4" aria-label="links">◀</button>
+      <button class="key right" data-dir="8" aria-label="rechts">▶</button>
+      <button class="key dn" data-dir="2" aria-label="runter">▼</button>
+    </div>
+    <div class="side">
+      <button class="key start" id="k-start">START</button>
+      <button class="key" id="k-sound">TON AUS</button>
+      <button class="key" id="k-reset">NEU</button>
+    </div>
+    <button class="key fire" id="k-fire">FEUER</button>
+  </div>
+  <p class="hint">Tastatur: Pfeiltasten schieben ein Teil ins Loch (die Richtung ist die des Teils), Leertaste ist Feuer, Enter ist START. Nach dem Einschalten lädt der Atari das Programm und baut das Spielfeld auf, das dauert etwa 30 Sekunden. Den Zeitbalken rechts im Blick behalten.</p>
+
+  <div class="note">
+    <p><strong>Zum Listing:</strong> Abgetippt vom Scan auf archive.org. Ein paar Stellen waren schwer lesbar (Zeilen 2, 50, 66 und 71). Das Spiel läuft damit vollständig, kleine Abweichungen vom Heft sind trotzdem möglich.</p>
+  </div>
+
+  <details>
+    <summary>BASIC-Listing anzeigen</summary>
+    <pre id="listing">__LISTING__</pre>
+  </details>
+
+  <div class="credits">
+    <p>Emulator: <a href="https://github.com/cyco130/sfotty-pie" target="_blank" rel="noopener">Sfotty Pie</a>, Copyright 2021-present Fatih Aygün and contributors, MIT-Lizenz.</p>
+    <p>Firmware: AltirraOS, Copyright (C) 2008-2016 Avery Lee, und Altirra BASIC, Copyright (C) 2014-2016 Avery Lee. „Copying and distribution of this file, with or without modification, are permitted in any medium without royalty provided the copyright notice and this notice are preserved. This file is offered as-is, without any warranty.“</p>
+    <p>Rollerball II: Thomas Tausend, Computer Kontakt 6-7/86, S. 77–79.</p>
+  </div>
+</div>
+
+<script>__A8_BUNDLE__</script>
+<script>
+(() => {
+  const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+  const OS = b64("__OS_ROM__"), BASIC = b64("__BASIC_ROM__"), PROGRAM = b64("__PROGRAM__");
+  const { Atari, Joystick, buildBasicBootDisk, paletteFor, PAL_CYCLES_PER_FRAME, PAL_CYCLES_PER_SECOND } = A8;
+
+  const W = 376, H = 240, Y0 = 8;
+  const cv = document.getElementById("screen"), ctx = cv.getContext("2d");
+  const img = ctx.createImageData(W, H), px = new Uint32Array(img.data.buffer);
+  const palette = paletteFor("pal"); // 0xAABBGGRR, passt direkt auf little-endian ImageData
+
+  let m, joy, running = false;
+  function boot() {
+    m = new Atari({ xl: true, os: OS, basic: BASIC, tvSystem: "pal" });
+    m.insertDisk(buildBasicBootDisk(PROGRAM));
+    joy = new Joystick(m.joysticks[0]);
+    applyInput();
+  }
+
+  // ---------- Ton ----------
+  let audio = null, nextTime = 0, soundOn = true, dc = 0;
+  const RATE = 44100, STEP = PAL_CYCLES_PER_SECOND / RATE;
+  let chunk = new Float32Array(1024), chunkLen = 0, acc = 0;
+  function flushAudio() {
+    if (!audio || !soundOn || chunkLen === 0) { chunkLen = 0; return; }
+    const buf = audio.createBuffer(1, chunkLen, RATE);
+    buf.copyToChannel(chunk.subarray(0, chunkLen), 0);
+    const src = audio.createBufferSource(); src.buffer = buf; src.connect(audio.destination);
+    const now = audio.currentTime;
+    if (nextTime < now + 0.03 || nextTime > now + 0.3) nextTime = now + 0.06;
+    src.start(nextTime); nextTime += chunkLen / RATE; chunkLen = 0;
+  }
+
+  // ---------- Emulation ----------
+  function runFrame() {
+    for (let c = 0; c < PAL_CYCLES_PER_FRAME; c++) {
+      m.cycle();
+      if (++acc >= STEP) {
+        acc -= STEP;
+        const v = m.audio; dc += (v - dc) * 0.002;
+        if (chunkLen < chunk.length) chunk[chunkLen++] = (v - dc) * 0.35;
+      }
+    }
+    flushAudio();
+  }
+  function draw() {
+    const f = m.frame;
+    for (let y = 0; y < H; y++) {
+      const row = (y + Y0) * W;
+      for (let x = 0; x < W; x++) px[y * W + x] = palette[f[row + x]];
+    }
+    ctx.putImageData(img, 0, 0);
+  }
+  let last = 0, budget = 0;
+  function loop(t) {
+    if (!running) return;
+    budget += Math.min(100, t - last) / 20; last = t; // 50 Bilder pro Sekunde (PAL)
+    let n = 0;
+    while (budget >= 1 && n < 3) { runFrame(); budget--; n++; }
+    if (budget > 3) budget = 0;
+    if (n) draw();
+    requestAnimationFrame(loop);
+  }
+
+  // ---------- Eingabe ----------
+  let dir = 0, fire = false, start = false;
+  function applyInput() { if (!joy) return; joy.direction = dir; joy.trigger = fire; m.console.start = start; }
+  const KEYS = { ArrowUp: 1, ArrowDown: 2, ArrowLeft: 4, ArrowRight: 8, w: 1, s: 2, a: 4, d: 8 };
+  window.addEventListener("keydown", e => {
+    if (!running) return;
+    if (e.key in KEYS) dir |= KEYS[e.key];
+    else if (e.key === " " || e.key === "Control") fire = true;
+    else if (e.key === "Enter" || e.key === "F2") start = true;
+    else return;
+    e.preventDefault(); applyInput();
+  });
+  window.addEventListener("keyup", e => {
+    if (e.key in KEYS) dir &= ~KEYS[e.key];
+    else if (e.key === " " || e.key === "Control") fire = false;
+    else if (e.key === "Enter" || e.key === "F2") start = false;
+    applyInput();
+  });
+  window.addEventListener("blur", () => { dir = 0; fire = false; start = false; applyInput(); });
+  function hold(el, down, up) {
+    el.addEventListener("pointerdown", e => { e.preventDefault(); el.setPointerCapture?.(e.pointerId); el.classList.add("down"); down(); applyInput(); });
+    const rel = () => { el.classList.remove("down"); up(); applyInput(); };
+    el.addEventListener("pointerup", rel); el.addEventListener("pointercancel", rel);
+  }
+  document.querySelectorAll("[data-dir]").forEach(el => { const d = +el.dataset.dir; hold(el, () => dir |= d, () => dir &= ~d); });
+  hold(document.getElementById("k-fire"), () => fire = true, () => fire = false);
+  hold(document.getElementById("k-start"), () => start = true, () => start = false);
+
+  const overlay = document.getElementById("overlay");
+  function powerOn() {
+    overlay.hidden = true;
+    try { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); audio.resume?.(); } catch (e) { audio = null; }
+    if (!m) boot();
+    if (!running) { running = true; last = performance.now(); requestAnimationFrame(loop); }
+  }
+  overlay.addEventListener("click", powerOn);
+  overlay.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); powerOn(); } });
+  document.getElementById("k-reset").addEventListener("click", () => { boot(); powerOn(); });
+  const soundBtn = document.getElementById("k-sound");
+  soundBtn.addEventListener("click", () => { soundOn = !soundOn; soundBtn.textContent = soundOn ? "TON AUS" : "TON AN"; });
+
+  // Standbild bis zum Einschalten: das leere Atari-Blau
+  ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H);
+})();
+</script>

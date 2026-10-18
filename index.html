@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Atari Magazin Register 1987</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Durchsuchbare Inhaltsverzeichnisse des ATARImagazins (Verlag Rätz-Eberle), Jahrgang 1987">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: schmale Registerspalte, oben Suchzeile wie ein READY-Prompt, darunter Hefte als Abschnitte */
+:root {
+  --bg: #eef1f8;
+  --panel: #ffffff;
+  --fg: #16203a;
+  --muted: #5a6582;
+  --line: #d3d9e8;
+  --accent: #1d4fd8;      /* Atari-BASIC-Blau */
+  --accent-ink: #ffffff;
+  --mark: #ffe08a;
+  --st: #7a3fb0;
+  --xl: #0f7a52;
+  --warn: #9a5b00;
+  --f-display: "VT323", ui-monospace, "Courier New", monospace;
+  --f-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1530; --panel: #15204a; --fg: #e3e8f7; --muted: #9aa6c8; --line: #283770;
+    --accent: #6f9bff; --accent-ink: #0d1530; --mark: #6b5a12; --st: #c79bf0; --xl: #5fd3a4; --warn: #f0b860;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1530; --panel: #15204a; --fg: #e3e8f7; --muted: #9aa6c8; --line: #283770;
+  --accent: #6f9bff; --accent-ink: #0d1530; --mark: #6b5a12; --st: #c79bf0; --xl: #5fd3a4; --warn: #f0b860;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 860px; margin: 0 auto; padding-block: 24px 64px; display: grid; gap: 24px; }
+header h1 {
+  font-family: var(--f-display); font-weight: 400; font-size: clamp(2.2rem, 7vw, 3.4rem);
+  line-height: 1; margin: 0; letter-spacing: .02em; text-wrap: balance;
+}
+header p { margin: 8px 0 0; color: var(--muted); max-width: 65ch; }
+.search {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--bg); padding-block: 8px; display: grid; gap: 8px;
+}
+.prompt {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--accent); color: var(--accent-ink);
+  border-radius: 6px; padding: 6px 12px;
+  font-family: var(--f-display); font-size: 1.6rem;
+}
+.prompt label { white-space: nowrap; }
+.prompt input {
+  flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: inherit;
+  font: inherit; caret-color: currentColor;
+}
+.prompt input::placeholder { color: inherit; opacity: .6; }
+.prompt:focus-within { outline: 3px solid var(--fg); outline-offset: 2px; }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.chip {
+  font: inherit; font-size: .85rem; cursor: pointer;
+  border: 1px solid var(--line); background: var(--panel); color: var(--fg);
+  border-radius: 999px; padding: 3px 12px;
+}
+.chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.count { color: var(--muted); font-size: .85rem; margin-left: auto; font-variant-numeric: tabular-nums; }
+.note {
+  border-left: 4px solid var(--warn); background: var(--panel);
+  padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: .95rem;
+}
+.note strong { color: var(--warn); }
+.note p { margin: 0; }
+.note p + p { margin-top: 6px; }
+.issue { display: grid; gap: 8px; }
+.issue-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; border-bottom: 2px solid var(--fg); padding-bottom: 4px; }
+.issue-head h2 { font-family: var(--f-display); font-weight: 400; font-size: 2rem; margin: 0; line-height: 1; }
+.issue-head .months { color: var(--muted); }
+.issue-head .links { margin-left: auto; font-size: .85rem; display: flex; gap: 12px; }
+a { color: var(--accent); }
+.group { display: grid; gap: 0; }
+.group h3 {
+  margin: 10px 0 2px; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+}
+ul { list-style: none; margin: 0; padding: 0; }
+li {
+  display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: baseline;
+  padding: 5px 0; border-bottom: 1px dotted var(--line);
+}
+li .t { min-width: 0; }
+li .p { font-family: var(--f-display); font-size: 1.25rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tag { font-size: .7rem; font-weight: 700; letter-spacing: .06em; border: 1px solid currentColor; border-radius: 3px; padding: 0 5px; margin-left: 6px; vertical-align: 2px; }
+.tag.xl { color: var(--xl); } .tag.st { color: var(--st); } .tag.ocr { color: var(--warn); font-weight: 400; }
+.listing .t { font-weight: 700; }
+mark { background: var(--mark); color: inherit; border-radius: 2px; }
+.empty { color: var(--muted); font-style: italic; }
+footer { color: var(--muted); font-size: .85rem; display: grid; gap: 6px; }
+footer p { margin: 0; max-width: 70ch; }
+@media (max-width: 480px) { .issue-head .links { margin-left: 0; width: 100%; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>ATARImagazin 1987</h1>
+    <p>Inhaltsverzeichnisse aller sechs Hefte des ersten Jahrgangs (Verlag Rätz-Eberle). Fett gedruckt sind die Programme zum Abtippen.</p>
+  </header>
+
+  <div class="search">
+    <div class="prompt">
+      <label for="q">READY&gt;</label>
+      <input id="q" type="search" placeholder="Suchbegriff, z. B. Rollerball" autocomplete="off" spellcheck="false">
+    </div>
+    <div class="filters" role="group" aria-label="Filter">
+      <button class="chip" id="f-all" data-f="all" aria-pressed="true">Alles</button>
+      <button class="chip" id="f-prog" data-f="prog" aria-pressed="false">Nur Listings</button>
+      <button class="chip" id="f-xl" data-f="xl" aria-pressed="false">Nur XL/XE</button>
+      <button class="chip" id="f-games" data-f="games" aria-pressed="false">Spieletests</button>
+      <span class="count" id="count"></span>
+    </div>
+  </div>
+
+  <div class="note" id="rb-note">
+    <p><strong>Rollerball gefunden:</strong> Das Listing „Rollerball“ von Thomas Tausend (Atari-BASIC) erschien in der Zeitschrift <em>Computer Kontakt</em>, Heft Juni/Juli 1986 (Nr. 20), Atari-Teil ab Seite 78 unter dem Titel „Rollerball II – das Superspiel!“, also nicht im ATARImagazin. <a href="https://archive.org/details/computerkontakt-magazine-20" target="_blank" rel="noopener">Scan des Hefts (archive.org)</a>, <a href="https://a8.fandal.cz/detail.php?files_id=2808" target="_blank" rel="noopener">Programmdatei bei Fandal</a>. Quellen: <a href="https://www.atari-archive.de/listings.htm" target="_blank" rel="noopener">atari-archive.de</a> und <a href="http://www.atarimania.com/game-atari-400-800-xl-xe-rollerball-ii_4434.html" target="_blank" rel="noopener">Atarimania</a>.</p>
+    <p>Im ATARImagazin 1987 kommt Rollerball nicht vor. Das Heft gibt es erst seit Januar 1987, Hefte von 1986 existieren nicht.</p>
+  </div>
+
+  <main id="list"></main>
+
+  <footer>
+    <p>Quelle: OCR-Volltexte der Scans auf archive.org und Atarimania. Einträge mit <span class="tag ocr">OCR?</span> waren im Scan schlecht lesbar, Titel oder Seitenzahl können abweichen.</p>
+    <p>Die Kennzeichnung <span class="tag xl">XL</span> / <span class="tag st">ST</span> ist nur gesetzt, wo Titel, Heft oder Editorial den Rechner eindeutig nennen. Bei Listings ohne Kennzeichnung ist der Rechner nicht bekannt.</p>
+  </footer>
+</div>
+
+<script>
+// Format pro Eintrag: [Rubrik, Titel, Seite, Flags]  Flags: p = Programm/Listing, xl, st, ? = OCR unsicher
+const HEFTE = [
+  { nr: "1/87", monate: "Januar/Februar 1987", id: "87-01", e: [
+    ["Rubriken","Editorial",3],["Rubriken","Softwareservice",30],["Rubriken","Buchversand",42],["Rubriken","Bücher",74],["Rubriken","Vorschau, Impressum, Inserentenverzeichnis",82],
+    ["Markt","Neuheiten",6],["Markt","Software und Bücher für 8 Bit",17,"xl"],
+    ["Tests","RAM-Disk-Help, Harddisk-Help",10],["Tests","Monostar",12],["Tests","Musix 32",22],["Tests","CAD-30",26],["Tests","Print Master",28],
+    ["Berichte","20-MByte-Harddisk von Vortex",8],["Berichte","Psion-Chess",14],
+    ["Serien","Spiele programmieren, Teil 1",24],["Serien","Action!-Center Nr. 1",32,"xl"],["Serien","Floppy 1050 mit Happy-Enhancement",36,"xl"],
+    ["Tips und Tricks","Das Atari-ST-TOS",18,"st"],["Tips und Tricks","GEM-Routinen",52,"st"],["Tips und Tricks","Routinen für ST-Assembler",53,"st"],
+    ["Programme","ST-Datei-Utility: Info",58,"p st"],["Programme","Spiel: Kreisel",62,"p"],["Programme","Spiel: PuzzlerST",66,"p st"],
+    ["Games","Major Motion",77],["Games","Nuclear Nick",77],["Games","Beer Belly Burt's Brew Biz",78],["Games","Space-Station",78],["Games","ST-Protector",78],["Games","Polar Pierre",79],["Games","Screaming Wings",80],["Games","Deep Space",80],["Games","Arena",81],["Games","A Day at the Races",81],
+    ["Leserecke","Clubs",5],["Leserecke","Spiele-Ecke",70],["Leserecke","Kleinanzeigen",73]
+  ]},
+  { nr: "2/87", monate: "März/April 1987", id: "87-02", e: [
+    ["Rubriken","Editorial",3],["Rubriken","Topprogramm",46],["Rubriken","Software-Bewertung",71,"?"],["Rubriken","Buchversand",66],["Rubriken","Bücher",82],["Rubriken","Vorschau, Impressum, Inserentenverzeichnis",96],
+    ["Markt","Neuheiten",6],["Markt","Software für den ST",8,"st"],["Markt","Neue Spiele aus USA",11],
+    ["Tests","Koch & Fitness",20],["Tests","Dame",30],["Tests","Disk-Royal",31],["Tests","Matrixdrucker Star NL-10",32],["Tests","Diskmaster",37],["Tests","ST-Oszilloskop",38,"st ?"],["Tests","Floppylaufwerk FL-1",70],["Tests","Videomeister",80],
+    ["Berichte","Modellbahnsteuerung mit ST",12,"st"],["Berichte","ANTIC",18],["Berichte","CokxStar (Titel unleserlich)",22,"?"],["Berichte","Atari in Großbritannien",25],["Berichte","Omikron-BASIC",74,"st"],
+    ["Serien","Spiele programmieren, Teil 2",26],["Serien","Action!-Center Nr. 2",34,"xl"],["Serien","Floppy 1050 mit Happy-Enhancement",50,"xl"],
+    ["Tips und Tricks","Directory in GFA-BASIC",40,"st"],["Tips und Tricks","Datenverschlüsselung",41,"?"],["Tips und Tricks","320 KByte im Eigenbau",56,"xl"],["Tips und Tricks","DOS-Farbgenerator",68],["Tips und Tricks","Nachtrag zum XL-TOS",80,"xl"],
+    ["Programme","Star-Castle (Topprogramm)",46,"p"],["Programme","KAH – ein Spiel",61,"p"],["Programme","Memonix",62,"p"],
+    ["Games","Summer Games",88],["Games","World Games",88],["Games","Freaky Factory",89],["Games","Mercenary",90],["Games","Time Bandit",91],["Games","Scooter",92],["Games","Starglider",92,"?"],["Games","Land of Havoc",94],["Games","N.n.a. (Titel unleserlich)",94,"?"],["Games","Shanghai",95],["Games","International Karate",96],["Games","Basketball",96],["Games","Timebound",97],
+    ["Leserecke","Clubs",4],["Leserecke","Spiele-Ecke",72],["Leserecke","Kleinanzeigen",84]
+  ]},
+  { nr: "3/87", monate: "Mai/Juni 1987", id: "87-03", e: [
+    ["Rubriken","Editorial",3],["Rubriken","Buchversand",46],["Rubriken","Topprogramm",66],["Rubriken","Softwareservice",77],["Rubriken","Buchbesprechungen",94],["Rubriken","Vorschau, Impressum, Inserentenverzeichnis",106],
+    ["Tests","F.E.T.-Farbdigitizer",16],["Tests","Pro Draw Grafiktablett",17],["Tests","Jack Design",26],["Tests","Soundmeister",32],["Tests","GFA-Vektor",63,"st"],["Tests","GFA-Basic-Compiler",64,"st ?"],["Tests","Micro Time Clock Card",72],["Tests","K-Switch",73],["Tests","Art-Director",88],
+    ["Berichte","Atari auf der CeBIT",10],["Berichte","DFÜ",20],["Berichte","Computer Aided Design",78],["Berichte","Atari PC",82],
+    ["Serien","Spiele programmieren, Teil 3",34],["Serien","Action!-Center Nr. 3",38,"xl"],
+    ["Kurs","Floppy 1050 mit Happy Enhancement",40,"xl"],
+    ["Tips und Tricks","Schnellere Arithmetik für Atari XL/XE",52,"xl"],["Tips und Tricks","Copy Cass-Disc",54],["Tips und Tricks","Nachträge zu „320 KByte im Eigenbau“",55,"xl"],
+    ["Programme","DDD-Laby",null,"p ?"],["Programme","Like Boulder Dash",58,"p"],["Programme","Disk Recycling",60,"p"],["Programme","Confuzion (Topprogramm)",66,"p"],
+    ["Games","The Goonies",96],["Games","Rescue on Fractalus",96],["Games","Tales of Dragons and Cavemen",98],["Games","Super Cycle",100],["Games","Wanderer",100],["Games","The Karate Kid Part II",102],["Games","Championship Wrestling",103],["Games","Moonmist",104],["Games","Masterchess",104],["Games","Boulder Dash Construction Set",105],
+    ["Leserecke","Clubs",30],["Leserecke","Kleinanzeigen",74],["Leserecke","Fragebogen",85],["Leserecke","Games Guide",90],["Leserecke","Top Ten",101]
+  ]},
+  { nr: "4/87", monate: "Juli/August 1987", id: "87-04", e: [
+    ["Rubriken","Editorial",3],["Rubriken","Buchversand",26,"?"],["Rubriken","Buchbesprechungen",78],["Rubriken","Softwareservice",91],["Rubriken","Vorschau, Impressum, Inserentenverzeichnis",106],
+    ["Tests","Userkey",9],["Tests","Modem SM 30",20],["Tests","Megaboard",22],["Tests","Strategie mit ST",24,"st"],["Tests","Protext ST",31,"st"],["Tests","Super Directory",34],["Tests","Timeadress",82,"?"],["Tests","GEM Keyboard Expander",95,"st"],
+    ["Berichte","Atari Computer Show",11],["Berichte","NEC P6 Matrixdrucker",12],["Berichte","Grafikkonverter",null,"?"],["Berichte","ANTIC in Germany",28],
+    ["Serien","Spiele programmieren, Teil 4",42],["Serien","Action!-Center Nr. 4",46,"xl ?"],["Serien","Assemblerecke ST",73,"st"],["Serien","Floppy 1050 mit Happy oder Turbo 1050",36,"xl"],
+    ["Tips und Tricks","2 Miniprogramme für Einsteiger",54],["Tips und Tricks","Directory Master V3.0",55],["Tips und Tricks","GFA-PSAVE-BASIC-Files compilieren",61,"st"],["Tips und Tricks","Format83",61],["Tips und Tricks","Bauanleitung für Relais-Interface",72],["Tips und Tricks","Kursivschrift",80],["Tips und Tricks","Programmierung von Rollenspielen",104],
+    ["Programme","Taxi (Topprogramm)",48,"p"],["Programme","Fractalbilder dreidimensional",58,"p"],["Programme","Renamer in GFA-Basic",63,"p st"],
+    ["Games","Niemals Nie",24],["Games","Wagnis",24],["Games","Balance of Power",25],["Games","Tomahawk",84],["Games","Space Pilot",84],["Games","XTRON",85],["Games","Cohen's Tower",87],["Games","Thai Boxing",87],["Games","Zorro",88],["Games","Silent Service",89],["Games","Reisender im Wind",92],["Games","Fight Night",92],["Games","Pinball Factory",93],["Games","Jewels of Darkness",100],["Games","Silicon Dreams",100],
+    ["Leserecke","Clubs",83],["Leserecke","Top-Ten",90],["Leserecke","Kleinanzeigen",96],["Leserecke","Games Guide",100]
+  ]},
+  { nr: "5/87", monate: "September/Oktober 1987", id: "87-05", e: [
+    ["Rubriken","Markt",5],["Rubriken","Softwareservice",25],["Rubriken","Buchversand",52],["Rubriken","Bücher",76],["Rubriken","Vorschau, Inserenten, Impressum",106],
+    ["Tests","HCX-0-Uhr",13,"?"],["Tests","Trommeln digital",22],["Tests","Minstrel Music Compiler",24],["Tests","T.I.M.",26],["Tests","Turbo-Freezer",28,"xl"],["Tests","Fleet Street Editor",30],["Tests","CRP-Grafiktablett",34],["Tests","MAG-Multi-CAD 1.1",38],["Tests","Cosmic-Vierfarb-Plotter",83],
+    ["Berichte","MIDI",14],["Berichte","MIDI-Kompendium 2",16],["Berichte","Atari Großbritannien",32],
+    ["Kurse","Spiele programmieren, Teil 5",38],["Kurse","Floppy 1050",null,"xl ?"],
+    ["Tips und Tricks","Eintipphilfe",68,"?"],["Tips und Tricks","Bilder digitalisieren",78],
+    ["Programme","Knuffel",48,"p st"],["Programme","Editor 80 (Topprogramm, 80 Zeichen für 8 Bit)",54,"p xl"],["Programme","Prüfsummenindikator",62,"p xl"],["Programme","ST-Assemblerecke",58,"st"],
+    ["Games","Werner – Mach hin!",90],["Games","Sea Bandit",90],["Games","Goldrunner",91],["Games","Ninja Mission",92],["Games","Astro-Droid",92,"?"],["Games","Mission Elevator",94],["Games","Typhoon",null,"?"],["Games","Techmate Chess",96],["Games","Arkanoid",96],["Games","The Tail of Beta Lyrae",97],
+    ["Leserecke","Leserfragen",70,"?"],["Leserecke","Die Ergebnisse",73],["Leserecke","Clubnachrichten",74],["Leserecke","Programmierwettbewerb",82],["Leserecke","Kleinanzeigen",86],["Leserecke","Top-Ten",95],["Leserecke","Games Guide",98]
+  ]},
+  { nr: "6/87", monate: "November/Dezember 1987", id: "87-06", e: [
+    ["Rubriken","Markt",5],["Rubriken","Softwareservice",33],["Rubriken","Topprogramm",54],["Rubriken","Buchversand",64,"?"],["Rubriken","Bücher",100],["Rubriken","Impressum",106],
+    ["Tests","Videomeister",20],["Tests","Digitizer und Realtizer",22,"?"],["Tests","The Copyist",25],["Tests","M.I.D.I.-Library",28],["Tests","dB Man",30],["Tests","Trackball",34],["Tests","Debug Royal",35],
+    ["Berichte","Atari-Show",7],["Berichte","Fischertechnik",14],["Berichte","Netzwerk für ST",16,"st"],["Berichte","Neues von GFA",18],["Berichte","Interview",32],["Berichte","Praxistest",73],
+    ["Serie","Spiele programmieren (mit Player-Animator)",36,"xl"],["Serie","ST-Assembler-Ecke",44,"st"],
+    ["Tips und Tricks","BREAK-Taste im Griff",59],["Tips und Tricks","Dumper",60],["Tips und Tricks","Konverter in C",64],["Tips und Tricks","Vertty (Titel unleserlich)",66,"?"],["Tips und Tricks","Gegen kalte Mäuse",68,"st"],["Tips und Tricks","Joystick am ST",69,"st"],["Tips und Tricks","3-D-Micro-CAD",70],
+    ["Programme","Strategie mit GFA-Basic",39,"p st"],["Programme","Ufo",48,"p ?"],["Programme","Perxor (Topprogramm, Tennis + Breakout)",54,"p"],
+    ["Games","Invasion",89],["Games","Barbarian",89],["Games","Power Down",90],["Games","The Guild of Thieves",92],["Games","Space Gunner",92],["Games","Pirates",94],["Games","Metrocross",96],["Games","Gridrunner",97],["Games","Gauntlet",97],["Games","James Bond 007",98],["Games","Bureaucracy",99],
+    ["Leserecke","Leserbriefe",75],["Leserecke","Clubnachrichten",81],["Leserecke","Kleinanzeigen",85],["Leserecke","Top 10",95],["Leserecke","Games Guide",102]
+  ]}
+];
+
+const $q = document.getElementById("q"), $list = document.getElementById("list"), $count = document.getElementById("count");
+let filter = "all";
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ß/g, "ss");
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+function hl(text, q) {
+  if (!q) return esc(text);
+  const n = norm(text), i = n.indexOf(q);
+  if (i < 0) return esc(text);
+  return esc(text.slice(0, i)) + "<mark>" + esc(text.slice(i, i + q.length)) + "</mark>" + esc(text.slice(i + q.length));
+}
+function render() {
+  const q = norm($q.value.trim());
+  let total = 0, html = "";
+  for (const h of HEFTE) {
+    const groups = new Map();
+    for (const [rub, titel, seite, flags = ""] of h.e) {
+      const f = flags.split(" ");
+      if (filter === "prog" && !f.includes("p")) continue;
+      if (filter === "xl" && !f.includes("xl")) continue;
+      if (filter === "games" && rub !== "Games") continue;
+      if (q && !norm(titel + " " + rub + " " + h.nr).includes(q)) continue;
+      if (!groups.has(rub)) groups.set(rub, []);
+      groups.get(rub).push({ titel, seite, f });
+      total++;
+    }
+    if (!groups.size) continue;
+    html += `<section class="issue" id="heft-${h.id}"><div class="issue-head"><h2>Heft ${h.nr}</h2><span class="months">${h.monate}</span>
+      <span class="links"><a href="https://archive.org/details/Atari-Magazin-${h.id}" target="_blank" rel="noopener">Scan (archive.org)</a>
+      <a href="https://www.atarimania.com/mags/pdf/Atari-Magazin-${h.id}.pdf" target="_blank" rel="noopener">PDF (Atarimania)</a></span></div>`;
+    for (const [rub, items] of groups) {
+      html += `<div class="group"><h3>${esc(rub)}</h3><ul>`;
+      for (const it of items) {
+        const tags = (it.f.includes("xl") ? '<span class="tag xl">XL</span>' : "") + (it.f.includes("st") ? '<span class="tag st">ST</span>' : "") + (it.f.includes("?") ? '<span class="tag ocr">OCR?</span>' : "");
+        html += `<li class="${it.f.includes("p") ? "listing" : ""}"><span class="t">${hl(it.titel, q)}${tags}</span><span class="p">${it.seite == null ? "S. ?" : "S. " + it.seite}</span></li>`;
+      }
+      html += `</ul></div>`;
+    }
+    html += `</section>`;
+  }
+  $list.innerHTML = html || `<p class="empty">Kein Eintrag passt zu „${esc($q.value.trim())}“. Die Suche durchsucht Titel und Rubriken aller sechs Hefte.</p>`;
+  $count.textContent = total + (total === 1 ? " Eintrag" : " Einträge");
+}
+$q.addEventListener("input", render);
+document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+  filter = b.dataset.f;
+  document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", String(c === b)));
+  render();
+}));
+render();
+</script>
+</html>
