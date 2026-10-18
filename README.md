@@ -12,6 +12,8 @@ Grundlage sind die OCR-Volltexte der Scans auf archive.org bzw. Atarimania; unsi
 
 ## Rollerball
 
+Ausführliche Erklärung der beiden spielbaren Varianten in [`rollerball/README.md`](rollerball/README.md).
+
 - [`rollerball/rollerball2.txt`](rollerball/rollerball2.txt): das Original-Listing „Rollerball II“ von Thomas Tausend (Computer Kontakt 6-7/86, S. 77–79), abgetippt vom Scan. Grafik- und Cursorzeichen stehen als Platzhalter wie `{^A}` oder `{DOWN}` drin.
 - [`rollerball/ROLLER.LST`](rollerball/ROLLER.LST): dasselbe Listing als ATASCII-Datei, im Emulator (z. B. Altirra) per `ENTER "D:ROLLER.LST"` laden und mit `RUN` starten. Erzeugt mit [`tools/atascii_lst.py`](tools/atascii_lst.py).
 - [`rollerball/spielen.html`](rollerball/spielen.html): **Rollerball II spielen.** Ein emulierter Atari 800 XL im Browser ([Sfotty Pie](https://github.com/cyco130/sfotty-pie), MIT) mit den freien AltirraOS- und Altirra-BASIC-ROMs, der das Original-Programm lädt. Eine einzige Datei, einfach öffnen. Gebaut mit [`tools/emulator/build.py`](tools/emulator/build.py) aus [`rollerball/ROLLER.BAS`](rollerball/ROLLER.BAS) (das tokenisierte Programm, erzeugt mit `tools/emulator/tokenize.ts`).
