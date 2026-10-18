@@ -20,6 +20,9 @@ ALT = {3: "computer-kontakt-8-9-84-august-september", 8: "ck198502"}
 
 
 def monate(ausgabe):
+    m = re.fullmatch(r"(\d+)/(\d\d)-(\d+)/(\d\d)", ausgabe or "")   # über den Jahreswechsel, z. B. 12/86-1/87
+    if m:
+        return f"{MONATE[int(m[1]) - 1]} {1900 + int(m[2])}/{MONATE[int(m[3]) - 1]} {1900 + int(m[4])}"
     m = re.fullmatch(r"(\d+)(?:-(\d+))?/(\d\d)", ausgabe or "")
     if not m:
         return ausgabe or ""
