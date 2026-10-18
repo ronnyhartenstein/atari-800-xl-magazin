@@ -1,0 +1,31 @@
+name: Computer-Kontakt-Inhaltsseiten
+
+# Lädt die Original-Scans der Computer-Kontakt-Hefte, erkennt die ersten Seiten
+# mit Tesseract und legt die Inhaltsverzeichnis-Seiten unter
+# data/computerkontakt/inhalt/ ab. Start von Hand unter "Actions".
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  inhalt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get update && sudo apt-get install -y tesseract-ocr tesseract-ocr-deu
+      - run: pip install pillow==10.4.0
+      - run: python3 tools/ck_inhalt.py
+      - name: Ergebnis einchecken
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || git commit -m "Inhaltsseiten der Computer-Kontakt-Hefte erkannt"
+          git pull --rebase
+          git push
