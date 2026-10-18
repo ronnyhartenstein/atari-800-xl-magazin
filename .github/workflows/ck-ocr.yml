@@ -1,0 +1,31 @@
+name: Computer-Kontakt-OCR laden
+
+# Holt Metadaten und OCR-Volltexte aller Computer-Kontakt-Hefte von archive.org
+# nach data/computerkontakt/. Startet bei Änderungen am Script oder von Hand.
+on:
+  push:
+    paths:
+      - tools/ck_ocr.py
+      - .github/workflows/ck-ocr.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  ocr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 tools/ck_ocr.py
+      - name: Ergebnis einchecken
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || git commit -m "OCR-Texte der Computer-Kontakt-Hefte geladen"
+          git pull --rebase
+          git push
