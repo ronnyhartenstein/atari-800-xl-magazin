@@ -1,0 +1,7138 @@
+Oktobsr '85 DM 4,50 OS 38,- SF 4,50 
+
+TOPPROGRAMM DES MONATS 
+
+COMMODORE 
+
+Fur alle C 64 User: Raddish One, das Topprogramm 
+des Monats. AuSerdem den Floppykurs Teil 2, viele 
+weilere Programme, Hard- und Softwarebeschreibun- 
+gen und noch eine ganze Menge mehr. 
+
+SCHNEIDER 
+
+Das Super-Actionspiel auf dem CPC: Buggy Bluster 
+von Andreas Zallmann. AuGerdem: Maschinenpro- 
+gramme stoppen. Soundchip AV-3-8912 programmie- 
+ren, benutzerdefinierte Taslatur und viele weilere 
+Berichte. Tests und News. 
+
+TI99/4A ATARI 
+
+
+
+
+• ASSEMBLERPROGRAMME 
+
+• SOUND-EDITOR 
+
+• HILFSROUTINEN, TIPS UND NEWS 
+
+SPECTRUM 
+
+Ataris SpielhallenknCiller »Centipe« jetzt 
+auch auf dem Spectrum. AuSerdem 
+bringen wir hochauflosende Grafik in 3-D, 
+Super-List, einen Assemblerkurs sowie 
+allerlei Tips und Tricks. 
+
+
+
+Toile Atari-Seiten mit Musik 
+in Action! Grafikkurs Teil 2, 
+Joy Paint, Billard, Leserfra- 
+
+
+
+» und Kleinanzei 
+
+
+
+
+
+COMAL 80 EVE 
+
+Die alternative Sprache a ww a i i y 
+
+fiir ernsthafte Anwender Em SDiel m d „„ Commodor , „ dnd 
+
+
+
+n Spectrum Von Mic 
+
+
+
+Speichern Sie wohl... 
+
+fur den Schneider CPC 464 
+
+5,25" 1,4 MB CAM 2.2 VMS 2.0 
+
+vortex Roppy-Disk-Station F1 
+
+
+
+
+64 KB bis 512 KB RAM-Erweiterung ... Druckerpuffer ... RAM-Floppy 
+vortex RAM-Erweiterung SP64 . 
+
+- i«1il endllch lautt jadss stands rd-CPIM-ProgrBmm tM0^ 
+
+
+
+CGof+ix 
+
+7106 KMoislMt, Kflngenbenj 13 - Tel: Abt. Marketing 171M«16J. lehi 72SS15 - Tel.: »b(. Mm 0711-7775576 
+
+
+
+1 
+
+
+
+Computer Kontekt K 
+
+
+
+VORWORT 3 AchtungCW-User! 
+
+
+
+
+■_e±sante_Kclc: - . 
+
+J2SIP uno allerlei k u ne 
+
+
+
+: den MS* Computer gewofTnen hat, der schaut' 
+isten gleich mal auf Seite 95 nach. Insga- 
+
+
+
+THJrz vrsteilen— * 
+
+Das Topprogramm des Honats gibt es diesmal fiir 
+
+den Commodore 64. Die 1000 DM Honorar bekommt 
+
+One". Herzlichen G.Ui.''- ' ' ■ : As™ Leistung ! 
+
+
+
+
+
+
+
+
+
+a neua Kr:-. ■. g Jen Harkt. 
+
+STe hejgt "CPC-Magazin und wird wie die CK viele 
+
+listings, Bench'te und Spielreviews verdffent- 
+lichen. Auch hier werden wir u ns bemiihen aine 
+sehr gute Zeits E h "rift zj machen": ! 
+
+
+
+Dreeser Soft- 
+und Hardware 
+
+
+
+TI-99/4a 
+
++ cpc 464 
+
+
+
+Thomas Eberle, Chef redakteur 
+
+
+
+INHALTSVERZEICHNIS 
+
+
+
+Inhaitsverzeichnis 
+
+
+
+
+
+
+
+aub-Nadhrlchten 6 
+
+
+Spiel-Re-iewa 8 
+
+
+Sinclai.-Naws 
+
+
+9 
+
+
+Spectrum Taafeluren 10 
+
+
+Spectrum: 3-DPIotter 13 
+
+
+Spactrum: Superlisl 14 
+
+
+CcntioedeaufdemSpectrum 16 
+
+
+Aasarnblertipstilrderi Spectrum 19 
+
+
+ZX81Seita' " 22 
+
+
+uyttMtencppr-stfwaMM 
+
+
+
+
+Floppyku,sfu.C64.Tell2 
+
+
+
+
+TopprogrammfiirdenCiW: RaOOishOna 28 
+
+
+Coma 80 
+
+
+
+
+VCmFrogoar 
+
+
+
+
+DFO-Seite 
+
+
+
+
+Leserfragen 
+
+
+
+
+CK-Programmst-vice 
+
+
+
+
+Bucbversand 
+
+
+44 
+
+
+CPC: Buggy-Busier 
+
+
+48 
+
+
+MuslkaufdemCPC 
+
+
+
+
+CPCTtttMurarfMWBAnn S3 
+
+
+CPC: Notbremse t»r Mascbinanspradhe 58 
+
+
+Pater'sAssembte-wtoMusikinActtorvl 
+
+
+58 
+
+
+Was 1st Action? 
+
+
+
+
+Atari: Mlni-Billard 
+
+
+
+
+Kurs: Wis misehe Ich die Alan -Graf ikmodi? Ceil 2) 
+
+
+
+
+DL-Designar 
+
+
+64 
+
+
+Atari: Joy-Pain! 66 
+
+
+Tl-rlaws 7D 
+
+
+GOTO-Statement '1 
+
+
+Tl: Bildschirmaditor 72 
+
+
+TliScundedrtw 73 
+
+
+TliDsvilOuesl 76 
+
+
+Kleinanzaigar, BO 
+
+
+Fundgruba/lmpreasurrVli.aerenlenvarzatahnis 
+
+
+94 
+
+
+Die Gawinner aus unsemm Presausschreiber, B5 
+
+
+
+Bei uns konnen Sie 
+mitmachen 
+
+
+
+Die nachste Ausgabe 
+
+"Computer-Kontakt" 
+crscheint am 28.10.1985 
+
+
+
+TOPPROGRAMM DES MONATS 
+
+
+
+Topprogramm des 
+
+Monats: "Raddish One" 
+
+Hi r den C 64 
+
+
+
+1000 DM Honorar 
+
+
+
+Jetzl gibl ea in 
+
+
+der CR das Toplistinf des Morui:s 
+
+
+Dili kiufl dunn s 
+
+
+
+
+alien Program m 
+
+
+insendungcn das bcslc Programm 
+
+
+heraussuchenun 
+
+
+in dcr CK als Toplistmg des Monais 
+
+
+abdmcken. Dcr / 
+
+
+ul or dieses Pro grammes erhalt dan n 
+
+
+
+
+
+
+
+Milmsehen konnen alle Programmierer mit den Ge- 
+raten C64, VC20, Atari, Sinclair, TI 99/4A, CPC464. 
+Ein Listing muR nichl unbedingt beiiiegen, falls der 
+Autor des Programme noch keinen D nicker liat, Wer- 
+den Program me aliuodnu-kt. die nicln zum Toplisliug 
+des Monais gewahlt wurden, erhalt dei Aulor dafur 
+ganz normal das iibliehe Honorar. Beim Tnplisiing de- 
+Monais isl das Honorar fur den Abdruck in den 1000.- 
+DM schon enihalteu Mil dei Finsaulung seines Pro- 
+
+PunktenimTesfBeiunskoimenSiemitmiichen"ein- 
+
+ve.istanden (j.idle Scile 4gegeniiber). 
+
+
+
+Deshalb Leute aufgepafit: Bei uns kann rr 
+verdienen. Die Chaneen fur cinen Abdruck, 
+Gewinner des Tap 
+hen bei miis immergm. 
+
+
+
+iCielJ 
+
+
+
+
+
+Abo-Bestellschein 
+
+
+
+CLUB-NACHRICHTEN 
+
+
+
+S? u™ «™ l^lT" c 64-Club 
+
+Kaum Manster. Rnft^wtw New 64er Report 
+
+
+
+CFC 464-User- i.-in 1 .,iwi™ii,, nun dtHt* E£^SgT i^KX 
+
+Clllb AmStrad- ein™ Club friinCen unJ sin-hc i^™iii252/30* 
+
+Schneider S" icl , t ' lei£t,g ' :sil,ntt in ZX User-Club 
+
+
+
+Sinclair- 
+
+
+
+Meckesheim 
+
+
+
+Commodore- 
+User-Club 
+TT99/4AClub 
+
+
+
+iniKhLacs. 
+
+
+
+erKontakt 10/85 
+
+
+
+CLUB-NACHRICHTEN 
+
+
+
+Computer 
+Konlakt schaffi 
+Clubkontakte 
+
+
+
+Kontakt gesutht 
+
+
+
+
+SPIEL-REVIEWS 
+
+
+
+SPIELEIMTEST! 
+
+
+
+Everyone's a Wally 
+
+
+Fiir MSX 
+
+
+Ip 
+
+
+rlMnminetiuiwrStuit. den Feuerltnopr am Joystick 
+
+,!,-, Spider mil seinem (WcUti. Per SpidaMauf luiin 
+
+I Spieb begeanen item Everyone's a Wally fat cm 
+
+;:;;' ^; r ;; ! ^ ,l: ;; 1 -' '-' Spisl. <l». nichl » schnell lang- 
+
+
+Sorcery 
+
+CPC 464, C 64 und Spectrum 48K 
+
+
+rdHhf 5 ™ & SP ^cM 
+
+
+'iSX ^SSSSTSK 
+
+
+
+
+Hallo Freunde 
+
+
+
+Beta Basic 1.8 fur ^Va^S" 
+Opus Discovery <>■• » ■t>_™ht™, m 
+
+
+
+RANDOMIZE 
+
+
+
+£in neues Joystick-Inter- 
+face fiir den ZX Spectrum 
+
+
+
+TJberraschungs- 
+programm 
+
+
+
+
+
+
+|iiiihYi[-.l,.iTTi,nier[]|?iijDi^ 
+
+
+
+Sinclair gerettet 
+
+
+
+CrW 
+
+
+
+Korrtklur ZeHe R7 
+
+
+
+
+
+
+0,-*B LET di.PEEK 
+
+
+
+Computer Kontakt 10/B5 
+
+
+
+Tastaturen - und kein Ende 
+
+
+
+
+
+
+
+H~mtom.+-& 
+
+
+M*WpA- 
+
+
+■"r.i«fc.,*di™i. ■ 
+
+
+mugdhaR 
+
+
+
+
+
+
+
+
+S£r M 
+
+
+
+
+l°r 
+
+
+;£;,,,. 
+
+
+H^,i' r "* 
+
+
+ST 
+
+
+
+
+nsroimsu. 
+
+
+rtUtw 
+
+
+0" 
+
+
+
+
+p. 
+
+
+^ 
+
+
+n, 
+
+
+E5rL 
+
+
+lM.|.kl,x.b-.M^'jL-. 
+
+
+lg3SJS 
+
+
+1 
+
+
+Bar* 
+
+
+sss 
+
+
+i:. 
+
+
+Sr 
+
+
+r* 
+
+
+L«U»r 
+
+
+r— 
+
+
+t 
+
+
+22:*'" 
+
+
+:," 
+
+
+nWPUTERBflLl 
+
+
+
+
+I" 
+
+
+nttpu 
+
+
+p* 
+
+
+p. 
+
+
+p. 
+
+
+Sir 
+
+
+b':!i:r. 
+
+
+&« 
+
+
+S5-o«- 
+
+
+22"" 
+
+
+li£L 
+
+
+^s'^ 
+
+
+~«- = - 
+
+
+=?" 
+
+
+£S& 
+
+
+,.,,^„Ktlbr,. 
+
+
+SsSb. 
+
+
+3££t 
+
+
+III 
+
+
+
+Oo;'ip;Jti;r KontakMiy85 
+
+
+
+rftl* *■ 
+
+
+
+
+
+
+++ -™hr E ,n. + > E0 
+
+
+«-l'"5""-' 
+
+
+«t°m~em*« 
+
+
+■»«*• 
+
+
+
+
+
+
+
+
+8*1* 
+
+gpto,BaMni 
+
+
+I«F* 
+
+
+IlElL 
+
+
+i: 
+
+
+i^Z 
+
+
+SET 
+
+
+Mtainaunr 
+
+
+uc^Lx 
+
+
+
+
+M 
+
+
+„ 
+
+
+MI ™* E!B d 
+
+
+m**-* 
+
+
+!«<mU 
+
+
+«6M«*M 
+
+
+L.»„., 
+
+
+|™ 
+
+
+Eiuf^ikltbl |0! 
+
+
+t*"" 
+
+
+lufgekWiKOl 
+
+
+pi 
+
+
+|=» 
+
+
+^r 
+
+
+
+
+CifsSKd 
+
+
+«r 
+
+
+Ed-i.Cj|i:il'iil. 
+
+
+Shift, 2-Caps Shift, 
+
+
+* 
+
+
+^M-**- 
+
+
+„,„..»« 
+
+
+«,.„».. 
+
+
+*^ 
+
+
+,™,.,„... 
+
+
+«^tf 
+
+
+gM 
+
+
+£*%>. 
+
+
+"Llh.n 
+
+
+r^ta 
+
+
+"«"ckh» 
+
+
+££** 
+
+
+^ita, 
+
+
+£Ut* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+p> 
+
+
+!». 
+
+
+|H 
+
+
+*»*« 
+
+
+6 ^ 
+
+
+befAdfeHl 
+
+
+1. 
+
+
+feu 
+
+
+ss; 
+
+
+s~- r 
+
+
+ISSsZLsm 
+
+
+Fz._» 
+
+
+grt^m.KW, ■ 
+
+
+X^ 
+
+
+^5&- 
+
+
+:£;=;; 
+
+
+s=s 
+
+
+WtiliselemMai. 
+
+
+~j~~» 
+
+
+gggx 
+
+
+•^>*"«£ 
+
+
+
+
+' 
+
+
+Sw,acna ™ 
+
+
+r U d,i'' K< "" r °"" 
+
+
+lB^nWi 
+
+
+"**• 
+
+
+E, " W 
+
+
+
+Computer Kontakt 1 0/85 
+
+
+
+
+
+
+
+
+
+Neue Textverarbeitung 
+fur den ZX Spectrum 
+
+
+
+
+Spectrum-Gebilde 
+
+
+
+(X)-SIN(X/5).M+20, 
+(X) = SONSIN(X/7).X)3. 
+(X) = SINlXiVJ * (60 -703), 
+
+
+
+
+listing 1 
+
+
+POKE >, PEEK 234)3 
+
+
+Lis tine I 
+
+
+1 R£» 30-PLOTTER 
+
+2 REn LISTING 1 
+
+
+520 CLS ; RMDDMZE HSR 31000 
+530 POKE lh 
+
+
+1 REN LISTING 2 
+
+
+555 60 TO 555*1 INKEYt <)"l 
+
+
+
+
+1 REIi Htnning VMS® 4.33 
+
+
+56) SD TO 900 
+
+
+
+
+
+
+
+
+6 REX 2 HmV, 5 f 
+
+
+905 CIS ; PRINT TUB VBitlB ■ 
+
+nam' 
+
+910 PRIHT ■■■1) flil tinjrten" 
+
+
+10 CLEAR 29999: LET k-0 
+
+
+' 
+
+
+30 FOR fi=5!000 ID 31109: REM 
+
+
+100 l£T H*V. LEI gfft 
+
+
+'"21 jty) ein?«en ■'■■31 Platte 
+
+
+n LET H**m PDKE n,« HE»I I 
+40 IF 1 1)12317 THEN PRINT -F 
+
+
+MO GO TO MO 
+
+
+****"•*****+** 
+
+
+»1h inDRTfrlFilHi!': STOP 
+50 SAVE 'JD-PIDTTER' DDK 3100 
+
+
+305 INPUT ■fl»l*"j LIKE ft 
+
+
+inatl*>l Obis I70'"l-Achw In 
+a:hcL™>: bis 175' 
+■ 9)5 BEEf .1,20: PRIST :"((M' 
+Iff" W* *i9t " 
+
+
+0,110: VERIFY. " CODE 
+
+
+310 FOB p« TD 170: LET V WL 
+
+
+40 
+
+
+
+
+10OO DATS 33,48,116,6,255,54,0,3 
+
+
+315 IFi>255THEA LET 1=255 
+
+
+5,14,251 ,4,0,33,218, 117,120,50,1 
+
+
+320 POKE 30000+1 ,i: KIT. 
+
+
+7,119,197, 229, 205, 58,121,225,193 
+
+
+330 ED TD 900 
+
+
+
+
+
+
+
+
+
+
+405 INPUT 11»>"l "* at 
+
+
+
+
+
+
+410 FDR pO TOSS ; LET I- l«T 
+
+
+
+
+23 
+
+
+( VAL gt/2): IF itOTHEN LET!= 
+
+
+
+
+1010 DATA 71,222,l75,4B,IS,5B,t7 
+
+
+415 [F i)I75 THEM LET 1-255 
+
+
+1020 VERIFY ": STDf 
+
+1030 CLEAR 29991: LORD " CDDE 
+
+ten tun 
+
+
+
+
+420 POKE 30170*,,;: KIT , 
+
+
+
+
+430 EG TD 900 
+
+
+,197,6,0,33,48,118,9,193,124,15! 
+
+
+500 REN Plot ten 
+
+
+
+
+,56,3,225,24,231,120,119,225,24, 
+
+
+510 LET 1-2362. : LET f REEK ■: 
+
+
+
+
+215,201 
+
+
+
+Computer K&rtti ■ 
+
+
+
+Super-List 
+
+
+
+
+Listing 1 
+
+
+MR IF ii>14i HID 1K16S THEN 
+POKE 23407, c; PRINT Ik: CUM (ii 
+
+
+MM SAVE 'SlfER-LISr: SAVE "CH 
+ARS" C[IDE25t'(rMl,TM: VE81HI 
+
+
+•IW REtl 5UPER-LI5T, © 1985 bei J 
+
+
+-11);: PWE 23407, Mi BO TD MM 
+
+
+■SUPER-LIST-: VERIfY 'CHARS" COS 
+
+
+oachli Kiltl, Hiupstr. ';, 54011 
+
+
+TWO IF bi-H THEN LETi=i>5: E 
+D TO im 
+
+
+listing 2 
+
+
+im LET c=113: IF peek :zin=i 
+
+
+
+
+1? CLEAR 14511 
+
+
+53 THEN LET c=25I 
+
+
+mi IF ii-11 THEN BO TO «M 
+
+
+15 LET i=*'5!2 
+
+
+99B2 LET k=2: INPUT "Drinker? Ij 
+
+
+M9! If 11)144 THEN PWE 21407, 
+
+
+20 FDB i-l TD 6 
+
+
+/n) -jqt: IF Vl' THEN LET 1- 
+
+
+
+
+25 READ iS 
+
+
+
+
+W93 If H>31 THEN PRINT Ik; CH 
+
+
+24 LET rt=it'"'' 
+
+
+99B4 LET 1= PEER 2343S*254< PEEK 
+
+
+
+
+40 PWE i,I6M COSE .1-48-1!?! 
+
+
+25634 i LET (=0 
+
+
+
+
+lit>-'-])B CODE n»(J)-ffl-(39Hi 
+
+
+
+
+WV4 PWE23M7.60: LET Will 
+
+
+t(2l>"'M 
+
+
+9VBS LET y=256i PEER «* PEEK !t* 
+
+
+NE1I i 
+
+
+50 LET l**tlJ TD 1 
+
+It IF «IO'i" THEN LET rtfl 
+
+
+MB PWE 23107, r: PRINT lk|l" ' 
+
+
+9995 LET pt-'OMOO-t STR1 y. LET 
+
+
+: SO TD 40 
+
+
+akd rdMimc ■ WD «]00>'(" 
+
+
+p=0: FORH LENplTO LEN p(-5 
+
+
+
+
+■ AND y(10)*STRI r,' "i> POKE 2 
+
+
+STEP -1: LETp=p* VAL pt(i)H2* 
+
+
+65 LET a=iH 
+
+
+J407.60: in ^1*2: LEI 1' PEEK 
+
+
+LENpi-il: NEJT i 
+
+
+
+
+1-256* PEEK (HI): LET <T2: ft! 
+
+
+
+
+80 STOP 
+
+
+
+
+9M6LETpMll-p+ INI (pflll>lll 
+
+
+1000 DATA '0MOMOMOMO000O0181 
+
+
+
+
+: LETp-pHp<IOI: POKE 23457,251 
+
+
+8 18 1 BOO 1 8000Mr.6t6tOC400000W547 
+
+
+
+
+i PRINT lit; TAB 28;' V INVER5 
+
+
+e34J«?s340WiO 1 B7eUB7[ 187(1 800624 
+
+
+F01E 21607,(1: PRINT tkil'l' HUD 
+
+
+E li PmHMki-< , ;p; , > , i INVERSE 
+
+
+(OBlKMMMOlOIBlMtMliWWtl 
+
+
+11=113!*! CNR! (ll-K'i AND Bid 
+
+
+0: POKE 236W,6i): LET prf 
+
+
+BMOOOMOMOOOr 1 81 81 B 1 BOiOOCiOlM 
+
+
+36 AND 11)128!]; INVERSE 1|("B- 
+
+
+
+
+B 1 8 1 6 1 B104O0OW24 1 Sit 1824104000 1 
+
+
+ANO 1.-143JH CHRt 1191-lil M 
+
+
+9M7 IF y=M99 THEN STOP 
+
+
+B 1 BTelBlBOOOWOODWHIO IB IB J0O04O0 
+
+
+UIJU5 AM ii<l«)lji so a w 
+
+
+9V9B St TO 99B5 
+
+
+™» = "~'""" ! ' 
+
+
+
+SINCLAIR 
+
+
+
+
+SINCLAIR 11 
+
+
+
+Centipede auf 
+dem Spectrum 
+
+Das Prograi 
+
+
+
+rl 
+
+
+t fulia™. Em S 
+hwdmitSymlwl-S 
+
+
+i 
+
+
+."™«it 
+
+
+
+d^S 
+
+
+•— ■— 
+
+
+
+
+e muscii die Soa*mt**« A, und S in den 7«len 
+
+
+
+
+
+
+(» 
+
+
+rnu;' 
+
+VMBOLSHIFT + TASTE 2 (Klam.rn.Mhrc!, 
+
+
+PHI M * rdcn 
+
+
+
+Listing 1 
+
+
+90 MINT AT 19,0;; LOAD "Btg- 
+OH? CODE 2MB* 
+
+
+a,™-"'' 21 '™ 1 ™"" 
+
+
+
+
+
+
+
+
+
+
+12. 
+
+
+260 FOR i=l TO J 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lit PAPER 0: CIS i BORDER u: IH 
+
+
+2T0 FN 1-1 10 200 
+
+
+50 BEEP .«,": HEIrt n 
+
+
+K 7i WIGHT Oi FLMH 
+
+
+
+
+
+
+1311,0: BO (0 700 
+
+
+10IL1 PRIST « 19,0; 
+110 LOAD -liit-bsic" 
+
+
+140 FOK n=l 10 10; READ Mini: 
+
+*(I l> 
+
+IBS MT» 'diwlrBis Hiiier'/CrK 
+
+
+292 IF IH(EII- , k' THEN POIE 1 
+
+
+Listing 2 
+
+
+( Diiiy'/TlnCM-lillsf.'Luki 
+
+
+264 IF 1WEII=- ■ THE» BO TO 
+236 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+510 lei bp m :ny. 
+
+
+40 REK > Ansrs-is Heiiir • 
+
+
+
+
+315 FOR y=10 TO 21: PP.WT Ott. 
+
+
+50 REM • LetileUthw h • 
+
+
+
+
+
+
+
+
+
+
+
+
+70 BE". IMIUIUIIIIIIIIHI 
+
+
+E V BUD-BU5TE 
+
+
+320 60 SUB If'IMOO 
+J50 HE<T fi 60 TO 2M 
+
+
+
+ioo ink i: print a io,2;'»» 
+
+
+675 PRINT AT 10,2; IN* 2; PAPE 
+
+
+m let 
+
+
+fi)=s 
+
+
+
+
+
+
+1065 FOR 
+
+
+-1150110 41511: POKE 
+
+
+
+
+
+
+
+
+
+
+"8"; SI 16,15;- IPFtusr-i AT 
+
+
+
+
+ioto let 
+
+
+
+
+14,]2i'H Oil - 
+
+
+■: OVER 
+
+
+10B0 LET 
+
+
+
+
+420 print at if, or spin stir 
+
+
+
+
+10WF0R 
+
+
+LEN el TO 1 STEP -1 
+
+
+tv" MiStsUr"" t-mpstm 
+
+
+
+
+noo poke 
+
+
+
+
+
+
+700 RESTORE 70B: POKE 21510,0 
+
+
+
+
+
+
+MO POKE 33553,5: POKE 32544,7; 
+
+
+702 FOB r,=41512 TO 41515: READ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4*0 MR 1: PRINT AT :...:: INK 
+2; PAPER 6;' 
+
+
+705 FOB 11=41500 TO 11505: POKE 
+
+
+Listing 3 
+
+
+145 PRINT IK* AT 12 IV - 
+
+
+
+
+20 REJ IIC 
+
+
+L°ide> 5 
+
+
+*r 11,15;- '( 81 H,12 T ; ■] sr' 
+
+
+710 POKE 42137,1 
+
+
+30 REN 
+
+
+
+
+14,13; ■ ■ 
+
+
+lit LET !l=- »»»>» 6*K ■ 
+
+
+
+
+TO 13 
+
+
+450PRINI IK 4; AT 1B.2;- 
+
+
+
+
+
+
+
+
+860 LEI 6t=- OVER («««« "■ 
+
+
+
+
+
+
+155 PRINT 1HK 5; ST lt,2;' - ( 
+
+
+310 PAPER 1: IK 7: 'BRIGHT 6: f 
+
+
+It FOR i= 
+
+
+
+
+ATM,!; 1 • 
+
+
+
+
+
+
+
+
+460 BUR 0; :* 7: RfTUHN 
+
+
+
+
+
+
+
+
+560 IN* 0: PRIM ST 10, lj" }>J 
+
+
+
+
+
+
+
+
+>»»» TOP 10 «((«<«<■ 
+
+
+BW PRINT AT 21,6; INVERSE 1;J 
+
+
+
+
+
+
+510 LET nt^-OMOOO- 
+
+
+
+
+141 RFJI L 
+
+
+T 1k'iIk+<i-4S1<I15 
+
+
+320 FOR ipl TO 10 
+
+
+840 FOR y-2 TO 11 
+
+
+"SB? 
+
+
+
+
+530 PRINT ATn.ll,2;n»ll ID 6- 
+
+
+B50 INVERSE I: PRIST AT y,6;'j 
+■| AT yt]0,3ljV 
+
+
+r*6et: POKE idr,d« 
+
+
+LEN SIR* Mn»;hln>j- ■ 
+
+
+
+
+
+
+546 PRINT ATnHI,li;h(lnl 
+
+
+;">■; M y.Ui-C 
+
+
+180 READ n 
+
+
+Wft.'Of THEN %RI 
+
+feSud'i STOP 
+
+
+560 PWE S255J,5: POKE 32544,7: 
+LET be HSR 325 35 
+
+
+600 FLASH 6: PAPER 
+
+
+'SoSflE 
+
+
+O.K.-; IF J;20TH£N 
+
+
+570 PRINT AT 16,2; IK 2; PAPE 
+
+
+lis ran n=i to 21 
+
+
+I^E.I * 
+
+
+
+
+S 6; OVER li- 
+
+
+910 FOR nM1560 
+
+
+Ai PRIN1 
+
+
+FLASH 1; AT0,0|'A1I 
+
+
+
+
+iso let wivtortiMf rm 
+
+
+t^i^ni 
+
+
+SJtoi'sf' ""8 
+
+
+BI I Nil 7: RETURN 
+
+
+
+
+
+
+
+
+SOO INI 0: PRINT AT 1(i,2t" »> 
+
+
+!Wl LET k« U5R 30057 
+
+
+
+
+
+
+Vt FUR n-l TO 21 
+780 PRINT ATn,Oj' 
+
+
+OcMSeifSTil 
+
+
+47i5(i0t>c9illillr9|i60 
+8d5(t53<02tdOllltll 
+
+
+Punkte jl Spinne 
+
+
+wo for 1=1 to 10 
+
+
+
+
+BWlctt:«5:5dSE5cBb 
+
+IC0ii5e5lllf0Mf012 
+
+
+l*MW l ^ ' 
+
+
+1020 HfflVl^lVwl'iilEP -1 
+
+
+d 320 5 BATA^' 
+
+
+St4S» 
+
+
+
+
+
+
+
+
+
+
+50 PunltP I liiir 7 
+
+
+1040 LET Mr,l=M=-ll: KIT n . 
+
+
+■ ..':■;■..' i 
+
+
+1^)601 18577s -ill? 
+
+
+140 PRINT ' E SupirDirg 
+650 PRINT AT 20,2j , 8mbss[IiiII 
+
+
+1045 PRINT AT 1,0; PAPER 6; INF. 
+
+
+ills 
+
+
+
+
+lil'lSfJfMc^kd! 
+
+
+illi 2066 Ptt.V 
+
+
+
+
+
+
+mmmmwn 
+
+
+160POKE;2H3,5: PDIE 32544,7: 
+
+
+IBP lOBilte tipper Sic IKK N; 
+
+
+
+
+LET ta- HSR J2535 
+
+
+
+
+
+
+4&:^h^± 
+
+
+6t5 RESTORE 172: OVER 1 
+
+
+1046 FDBlFlO TO 30; SEEP .01 ,n: 
+
+
+: 
+
+
+
+
+670 FOR B-2MH TO 23138 STEP 3 
+
+
+
+
+
+
+2: REAO n POKE M : POKE Ht.li 
+
+
+
+
+
+
+tmiS& 
+
+
+NEII (l 
+
+
+
+
+
+
+
+
+
+
+HEN LET PKll^lfJHIIK.JM- 
+
+
+
+
+■»8SW^». 
+
+
+
+IIS! 
+
+
+
+
+
+
+
+
+
+7!2J21!Mcld3iH«02te 
+
+
+■ 
+
+
+HSO'Wil? 
+
+itdbtOtZ 
+
+
+■ ; 
+
+
+l42:?titi'77321Bi3S!J 
+OlilO50C'cd<l75€lcll0i> 
+
+
+
+
+3 
+
+
+■ 
+
+
+JdftOMlM!7c(««M 
+
+
+
+
+
+
+
+
+«47lw01B3MOOMMM ' 
+
+
+
+
+III 
+
+j;:raou 
+
+
+■ 
+
+
+
+
+■ 
+
+
+
+
+
+
+*m* 
+
+
+
+
+Ks:ss>t 
+
+
+
+
+
+
+sssafes 
+
+
+
+
+K& 
+
+
+
+
+
+
+
+
+
+
+
+
+lillli 
+
+
+
+«1SI 
+
+
+
+■ 
+
+
+
+,;ssesbs 
+
+
+
+Assemblertips fur den Spectrum 
+
+
+
+lis 'A i rc[:-,KkK-n ucr IJnick iti'J lucihe: ,-i/cllj;.. /.jni,ik udli ii K. 'I. :.,!■■. hi.:!-:. i,,,^ ,. r)|1 Spjicherp];.!! 
+
+
+
+' kein ASCJI-2ei- (,. r. ( 
+
+
+
+
+
+
+C o m puter- K o nta kt 
+ennapa- das Heft mit den 
+jute!! IT prelsgiinstigen 
+
+
+
+rW4M*SS yw£T^*?mr£ : . ZX-Spectrum 
+
+: Repsratur-Schnelldlenst 
+
+
+
+SINCLAIR 20 
+
+
+
+IB CLEAR !WW 
+
+
+
+■0-REM-C 
+
+
+
+right-Zei 
+
+
+
+30 LET A*= ,, cd6b0<13e02c[l011621007811017 
+30 1 «23620ed b0ed 43925c f d 7flc *3 e 1 a d 72 »925 
+C7cd77dd7cd937612011501200912001500+f210 
+3 5c 7es 7 28 1 c 3 4002 1 * a 760 1 0t 03 e d b 1 200 1 7 si 5 2 
+IB000UM00r:db5e3ma925ce54d6c 1 i02929292 
+9 25 067 809 ebe If ec 7 c *45 76* e (5 30a + f e 203 3 1 £ 1 
+2d 72 c 7 d e6 i f 2009 6 f 2 4 7c t e 1 6 38 022 6002 29 2 3c 1 
+
+d 20e 62 5 L b 7c 28e 1 26 1 3 1 8<id * e0a2Sd If »0bZBe< f 
+e0d 2004 2«00 1 Be 3 f s 6 202 9c d 95 7 6f 1 60 10053 4 
+6494654" 
+
+40 LET A«-A»f42«216e5c7eee0877cb3f20 
+b3cd9376f01601002020202020f2HlBa3feBf20 
+f ac d 9576 1 1 40 1 06473 24 1 304B494353* 2 f * 21 4 1 
+
+
+
+5 c 7 e ee 27 7c b 4 * 2 d e c d 9 5 76 f 1 60 1 082020 20 20 
+2B202020*2HlBcb+ikb078el33«0dlZd321fc77 
+3 6ea2336 1 623a 1 7723772 1 0000c B6e 1 92006 c d b 8 
+1 9c d e8 1 92be30 1 f 7 77a7ed 424 44 d e3ed 5 1>53 3c d 3 
+c d35 1 6e 1 22535c af 772 3 7723c 1 0b0b0b0b 712370 
+23eb2 H c 77e d b0c 9 e 37e23e3+ e H c8* e* 03BB7e 6 
+0+c d0 1 1 6 1 8eed 7 1 Sebc 37c c35dc 43bcb7d c c 7bc d 
+
+
+
+50 LET S-3E4: LET S=4 
+
+
+
+
+
+
+60 LET X=1MFN A(A»C 
+
+
+
+
+A(A«(2I> . 
+
+
+70 POKE A,x: LET S*S- 
+
+
+
+
+
+
+80 LET A*=A«I3 TO ): 
+
+
+
+
+
+
+90 IF «*>"" THEN GO ■ 
+
+
+
+
+
+
+00 IF S THEN PRINT, "F 
+
+
+
+
+In A*!': 3T 
+
+
+10 PRINT 
+
+
+
+
+
+
+
+
+
+
+
+
+.■Berelt.-'-Au+rufen 
+
+
+
+
+RANDOMIZE U 
+
+
+
+Computer KotitaKt 10/65 
+
+
+
+
+Eine neue Modul-Serie 
+fur den Spectrum 
+
+
+
+*j Reinigungs- 
+™ diskette fii r 3,5 
+»- Zoll Laufwerke 
+
+
+
+msl als knmpkltos Syste 
+
+
+
+DUN (Display- 
+Language) 
+
+
+
+
+
+
+: Ohm Die ''" y (>' " lnl " ,L ' * n,| t" dis PorliyElcms, A/I 
+
+: gcslcskt. F'Ti tiolki Phis .mgcniiber Prcisc: 
+
+
+
+SINCLAIR 22 
+
+
+
+Zeilen-Loscher 
+fur den ZX 81 
+
+
+
+i S8?o'ii" 
+
+
+1111288482222233 
+
+
+
+
+
+
+
+
+EILE 
+
+
+input's 68 
+
+
+5 TO 16S22 STEP 7 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NEXT S**' 
+
+
+
+
+13 
+
+
+RSN6 USB 
+5L0U 
+
+
+6S1* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sqto ia 
+
+
+
+
+§16 
+
+
+SS£ 318 SSI 8iS 3tt H? SSS 
+
+
+iai 
+
+
+
+
+
+Programme suchen 
+
+
+
+
+
+
+Hex-Loader 
+
+
+lee REM KEXLOBDER 
+
+
+
+
+1SB LET I*!"" n. 8 4 6 STEP B 
+
+
+
+
+lit PRINtV": *i 
+
+
+160 LET P;| 
+
+17Q IF R I». i '" i THEN INPUT,, I» 
+
+190 IF IB (1) > > " - THEN SOTO 219 
+
+
+199 LET I(<II 11 TO 1 
+
+
+
+
+210 LET X«16tCODE It+COCE lilSI 
+
+
+838 LEtS-p"** 
+
+
+
+
+258 LET Ii-HO TO 1 
+
+
+see next h 
+
+
+279 input I 
+
+
+
+
+2SB IF I.P THEN GOTO 323 
+
+
+see print - 6ITTE noch einmhl 
+
+
+elNSEBEN" 
+
+
+330 STOP 
+
+
+Hex-Code 
+
+
+188ft&: IKS 3531 PIP! BKP 
+
+
+list 
+
+
+
+
+
+
+16538: FE3E BFOB FE1F 3BF9 
+
+
+
+
+i65ts: iea? 2oec "-Bee nei 
+
+
+
+
+
+
+
+
+i&662 : fbbs laco aj 
+
+
+967 
+
+
+it i;i is us fssi isss 
+
+
+113 
+
+
+ins: sin nss sa fssi 
+
+166B2. 213* 'GSt- 3«DE 3FCB 
+
+
+739 
+
+isae 
+
+
+912 
+
+
+icsia. use DscB Fe*e cegi 
+
+19916: 7123 CB79 3.BCC CDFB 
+16B26 *»36 SBS3 1BB6 1B7B 
+
+
+
+
+BBS 
+
+
+16934.: 3C20 Bad CS7B EB1F 
+
+
+S7B 
+
+
+18542: CB36 7923 C900 99)30 -BBS 
+
+
+Listing 3 
+
+
+g|| 
+
+
+T U-U5R 168*8 
+
+
+
+
+
+
+
+
+
+
+
+
+H ENTUICKELT uon 
+
+
+
+
+M HELKUT NRMYSLO, rORST 
+
+
+70 R 
+
+
+hi JRNURR, 1995 
+
+
+Spectrum 48 K Exwusiv bei 
+
+
+SuperStory compute 
+
+
+_. , VeriagRali-EberleGdbP. 
+Em deulsches PostfachlSM 
+
+
+G ra f i k - Ad ve n 1 u re 75 1 8 Bretten 
+
+
+DM29.90 
+
+
+
+
+
+
+
+
+tar der New York Times, 43iZ3-'56ode,«rNaUTairre 
+
+
+die Story Ihres Lebens an 
+
+
+Land z„ ziehm. Handlenu.fragen «wun«ht> 
+
+
+
+COMMODORE 23 
+
+
+
+Mysteriose Floppy-Schwemme 
+
+
+
+cklundanncbli-h ^ beirachbarten Ausland 
+
+
+wurffn ™d bS w'oSfest** 
+
+
+Die Firma Com- j^'" "^"j™ ™^™ ^ a ™ r 
+
+
+
+
+
+b GcrSie weder legal « 
+
+
+
+
+
+
+CM Tips 
+
+
+
+Platine64 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+S32M, PEEK (53265) AN] 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Icn. ilk M> mamlii- pm',^]^- 
+
+
+
+
+
+
+
+
+C64 TURBO DiSK-MODUL 
+
+
+
+
+.H^n™!^^^ 
+
+
+■ ' ' ' . 
+
+
+Kleinanzeigen 
+
+
+zum 
+
+
+
+
+Superbilligpreis 
+
+
+caSa^S^^^^ 
+
+
+™Sffi^"i«™tfrv~' 
+
+
+
+
+
+
+COMMODORE 
+
+
+
+Floppykurs fur C 64 
+
+
+
+reibtil einw testlinit«i Scklors (Rtcnrd) besprudien, 
+
+
+
+;SfhlviiV l.'il nil) liilrL"! 
+:n-,. ; x;.lv.-r^fiilll,(chreihldis 
+
+l.ivi^r.i.'liiM.I.S^wrlilfi I 
+
+
+
+COMMODORE ■, 
+
+
+
+
+
+
+t'lii'mmtrvk l ^ U ' l, - l " lluhvn ' i ' K | "' lK - v "" Bcfchl.mudaBc. 
+
+
+
+ancs {Bvlc S05) bi 
+
+
+
+Byre JM mit (J (tein Sekrar ,"""/; L s "'. hildet imme 
+
+alle Wsl), Byte M6ta(i bl ",- L " A ;' jal '' l; . , ;' il >P Jr Lnl1 8™™™ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+der Sjuren) die A 
+
+
+ngabc 
+
+
+
+B (Directory-Spur) ab 
+
+
+
+COMMODORE a 
+
+
+
+
+
+
+
+
+
+
+!i: : [Tl'>;j iibernimmt Jie« 
+
+
+rem (sichc 30160): 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d;i Spirt'i i Ms 1" inik: BAM 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+™iS!™'.i™b; 
+
+
+°" s b^™rX g "v™^- 
+
+
+
+
+
+
+-kii ' L '!'-^i .1" nil !'-■.■£] .i-ii-ii e- 
+
+
+
+
+
+
+
+
+crsfl irsiaclu sum nidi, Spsbal, 
+
+
+. 
+
+
+
+Diskette vorberelten 
+
+
+
+Super-Software. 
+
+
+. fiir relativ wenig Geld 
+
+
+s^^^wTi'h^r - !" 
+
+
+TZZZZ+ axeastt„ m »H. 
+
+
+
+COMMODORE 
+
+
+
+Raddish-one 
+
+FiirdenCfrl ' 
+
+
+SUB5BBOT 
+
+
+1 1 \1 II .-, h h- Tr;in«mil = cr. mil 
+
+
+B9)-3TH£t*'OKE?B3.BlG0TO3BB 
+
+BTWENGOroiSB 
+
+
+^^ a ? e *> ^*™^ KL^Sh^en^Sif J^SI 
+
+
+•J e p RINTTn - (3) . 
+
+
+■ ■' ■■■■■:■■■ ■ ' ■ ■ . . . ■ ■ . .!..,, ,:■ 
+
+
+£4B PHIMTTflB<4> y )) •• )) 
+35fl PBJNTTf)Br41-)> II >) 
+
+
+RaddishOne 
+
+1 PQKE5E576,PEEK(5SS7e)«h«P5aipOKE33E7e, 
+3 P0KE3B1BB,3ElPaKE=B]B9,45IP0KESB 17B,45 
+1 P0KE5B173,«G;POKE5B174.4GIPOK£S8173,4E 
+
+
+see primttobm > ;chr«<is3>j ■>> »*//>/« 
+
+388 PHINTT»B(4)")J ))■ 
+
+33B PRIWTCHfi*<lSfl>l "////li/////////////-, 
+! /////////////////// • i 
+
+SSB GQSUB8B8 
+
+3BB POKE332B8,3iP0KES3S81,3<P0KE53Ea3 r 8; 
+
+PDKE53EBE ,3 I OOSLBSaOBB 
+
+4BB GOSUB 328BiP0KE33e76 ,555:PQKE53£S8,S 
+
+4BI GQSUB3eBe:5YS19aae:SYS228flBi 1FPEEK17 
+
+B9>«3THEhFCKE7eS,BiP0KE24BBE,EBlBDTIM3B 
+
+4BB LI*L.I-liFOKE24Be2,2BiPtoE7B9,B:IFLJ> 
+
+BTHEM4BB 
+
+4B3' G0TO33Bae 
+
+458 G0SUe4aBBfl!PRINrCHR«il5B)JCHR»a47)I 
+
+PRIWTiPBIMTiPBlHTrPDlMT 
+
+
+S9 B0SUB4BBBB 
+
+
+fflllil' "-A. •• 
+
+
+
+
+IJpliL,, 
+
+
+
+Computer KontaktIC 
+
+
+
+COMMODORE 
+
+
+
+
+
+lllllfffftc 
+
+,E3,a0,F8.C3,4C.C3,4H,fia,2B.B0, £631 
+IBB22 DATA FB,C3,4C,C3,4A,M),CB,0a,C3.01 
+,FB,e3,4C,83,4B,ft0.BB,BC,FIB,C3, SSSI 
+
+
+
+iar«ft3iS.^.i 
+
+
+
+COMMODORE 3. 
+
+
+
+
+111062 DftTB aB,BD,BB,BB,f!D.B3.D0,eC,Bl, 
+,2B,DS.56,63.B£,BB.BB.Ba,CB,3C, 23BS 
+
+
+
+isriSi'SiSKis 
+
+
+
+sarsrMii 
+
+
+
+',iT,SiT£-T.i'" 
+
+
+
+sIiiri:;.".;'.;":;"..1i".;-;;,i".,.B. 
+
+
+
+%£'£;r<i , ;i"',r,i'ii'ii 
+
+
+
+
+
+
+:s,S.i':ZS-' 
+
+
+
+B,B0,BB,BO.BB.BB.BB,BB,Ba 
+JKEl.BitCKT iWB^lMMJmlMi BB BS BB 
+
+14| 3 1bJ 8 B 8 E«:"< ,B5,|« i B 5 .BBi^8Bi=^.B^M e 'M""'^ 
+
+.BB.iB.M.ij.B.!.";™'"!"'™ 
+
+
+
+lS^iS'iJ;. , ..".i , ..•: = , 
+
+
+
+risrs-s," 
+
+
+
+COMMODORE 
+
+
+
+3BB68 OftTfl 38 88 2B Oft B3 Bft 83 Bfl BS BH 
+
+
+RFASS: 
+
+
+
+
+
+
+
+
+Ein neuer Assembler 
+von Omikron Software 
+
+
+
+
+
+
+DecRe.swttc.Hrbcidctsicb .«.. Ei« EfcM mil 275 Be- 
+
+
+
+
+dm^vjerzu^z&hfim^m. -en Name* sowic ™ Pro 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+^jSrEr^ ^^i^D^at " 
+
+
+
+
+
+
+
+
+
+
+
+
+:',''" ■;.;- J ; , .'„ , :-.: , l 'V." ^ ^/.r™^;;; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+te-"""2ZZ? i ' i Hie,B ' feh " 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+33960 AFil8aeBiSC-lBlEBI2L'3BB9BIG0SLIBlB 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fiLfKByrcfaTrtcnP ' ' 
+Die Ausjatiedes Assemble™- OWsten. auumjlisdlE Zei- 
+
+
+38BSB P0K£51£96,1S 
+
+38 1 84 FORT- S6 53ST02 G 7S8 ' POKET , 1 B I «H T 
+
+
+!t^vniUliwh!!i !''n „'w, ! J ir "'■""'"": Omit™ Software 
+I.alveis jjiarldcrl nctjcn kiln- Job 
+
+
+
+Computer Kontakt 10/35 COMMODORE gj 
+
+COMAL 80 - Die alternative Sprache 
+fur ernsthafte Anwender 
+
+
+
+
+
+
+in g jer7eicilj B n 
+
+.nweiiifcrlrraiid- Sdimliickeii mill Synlai- 
+
+
+
+
+
+
+'atl"^K%? ra,e '''' I ^ e " sthri,:bcn,mdt,ei 
+
+dcs C64 misgerciil und ZlvEcke verf(ig , c 
+
+
+
+Computer Kontakt 10/S5 
+
+
+
+COMMODORE ss 
+
+
+
+DOS UJisk Opcriilion-^y-^T[iJ ^.u,,, yu , [r ;^, 
+
+Nil "IMAI. ,.ll,^1„lll. a L |- h^n n iJli L hi;Tttci^ 
+
+. :rlfl£n 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lore-Floppy^ len Sprac 
+
+
+
+i1*glkhk;i;cn dcr ii„l,ci die Mri s lith 
+
+
+
+kcint SdMicriekeiten. 
+
+
+
+QUICKLOAD-ACTIVATOR awvciwi 
+
+Die ajsgereifte Software-Losung 
+zum scfineJIen Pgr.-Laden von Diskette 
+
+
+
+te una Besctireibung: DM 59,- inkl. MwSt. 
+MACHO, Cart-Benz-StraEi e 30 
+
+
+
+COMMODORE , 
+
+
+
+3cpttoj.cn- S , ESC, E 
+
+
+
+,1CI ' SRTKLCLlRIHTilTI.AY. • 
+
+
+
+CAM-. QUOTE ' MORE. 
+TEXTCOLORS. DE 
+
+
+
+Profisoft 
+
+Assembler/ 
+
+Editor Package 
+
+
+
+;h immcr m, Speich 
+irii;lkht <a d em A, 
+
+
+
+I'KINTSCRr.FV. 
+
+
+
+COMMODORE 
+
+
+
+Schlagzeug fur den C 64 ™5""Zi " ,t'. u™:r:~iS~ 
+
+
+
+"3T 
+
+
+
+Froggcr 
+
+
+
+
+
+
+P«*cn: 
+
+
+abspi^i^n.D^ 
+
+
+'™- b « a ™ UI " 1 " choa isI dsr "W-" 5 "*™ 
+
+
+
+
+Frogger 1 
+
+35 PRINT-MJEDEN 
+66 PRINT-aiN EI 
+
+
+■tr^oecER' 
+
+
+UEBEF, Eir* STRhS-liE UND EIN FLUSS. FUER 
+t«N E1E EIN BONUS * 4- »n-» ».+ »••!■ »..*«+++»• 
+
+
+• 
+
+
+FRQSCH BEKOrttN *]E 
+HERHEIT GEBRACHTBEKO 
+
+
+5H5 P0KE52.£B:PDKE56,2BiCLR 
+
+51B DX=?16S:PLW?448 
+
+515 FORI-0TOSiliPOKED'.;*I,PEEK<327B8-iI 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMMODORE 
+
+
+
+Frogger 2 
+
+
+
+?fL3-3687B:L3=36875:L 
+
+
+
+="34347934797934B 343479" 
+="S5>S"B65:B ^sisesessB- 
+
+'"7973347S34H 7934793434" 
+II 52 : F =38873 1 POKED ,33 : POKE 
+"^"■MMMa-lSCiPRlNT-a 
+
+
+
+)*LEFT*<fl 
+
+
+
+S5 A*=RIBHT*lfi*,; 
+
+S7 C*=RIGffT*fC*,i 
+
+9B E*"RIGHT*'E*,£l)tLEFT»<E*, 
+
+9£ Dt'RIGHTXDS.DtLEFT*^*,; 
+
+
+
+
+
+
+
+>3?mbpe '. >49THEr*QTG leaea 
+
+
+
+SfiNOPOSeTHEMGOTOH 
+
+
+
+£4B J>( 
+
+£4! JR=(PEEK£; 
+
+£50 P0KE37I54,£33 
+
+SZZ IFJ-lSSTHENd'-B^GOSUBSBO 
+
+£6B iFjR«seTHEwi:Gosue5ea 
+
+£65 IFJ-14BTHEI*1=«2£-6OSLIB300 
+
+E70 IFJ - 140THENU- - 1 i CO.- .JOSt'i? 
+
+272 G0TO75 
+
+5e0 P=PEE<(0tWl;IFP<13£fttt)P^> 
+
+5B5 JFP^5B"mEMSC;TO3030 
+
+80S POKEQ.3E 
+
+601 Q-a*U:F*FHJ:lFU=-iTHENPDKEQ,3S:POKEF,5iRETURN 
+
+S05 1FU**1THEMP0KEQ,37!PQKEF,5:RETURN 
+
+610 POKED, 35:POKEF,5>RETURM 
+
+eeee POKE36se9,=40iPRinT u L*cORE:".-ECiPR^ 
+
+6005 FORT=£4BTO135STEP-giPOh:ELg,TiP0KEL4,n 
+6010 PRINT"«i*M«M-ICCHriFIL?" 
+B015 GETfiti IFH*=-J-THEri?UII 
+8050 IFfli-'-N'"^!^'^^^^ 
+
+BBSS QOT0EBI5 
+
+70B0 "i" i Mnn iii mm»i ii m iiir , ''H""T 
+
+7Q65 POi:EL£,fi:POhEL3,R: 
+
+800B P0KEL r t5iFQF>T=!T0i5:POr.EL£,2£5:PQKEl,3,= 
+80B5 POKELS,0!PO>-.EL3,B:hCXTT:FR=FR-l:SC-SCt-5 
+8007 I FF P =0«NE>fl ■ THENGOTOS BB 
+
+90 10 GOTDiS 
+
+10003 FR-FR-] 
+
+laaia gotois 
+
+
+
+?=0HNCii'ITHENGOTO7aB0 
+
+
+
+pomputer Kontakl 10/65 
+
+
+
+Mailbox 64 
+
+
+
+
+
+
+
+
+
+Deutsche* Hand- 
+
+buchzurDFU 
+mit dem TI99/4A 
+
+Von Klaus Wddcmann 
+
+27 Scitcn. DINA4 
+
+19.S0DM, 
+
+Radix Burutechnik. 
+
+ISBN 3 -925446-01 -X 
+
+
+
+BHK-ELEKTRONIK 
+
+
+
+INeue Mailbox! 
+
+
+
+GsSteoas. 
+
+
+E : S:;E"'~: 
+
+
+Biicher fiir die DFU 
+
+
+"§S 
+
+
+£ST 1 
+
+
+
+
+
+Computer KonlakUQ,'e5 
+
+
+
+LESERFORUM 
+
+
+
+LESERFRAGEN 
+
+
+
+Atari Gi afik- Tips 
+
+
+
+
+
+
+■ ■■ . ■;■:■■.:! 
+
+
+
+zcilig in cincr Zcile 
+
+
+
+UCSD Pascal 
+
+Teh habe gelnm. <.h$ E J a,^,j 
+
+
+
+.. SOIUen auch die au^fal- M CMStlH MM**! ^Th* ^ r 
+
+
+
+
+
+
+
+
+
+ahnllche Erfahrungcn gemac! 
+
+
+
+Schreiben Sie uns, 
+wen n Sie Fragen haben 
+
+
+
+<SK. *- 
+
+
+
+prasentiert Speziatitaten 
+
+
+
+
+
+
+:k-spezialitAten-bestellschein 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"" qeMB B " al " j ™ 
+
+
+
+
+
+
+w ™~'" a "" m „ !^"i^. 
+
+
+D« Ue , Ba r<l« 0! ,.n) 
+
+
+
+
+lW" (KslnoV, 
+
+
+»n ««»>«> 
+
+
+
+
+
+
+
+
+;;"" 
+
+
+
+
+
+
+
+
+
+
+
+CK-PROGRAMMSERVICE 
+
+
+
+Ck-Programni service 
+
+
+
+Commodore 14 
+
+
+'11 l-'aiis gill. .In-, gibt's na- 
+
+
+
+
+SpelcherpEau- 
+anzeige (1WB4) 
+BsNe-ErwdteniDj. (10VK4) 
+
+
+«SST 
+
+
+Erweilerung (12TC4) 
+Rurki-loliW) ■ 
+Ptaalan. (LB!) 
+
+
+
+
+'•■tt.-Nr.CI 
+
+Kasseiie zg.m om 
+
+Bm.-Nr.CZ 
+
+
+
+29,80 OM Best.-Nt.S1 
+
+
+
+n Spectrum 
+
+Puzzle (4/85) 
+
+Sp riles mil Demo f.VNJ) 
+
+Darts (5)35) 
+
+fcTHlichl) 
+
+ir.'likkl: lie, <Il.ti andcren 
+34.81 DM Besl.-Ni.S10 
+
+
+TI99/U 
+
+Cowboy (&-7lfc4) 
+
+Miner-Pal (1)85) 
+
+VciKi-v]adaga(U8S) 
+Parachute Jumper 15)84) 
+
+Klei.ilmLh.mbcn (10)84) 
+
+generalor (12)84) 
+
+Diskette 31.00 DM 
+
+flusl.-Ptr. II 1 
+
+Kimtt* 34.80 DM 
+
+Besl.-Nr. n la 
+
+
+
+Commodore 64 
+
+
+Hitr die iweitt Comma. 
+
+
+
+
+
+
+^^f***^*™* 
+
+
+II ..nJ Ml manner (3/SS) 
+
+
+JViBna (4/85) 
+
+
+
+
+Scf.Des.Orij.COniii'.'&ij 
+
+
+
+
+
+
+R^ad'S) 
+
+
+
+
+UnserCK-Soodapttk: 
+
+
+Msh.21.HDMBBSl.-Nr. CIO 
+K»SS.M.IODWB«SI.Nl.CI0< 
+
+
+
+wk'ilcr ■.■wl|nr : p J cki ll 
+Alpha LiKk (2'65l 
+
+
+
+KaSMtle Z4.UDM 
+
+
+
+Computer Kontakt 1 0/S5 
+
+
+
+CK-PROGRAMMSERVICE 
+
+
+
+ZX Spectrum 
+
+Ku Bernd (2/B3) 
+
+21.80w Bm.-tt.S11 
+
+
+ZX Spectrum 
+
+Speorair,- 
+
+1 (MB) 
+Hovercraft <7«5) 
+
+21 ,80 DM Besl.-Mr. S 20 
+
+
+
+
+
+
+GPC464 
+
+Pyramidc fJ«a 
+
+Omjw ■■« Ciiinnns (9*S> 
+Cas-Chcck)^) 
+
+16-10 DM 
+B»st.-Nr.CPCZO 
+
+
+CM 
+
+Baluon (7/85| 
+
+Rescue in the Stone-Age- 
+
+(W85) 
+
+Sprite-Editoi(<l/85) 
+
+Diskette ZZ.MDM 
+
+BlO.-Ml.C11 
+
+Musette 11.MDM 
+
+Besl.-Nr.C11a 
+
+
+
+
+CPG 464 
+
+Solitaire (*S5) 
+Poker (5/85) 
+
+1l.t0llMB*SL-Hl.CPC1l 
+
+
+
+
+Atari 
+
+Dank Paaik (7/K5) «„.„,» e„ i 
+FunlUiMS-Plotttr{5/gS) 
+
+il.:i.f,i^.i..i.vTolliii;'.!.Vf'-, 
+DQSHJRWB) 
+
+nam a.uan 
+
+lut-Nr. A 11 
+
+KlSMtte Z1.HDM 
+
+B«sl.-rJr. A 111 
+
+
+
+
+C 64 Grafikerweiterung 
+
+
+
+CK Kassetten- 
+Sonderpreise 
+
+
+
+Software-Bestellschein 
+
+
+
+
+
+
+jrSjJ; 
+
+
+
+s 
+
+
+
+1 
+
+
+
+Der ATARI alsM 
+
+
+
+BUCH-BESTELLKARTE 
+
+
+
+ComuUar KotUdd 10/35 
+
+
+
+SCHNEIDER CPC 
+
+
+
+Liebe CPC-Freunde! 
+
+
+
+Gruselei mit 
+Frank'PTStein 
+
+
+
+Tips zu Supersave 
+ausCK5/8S 
+
+
+
+i..-:.,!i cirfatbL- H -Ka<»L-.lL- 
+
+
+
+li 
+
+
+
+mil 
+
+
+
+CPC 464 
+
+3" Zoii Diskeiten 
+
+1 Sick.nur 12,90 DM 
+
+10Slck.riLr II*.- UK 
+
++ VersaraSsasten 
+
+
+
+
+
+
+SCHNEIDER CPC « 
+
+
+
+Buggy-Jagd auf dem CPC 
+
+
+
+
+Ein deulsches 
+
+Grafik -Adventure 
+
+DM29.90 
+
+Exklusiv bei 
+
+Computer Kontakt 
+
+
+
+Computer KoniaM 10/85 SCHNEIDER CPC 47 
+
+
+
+
+Lhtmg 1 410^r-PEEK<.. t r.<A SC( .™ l »*,»,l,,-32> 
+&8 ! LISTING 1 - BUGGYLOADEK "31 P B INt" C H R ,'.^ > lcH«'(10. , CHB..B. iCHR 
+
+no MODE 1 470 SOUND 1 , bbM,20, 7: SOUND 2. bb, 20, 7: SO 
+
+,?3g Listing 2 
+
+130 ■•ril--111001001001110011I010Q]' a0 MEM0RV 3SS»9 
+
+210 locate A»e,B>s:iF md«i»»ibhj ,«,ii- *° PRINT "ok-:next jsiprint -flchtung *b» 
+
+230 FOR B-0 TO 4:FDR «-l TO 3z:LOCATE flt 10000 DATA -3E01CBFZ9C3E0132B699CDE79DCD 
+
+-1 TO 30: NEXT ?F9EE6013C32B<ll»PCD64¥ECD74?ECI>849EC3fte9» 
+290 LOCATE A'4,B'12:IF WID»ia«{B'I> a 11 F401FE01200205C9FE02200204C9FE032OO2OCCV 
+
+340 SYMBOL AFTER 240 O06AZD292929-, 9fi03 
+
+330 NENOBY 33BOO 10020 DATA ■29545Dr72»l»EBE1191 lFF020aOS 
+
+370 LOAD " ■ buggygra" 0DCB212I00C0O9E52*O0*A2D29292929343D2920 
+330 RUN ■■bugg.CM- 15EBE1 1SDD21 10A40E01OS09E5BDE3DD7EOOBE2Q 
+
+
+
+SCHNEIDER CPC 
+
+
+
+Computemontakt 10/85 
+
+
+
+SCHNEIDER CPC 
+
+
+
+9*0 CLE 32LB40ia02DB3FDBF21F40000ZFB09FF901BFClB 
+
+GGVBLASTER - ITEHS HEU DEFINIEREN > lOOZO DATA-FFFFFFFF020D1FDDFFFFFFFF80OO0 
+'BO PEN #1,3 001BFFFFFFD9OO00001BFFFFFFDB0Q00001BFFFF 
+
+Kl,d:IF d<] OR d>999 THEN 990 FFDB0000001EFFFFFFDB0000001EFFFFFFD80000 
+
+■[•unit! ■ 1 ": INPUT #l,d FFFB0000009DFFFFFEBS000002BB7FFFFBW4000 
+1O20 IF diO OR d>31 THEM 1010 ELSE Burnt 0ADD5FFFEADBS0O02A99S7FFAABB5400AAEBSSFE 
+=i A ASS 5502AADD5542A ADB334 AA99SS 7F AA BB55O0 
+
+1050 PRINT 11,'Finl an inlin; 0-255 CM F02FFFFF FFFB0000Q0 1 8OOO0OO 1 BOOOOOO 1 BOOOO 
+
+-■fuel i '} m iltn3T Hl,d 10050 D AT A ■ BQOOO00 1 BOOOOOO 1 BOOOOOO 1 F FFFF 
+1O30 IF dil OR dUB THEN lOTO ELBE fuel- FFFOZ021F13FFFFFFFF8000000IBFFMFFIH1005A 
+"-* 001BBDSA»*BAB33flOOlBB75AB6DA113A0aiflF7aB 
+
+
+IIOO IF d!l OR d>9 THEN 1090 ELSE Ihlsld 699B0OHAFB1 ■ , 12285 
+
+■-d 10060 DATA-BfiDBASFDBOOSAOOlBFFDBFFDSOOOO 
+
+alii")-: IMPUT 11,1 AABSOOOOOOlAAAAABflBBOOOOQQlBBAAAAABBOOOO 
+1120 IF d<M AND KXI THEN 1110 ELBE col OOl ABBBAAABBOOOOOOlBBftAAAABaOOOOOOlBBBBfl 
+l=d: RETURN AAB8OO0OOOlAAAABAAB8OOOOOOtAAAAAAABBOOOO 
+lOOOO SAVE •buejgybH* DOIBBAAAAAE' , 11514 
+
+10070 BATA-SO OOOOO I AAAAAAA BSOOOOOO 1 BBABB 
+
+B BFBOOOOOO 1 FFFFFFFF OZOE 1 FOCFFFFFFFFFBOOO 
+
+tbtillg 4 01FE0000007C0000003C000000380000001BDOOO 
+
+OO 1 BOOOOOO 1 BOOOOOO 1 8000000 1 BOOOOOO 1 BOOOO 
+
+lO " Matin* 4 - Felder t FlIlHrimn 001 BOOOOOO 1 8000000 1C0000003C0000003E 0000 
+
+30 D t=40960 10060 BATA-FFFE7FI=FB0000001BE5753?DaO35O 
+40 FOR ie=10000 TO lOlOO EIEP lOIPRINT I OOlBESTSBTDBOOOOOOlFFFFFFFFOZlBlFiaFFFFF 
+M :™™-0:REAB x»,s FFF82024041 828241 4 1929249499Z9J49479Z7Z1 
+
+R...':END 10090 BATA-BAB5AD51BAA5A33D8AADBS31EAA99 
+
+TO SAVE ■t>(=ld»r0",b,409io, 1040 °BiaZOa20BlEFFEFFFT82O44OB18ZH5OBlB2M3 
+
+HO OPENOUT "bnMenO- lOlOO EATA-S2145OBlB0145aoiEFFEFFFTB20B2 
+120 FOR i-1 TO 10JPRINT xCllls'PRlHT 09 , 08J82O8ZOB1B0082O01B2OB20B1820820B1FFFFF 
+
+
+"99 ■ F P ,d.rd B t-„ OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 
+
+
+003AFFE7FF3A8000015ABFETFD5AAOOOOB3BBFET OOOOOOQOOOO' , 40Z7 
+
+4OlB«BETD55Bfla00155AAFETF55ABO00055ABFE? =™°0 DATA -Dodge 'H'.-PBC N«n' , ttldMHa 
+F D5A BOOOO 13AFFE7FF5A0000O0SBFFE7FFD800O0 " To ™""*""l*W» DMth R»re- , "An Enpty 
+
+1OOI0 DATA-OZ0Z1F1BFFFFFFFF8OOO0001BE7BD 'l^"^"" 0v ^ r " ■ " Cr '■• ° B The Trllr'.'Th* 
+
+
+
+Mggtogaiaw SCHNEIDER CPC 
+
+
+
+
+Computer Kortakt 10/BS 
+
+
+
+SCHNEIDER CPC 
+
+
+
+
+
+
+
+
+
+
+
+
+MusikaufdemCPC 
+
+Der CPC verfiigl iiber einen rechl 
+
+kislungsfahigen Soundgenerator. Doch wie 
+
+wird dieser in Maschinensprache programmiert'.' 
+
+
+
+xNjXNKNNXh 
+
+
+
+AAAAAAAA, 
+
+
+
+Higblbyle. Je klfin- 
+
+derTod. 
+
+, 1: Analog RegisL, 
+
+
+
+Computer Kontakt 10/8i 
+
+
+
+SCHNEIDER CPC 
+
+
+
+CPC-Tastatur 
+selbst definieren 
+
+u 32 cigenen Funktior 
+
+
+
+
+SCHNEIDER CPC 
+
+
+
+CPC-Tastafur 
+
+
+
+Assemblerlisling 
+
+
+
+ccownKMttiim stnntiutHtn; 5S 
+
+
+
+
+1 IE 'Whkir- = = si~- — -" — 
+
+
+
+. 
+
+
+
+SCHNEIDER CPC ™ 
+
+
+
+Die Notbremse fiir Superpipeline II 
+
+Programme in 
+Maschinensprache 
+
+
+
+MSESCAPF. fiir den CPC 464 
+
+
+
+Sound liami man S u|xt -!'■.;::- 
+,.L:din..-i.^:r Oya.b. v,mi 
+
+
+
+
+
+
+ESC-RouLine in. t 
+
+
+
+CI KLu-iiil Kl-iiK .Hi'ia^hcri 
+
+
+
+& L 
+
+
+
+MS-Escape 
+
+
+
+Computer Kontakt 10/B5 ATARI 57 
+
+
+Hallo Freunde 
+
+
+■■■■■■ TEL " 0203-497169 
+
+
+s^siisizr™ 1 ' "aZ^i ™ cu. 
+
+
+MULHEtM/RUHR BBBPJJN llWfl 
+
+GNEISENHU- BbJIF^ 
+STRHSSE29 ■PU ■ ■■■■ 
+
+
+
+Sind Super-Pokes 
+wir klich so super? 
+
+
+
+
+
+
+!.-, K.'^Uia 
+
+
+
+Prognunm- 
+Korrektur 
+
+
+
+Programme 
+fur Atari 
+
+
+
+vlL.nl, i . ^ , .! S|'!;l Cilli^l.:' 11'llL 
+
+
+
+ATM AS 11 
+
+
+
+Computer- Kontakt 
+hat preisgOnstige 
+
+Kleinanieigen 
+
+
+
+Atari-Spieletip: 
+Miner 204? 
+
+
+
+vonliJisddilicklfiJitchinMi.jr- 
+lichfiir !i!)hc,;inm dasSpid in 
+
+
+
+lai^Muiiirain ia^!OS ]°i 
+art Apuadypw: (CK l'H4S 12; 
+
+
+
+kcEagk (CK*SSS.ll) 
+
+
+
+ATARI 
+
+
+
+ftSSEHBLEBECKE 
+
+Musik in Action! 
+
+
+
+
+
+
+
+in Russ besriniml einc AhulLthkcir >■« 
+
+
+
+Ttm&be ier >ntf n 
+
+
+
+BYTFAKRAYN1=[C4:Vl 
+
+
+-" : ! - ; : 1 : h -v^'^:;!"r, 
+
+
+ALU- andm n. i-uhiiis.il Itiiii 
+
+
+"W ,-;,™ k< "'" 
+
+
+
+
+
+
+BYTE ARRAY N2 = [EN :0J 
+
+
+™xSS 
+
+
+y„m '-iiiii.-ii .],t Si-.kh mi-a 
+
+,!.„ ITiiyiiT,-.,.: ,:.Tnpiii t :-l "™ 
+
+
+Hl i i ' 'i 
+
+
+KlantExDcnmoilc 
+
+
+
+
+^^""lk»r.*', 
+
+
+
+
+
+JL 
+m. A«l kebi™ Fall I „ .," djgtcji dcs Abspitls 
+
+
+
+
+
+
+
+
+
+ici GHchwindigkeit niehl 
+™mmierais in Sprachai 
+
+
+
+
+
+
+
+
+Was ist Action? 
+
+
+
+
+tom , jst cbc smlklu . 
+
+
+GewohnlirfisithldicS^lIC 
+
+
+ecslarlM wcrdrai kann. Ae- 
+
+
+Lelzlere sind Vaiinb.cn. die 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cSii! Cii'SL-liminJiukfilsHL-iiSC 
+
+
+
+
+
+
+,vir.i ik-r 0>m,>Llei S c:sdci>. 
+
+
+
+
+
+
+
+
+
+
+vkiTihcil ural. E' ifl -up; 
+
+
+
+
+
+
+lauftahiges r'rt-sramm trail gi 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GCIiLffctil im gaiv«i I'rn- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RAMsbelegt 
+
+
+spcichcm, Compiler laden... 
+
+
+;:in»;ln.' Pmzeduren (PROCs) 
+
+
+gramm werden nicht ubcr Zci- 
+
+
+«™ s »t"™,™ 
+
+
+J^^T", 
+
+
+SS^SHS 
+
+
+■M^SIm 
+
+
+
+
+
+
+
+
+
+
+J^'^SiX*, 
+
+
+■ ■■■■ ! \;':" ,i !!- 
+
+
+k™.D eI a.lm. define* 
+
+
+^cBcfchle^h^DO^ 
+
+
+
+
+
+
+
+
+
+
+
+
+Qucllic.i uric! Lranpiler 
+
+
+
+
+
+
+K=FJ£=3£ 
+
+
+
+
+e^s^se 
+
+
+' n ^ fc t^r'tri^u',',- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]-livu (BYTE.! un,! J-rl.-te 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+""•"""•""' 
+
+
+witHnBaUusolbr.rnitRUN 
+
+
+(POINTER) diem TyiKn. 
+
+
+"■" 
+
+
+
+Musik in 4clion! 
+
+
+
+Atari 
+Mini-Billard 
+
+
+
+
+Mini-Billard 
+
+
+• 1 IT *IYtEYMHU CI'CI tFI iM 1 OKI* F( *V» 
+
+
+321 boto 2ti 
+
+IIH REM l»llIEUT5BENE8U«»i 
+
+
+IB BP.HPHICS 2*1 tiffin ttiTITELitt 
+
+
+215 IF PEEK 153252) >l THEN H=lll:aY=l5 
+
+
+3111 S=STI« (11 1 KI'KI* IS=71- 15=1 1 ) 1 If 
+
+
+2IFDS «■» 10 SrPGIf 7IS»,l:NEir » 
+
+
+: 5 i= g : I '-■ 1 1 SB - 5S I] 1 5 OUH 1 , 1 H , B , 1 5 1 « B 
+
+
+mfiUJI-IS'HliPDKE Vl.ff.fOtl tM, 
+
+
+31 POSITION !,li? 1*1" n i N i -iPDSIT 
+
+
+
+
+KJilF STRISigi'l THEN 3111 
+
+
+ION 2,3i? 14;' b i l : i ?■ :■ 
+
+
+211 koto m 
+
+
+3)21 fiT=AT*l 
+
+
+II POSITION 2, SI? M|'ly IAdJIP* I4iPj 
+
+
+211 IF IKSI OR AX>l9i THIN tl-Dlil-ll 
+
+
+35H LET O-Kl-CIlLET N=CY-KYlFY"(Ny»>l 
+
+
+
+
+
+
+-2iF»-2iIf 0(1 THEN FI«-&FY«FMMJ 
+
+
+
+
+
+
+3511 IF FY>3 OR FY<-3 THEN Fl=Fm.HF 
+
+
+» FOB *•! TO 3iFDR B»255 10 1 STEP -: 
+
+
+lflY=«l«USDUHD g,8l,ig,ISlSC'SC4[ 
+
+
+V'Fm.liGDTO Hit 
+
+
+iSOUNJ J,fl.fl,l5iN6l- UPHE 7§B+ft,ftm 
+
+
+22S IF PEEKI53253)>1 THEN BM3IsB*'15 
+
+
+3321 FDR S-L ID 255iS0UHD 1,5,11, ISiNE 
+
+
+*28iNE1T Hi SOUND 1.1,1,1 
+
+
+: EM: EMiSB'SW: SOUND l,lBI,9,15tB0 
+
+
+IT SifDtt tW.tlSOUW 1,1,1.1 
+
+
+41 IF P£EKI33279)OSTHEN 4) 
+
+
+■ 215 
+
+
+3334 POKE lhj,l 
+
+
+N FDS *=! TO 23llS0UND B,WDIIHP,B, 1 
+
+
+221] GOTO BS 
+
+
+3511 1FSIB1BIIK! THEN 3i« 
+
+
+s:nht A: sound i,i,i T i 
+
+
+251 IF B(!J! DP MUM TUCK Et-EHI-ll 
+
+
+3551 SOOND g,B,IN,i;iM-2 
+
+
+III B051I3 11 III 
+
+
+UOSitEIi SOUND l,BI,ll,15l5[>5t>l 
+
+
+
+
+in color iiploi 3,iiDimino 77,hdr««t 
+
+
+2IB IF BY(4I OB S»!!B THEM EY-EIH-ll 
+
+
+UM PEN "tlOLLISlON K03EL1H 
+
+
+77,t7iIIR»NT0 3,47lDMITD 3,1 
+
+
+lBY"B»ETl SOUND l,BI,JI,I!lil>!&l 
+
+
+4211 HI-DIi HT'DTi Dl=EIi DVCYiEKHIiE** 
+
+
+121 PLOT 8,2iDRJH!C 72,2iPLDT 75,5:DM 
+
+
+245 IF PEEKI53234I>] THEN SB-SB'I:3DUN 
+
+
+HYiFL'l 
+
+
+ITO T3,42iPLDT 72,4S:DR«NTD B,45:PL0T 
+
+
+5 l,!ll,B,]5:G0iD SIN 
+
+
+42]IOIT>HEI/4iWDY*EI/4iEI'EI*Dl7<] 
+
+
+5,4!iDRAN7D 1, Si DEB ;CDLDR 2 
+
+
+
+
+EY-EYtor/4 
+
+
+131 RESTORE 151; FOR M TO 4lRE*D L1,L 
+
+
+
+
+
+
+HFBR I'l TO Hi STEP ISsPLDT S1Ktllf2 
+
+
+
+
+
+
+*L(,CnS1i;«*LTlNE(T llNEIT T 
+
+
+iCY'CTtFY: SOUND (,BI,ll,15iS:=SCtL 
+
+
+H»:FL>2 
+
+
+
+
+2BI POIE H, AtrPDKE Y.SYiPOKE Ht|,BI:PO 
+
+
+4311 EI=E»Fl/4tEY-EY+FY/4]FI-Fll»E</4i 
+
+
+»■ 1 1 9i RI= llli KY" CYi VIM 1 «8'2 1 1: BB-23li 
+
+
+HE Wl.BYlPWE K+i.MlMlK V*2,CY 
+
+
+FT'FVtETKtBDTO 45M 
+
+
+
+
+2BY IF Id THEN 311 
+
+
+Mil HI .Dl i &« 1 1 if 1 1 DY'FYi FI -HI i FY- 
+
+
+191 DAT* J,2,7S,:,7S,»,S,IS 
+
+
+291 IF PEEK (13241 1-4 THEN B09UB IIH 
+
+
+HY:FL<4 
+
+
+lil POKE H,«T:PD1E V^tlPWE H*1,1I:PD 
+
+
+211 IF PEEKI332H1-I THEN BOSOB 4211 
+
+
+
+
+KE W.BViFtti K*2, OH POKE V'2,ET 
+
+
+2S2 IF PEEK(532i2l>2 THEN GOS0B 43N 
+
+
+
+
+171 flOSUO 3IH 
+
+
+
+
+t 5(1 SOUND 1,31,11,15 
+
+
+
+
+
+
+
+
+us Rtn hMMII lmp*« 
+
+
+315 WM-l.lli[F VIlia TK=M 171 
+
+
+45;i IF !>il THEN A'lil'B 
+
+
+
+Ml 5 FOR AM TO 3IP0KE VtR.HPOKE H*», 
+■■NEXT * 
+
+SHE poke azn,una am,wimri 
+
+IWCIIlHSI-llrtTlslF P>HP THEM NP'P 
+MFKltt SiPOKE 71I.HPDK 7S2.li 
+POSITION i'Jll lii'TBEfFEB: "|S1 
+5111 POSITION i.Si? Itgtttllttmtl ' 
+
+;SC 
+
+5111 POSITION !,5l? I^MfiUEtai "i»T 
+
+
+
+an a-mi sound t,siN(Jit5it2n,n,i: 
+
+]M [,5IHIAH5lt»BHl7l,ll,13 
+II IF PEEKI53!7»t<« THEN Ml 
+II 8RAPN1CS 5Hi.«=U»!P^,T0PI:P«F 
+!77,S 
+
+II SOUND 1,1,1,1181)1*0 1,1,1,1 
+SSH H.|iSC=l: S»=l 
+'AM SOTO 111 
+6DT0 mi 
+rem ftfFvn-N.ascHiNENPRDSiumiit 
+
+1H1I H'1134i)M3HiL'1352iP*7ll 
+
+11171 M-[S«iM»l!i3tSHP!nn5M 
+
+
+
+III3I TOP-PEEK (H4)-lliPWE 711,1 
+HHI POKE lli,TOP>OR»HICS 5>I4 
+lll» BOSW 3MW 
+18811 POKE 1,11 
+1II7I A-USBIPN-.TOPI 
+
+nisi BHPi-nnptutSMiK-nDP'!] an 
+
+lllll P.E5TD9E 182IljFDP. 1-1 TO IS 
+11111 READ DtPOKE SNPlH,DiNIJT I 
+II HI RESTORE I 1311 i FOR I 'I TO IS 
+Hill REM) OiPOKE Kt],[lNE<T I 
+III2IPCM F,«:P0KE PH.1B4 
+lll3IPD<EP*2,U4iPDt:£ft3,lH . 
+IIKI A=USRISHP5ET,SHPl,SHPt,SHPI,H 
+1*141 RETURN 
+
+132IE E-ftTa 1,11,41,124,121,255,255,233 
+,255,255,235,121,121,41,48,1 
+II3II DATA 24,21, 21. 2», 21,21, I5=, :«.: 
+33 ,24, !t, 24, 24, 24,24,1,1 
+31HI P.EN • 
+
+
+
+31131 IF 5021772 THE* 1 
+
+
+
+11,114,111,141,17,4,214,149 
+
+jBliB MTR 1,142,3,137,1,1,137,4,1, 1ST 
+
+,11,4,117,1,218,212,14,241,21 
+
+311 21 DATA 171,17,4,113,3,133,213,141, 
+
+1, 113, 214, 112, 3, 141,1, J 13, 214 
+
+11131 DATA 2»,»B,25i.23«,2iS.3ia,2ie 
+
+,214,14!, 1,141. HI, 1*9,7, 
+
+31111 DATA 92,220,171 
+
+
+
+■■,2,li',3. 
+
+
+
+1,29 
+
+
+
+2N, 91, 111,149, 1, III, 27, 211 
+,142, 4, 137, 11,218,212,11, 251 
+31141 DATA 149, 31, 111,41,2,112,228, 111 
+,9B, 149, 7,12,92,228, 94,1 
+31171 DATA 17,1, 21, 1H,: 
+,111,22,4,173,22,1,11,1; 
+3)81 DATA 8,4,133,2*4,119,9,4,133,287 
+,171,22,1,119,1,1,137,1,210 
+36191 DATA 189,11,4,221,1,1,241,37,133 
+,214, 111,1, 149,1,113, 214,211 
+3I2N DATA 214, 14,1, 211,211, 189,1,4,13 
+1,214, 111,1, 177, 211, 143,211 
+Kill DATA 2*1,214, 11,4,218,214, 189,1, 
+4, 137, II, 1,110,2*3, Mi, 22,4 
+II22I DATA 11, 181,74,91,229,141,1, 114, 
+171,211,14,114,133,9,4, 111,133 
+3823* WTfl 8, 1,2*1, 211,7*2, 71, 237, 4, 91 
+
+
+
+Das Premierenbuch 
+zum ATARI ST 
+
+
+
+
+Computer Kpntakt 10/85 
+
+
+
+Wie mische ich die Atari-Grafikmodi 
+und 99 weitere Wege zum Gliick 
+
+
+
+Eine Lcbicnshilfe von Thomas Tauscnd fl'eil 2) 
+
+
+
+(ininde sill f-.i- ■■ £ ' i! " ,l ' : "'■' 
+
+Die ridctae (A^tk-1 Orafik- ljste ZL - ,aid,i:n " n<l 10 flttl ' 10 Dl, - PLLK (5601 - 3.W . 
+
+
+
+
+
+l..S-:4I. 1;L T/.-!kn|., J .,n; ! : 
+
+
+-,-, L)j ' F . rr -Kl-N,l "■ = , 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d e , nieM v 0nl Basic- 
+
+
+'^'fl^ta^te™™™*™ 
+
+
+Nach RUN wcrdcn Si,- k- 
+
+
+n' B^imlfctTis*^ 
+
+
+DL< bctfiuio .u . dtem. 
+
+
+('^H-^l^t^Ii^fV 
+
+
+
+
+
+
+pjiks 0-RiMs'lmn-: Lrm-f.:'. 
+
+
+
+
+
+
+
+
+Jnd'mSLr^M^t 
+
+
+iSS^ch 
+
+
+jf^'eY" 1 * ' 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+IJL nichl allm Ui.i! *.j,l !■■■- 
+
+
+h-,11. ,lK-, t -r Zfilc das Lisri 
+
+
+
+if.i ui'nfii rrniphkSnBefehlaus- der giafiksnifc hirmudrtieren. 
+itozcscs:,iiLttt. ([.uu^li.h ™ s ''" k ' liilifa ' ll;l ndatcn ^l.-^n 
+
+
+
+Computer Kontakt 10/85 
+
+
+
+DL-Designer 
+
+
+
+
+1* t 
+
+
+10 5«»» 
+
+
+
+
+El ■ 
+
+
+
+
+
+
+]|| 
+
+
+li !$£ 
+
+
+
+
+
+
+
+
+
+
+" ! 
+
+
+f! «;i;Is 
+
+
+
+
+
+
+IS !!'!'i" 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+f.\ 
+
+
+
+
+
+
+SpMt'ra'itiiiE* 
+
+
+"fSK "iis 
+
+
+
+
+
+
+■• 4L=5llK:5(CSHtDllM< 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"lB! 
+
+
+p«i I m»',«?eIii I i 
+
+
+lf jp j ' !P, " E **' 
+
+
+
+
+
+
+3-:«E« rssoiii 
+
+
+
+
+
+
+Mi:? -OMr: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+■'. -'si' 1 *"' 
+
+
+" tioro 1 
+
+
+m 
+
+
+imp utiminoi 
+
+
+''"'JoilrSi i 
+
+
+
+
+'iKil" 5-TET 
+
+
+
+
+is*] 
+
+
+ftsci">°"i«si"-F 
+
+
+: ^; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+i" 
+
+
+'^SSiat™iiZUr 
+
+
+E«('«JM5gSee« 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5,i6:«:«Il!ILtJ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+■■.■■' 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hi 
+
+
+ie^Kn;^fua;?5 
+
+
+WjDL$lY,tl-CM 
+
+
+
+13* u.snr.*i-cms; 
+■ 
+
+--"'•111 u,ll:7 "Q 
+
+
+
+
+
+BrKontakt 10/85 
+
+
+
+*'"il#n'iJn«"(B|!l«)°' : "wP« S IL'im 
+
+
+fUfjHI Mi*T!m lllUflT ■■! 
+
+
+«IDH«B 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+M" h T«Ei! r 94ln=w«L m"™ T " SIP " ,u,uo " 
+
+
+5HB FOB F=B8ll'Tn M0H):P0H 
+
+
+F PEEK ft 
+
+
+
+
+
+
+
+
+ID S !l5i 5W " = "' ,Mnl " :Y *" !M 
+
+
+I!" "i?Bs';f;™iii5i°Biel'ij 
+
+
+■li"B ; D 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+15*6 r PFEH56B] :PB(E 1571, KEI 
+
+
+
+
+">' ll'ri'ml^mim^^^^^^m 
+
+
+Illl P»«E S5»,M:FBB »=l TB 1 
+
+
+s'lfllE B 
+
+
+5MB EMMIIC^TfiKf5S97B?M«£IB1^ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SliS SEIC ',!» IB H.t 
+
+
+
+
+
+
+sii* k=«h i"rtrH BtM Dfai Mfi heKI 
+
+•■•{HM D*U H*El hCS : 5=9: FIB F=HC T 
+
+
+
+
+Sph™I 
+
+
+
+
+
+
+
+
+
+
+5211 i=BMIBLi 
+
+
+
+
+
+
+
+
+
+
+
+
+m&xwn*w 
+
+
+
+
+mm iva V\ Uiy,._k 
+
+
+SZ2I F=I«>TBP1:«:«-F:PB«F «,P 
+
+
+
+
+AWAtAWJiiUfcinnLT/iSilstLLz 
+
+
+
+
+
+
+5tI6 MI l=Mt t n **t H win Y Win Ff*»w 
+
+
+Sill ID5UB HI:PEIUB« 
+
+
+
+
+i r K""> Itmi W 
+
+
+
+
+
+
+
+Zeichnen mit dem Atari 
+- Joy Paint macht's moglich 
+
+
+
+■: .rOYF.MNT HAS' nhgt- 
+
+
+
+tari (imvlkkj-tski 
+
+cr INPUT/OUTPUT). 
+
+
+
+•W ClKfl.l .111,! I RAVI- 
+
+
+
+Ladeprogramm 
+
+
+
+18 COLOR HFQR ]=: TO BlPLOT S.IHMM 
+TO I.lNlNEU HCOLOR »<C-fiPtDT 3!, II 
+HWAHTD 3:,mDRAirD 27, Bl 
+
+It ISflKin ;2,BllI=17:Y'4li8KU6 Ml: PL 
+
+
+
+2:H01 24,tliBRUIT0 21,18: 
+
+1:1=14: MB: O2:809UB 2BB:f 
+■27: 1 '51 1 60308 2N 
+
+
+
+I PLD1 31,21: <> 61 :605UB ill: COLOR 1: 
+
+ii i>ii to 42iploi i.jiidranto 
+
+F llCOLOP SlC'SlPlDT 58,41 
+
+5 DRANTO :a,t5:0RS»™ 4A,35:DM*TC 
+
+
+
+DSUB JHiCOLOf BifDR 1' 
+
+
+
+OT l,r: (=131:60508 ZH:COL0H 
+
+
+•.rm i=» 
+
+
+■ to iiiiplot 2i,umuia n 
+
+
+:NEIT 1 
+
+
+ZI FDD 1=111 TO 13HP10T M,: 
+
+
+gwu 2 
+
+
+7,llffill I 
+
+
+
+
+21 COLON IJiC=I1iPLBT 11,111: 
+
+
+nAMTD 41 
+
+
+, 5! i OR 11 >S 1 1 , 81 i Y- »l r I - 38 : 60501 ill : P 
+
+
+LDT I,YlY'13llBDSUJ 2tt 
+
+
+
+
+22 COLOR 13:C-13iPLDT 53,131: 
+
+
+PJHFC 43 
+
+
+,12liDMWT0 H,8liBRANT0 31,1 
+
+
+
+
+SliGDiUB 211! PLOT ' ,Yl T-13B: BOEUB 211 
+
+
+23 COLOR liFOH [-1 TO SiPLOT 
+
+
+5,: SI ■■■ 
+
+
+AUTO 4B*I,13liPL0T 57,lB5iDFWH!0 32>l, 
+
+
+EliNEIT 1 
+
+
+
+
+24 COLOR lSlC'UiPLOT 72,134: 
+
+
+UKB ?2 
+
+
+.HiDRMITO 71, HiORAHTO 71.51 
+
+
+ERNTO 6 
+
+
+3,8BiV'4B:I-65i6D5UB 2Ms*LD1 
+
+
+71,1 
+
+
+23 I.)li1=13liE3SUt 211 
+
+
+
+
+24 COLOR 4: PLOT 34,lt1i[RMT( 
+
+
+il,]4im 
+
+
+SANTB 3I,I34:(RANT0 34,I)4:I1[ 
+
+
+1T0M,1 
+
+
+5'iDRftKTD H.lSJiPLDI 30,131 
+
+
+
+
+27 COLOR I2IPL0T M,l41.DR«m 
+
+
+41,131: 
+
+
+PLDT 43,119: BRANTO 43,l54if>L( 
+
+
+AS, 154: 
+
+
+BRANTO 41, 154. PLOT 47,131 
+
+
+
+
+31 UL'PEEIi 1341) -PEEK 1561 H256 
+
+
+-DplE BL« 
+
+
+lti,141:PDKE JLtl7t,t 
+
+
+
+
+32 mil) 72, IS), 1,111, II, 212,1 
+
+
+i,24,;ao 
+
+
+,111, 27, MB, lit, (1 
+
+
+
+
+31 RESTORE 32:fOR 1=1 ID 1!iF 
+
+
+
+
+E 1 778-1, A:N=rr hPQKE 912, H 
+
+
+tP0>E 31 
+
+
+3,6iP0»E 51254,112 
+
+
+
+
+3! POKE B2.li'' i' -ICIIIM BY 
+
+
+S.HftNDrE 
+
+
+41 DOS OB 41 
+
+
+
+
+•'RESTORE IHiB'l 
+
+
+
+
+51 READ Oi If AIM THEN POR ! 
+
+
+B TO 7.R 
+
+
+EAD BiS^S'AiPOKE RA8«54*I-A< 
+
+
+
+
+1:5010 51 
+
+
+
+
+5! IP S019B24 THEN SRAM ICS 
+
+
+
+
+ER III IE] LEU IH-lSI-iEND 
+
+
+
+
+(1 RESTORE 45:S=liF0R M5J6 
+
+
+: liliiFr 
+
+
+EAD TiB-9'TilF ••2' THEN T-PAS 
+
+
+U IF T-2ET THEM T=PAB-I 
+
+
+
+
+62 POKE l.liKIl hPDKE 1377, 
+
+
+EE«i348l 
+
+
+IPOKE !5'B,PE£<!349I 
+
+
+
+
+65 BATA 173,121, 2, 41, l,2H,3, 
+
+
+
+
+73,121,2, 41, 2,218,3, 32,17 
+
+
+
+
+64 DATA 6,173,121,2,41,4,210, 
+
+
+,32,11,6 
+
+
+,I73,12I;2,4I,B,!IB,3,S2 
+
+
+
+
+
+
+
+
+,6,212,224,27,144,13 
+
+
+
+
+
+
+
+
+
+71 DATA 21,212, 131, It, 2(4, Ii, 171, 754, 
+
+,712,224, 44, 1 44, 223, 142 
+
+71 BAT) 254, A, 142, 1, 2IB.W, 174, 234, 4, 
+
+12,224,214, 174, 218,142, 254, 4, 142, I, 218 
+
+,16 
+
+75 RESTORE 76:FO* T-l TO 37:READ IsB-S 
+HiPKE I672*T,1.'HEIT T 
+
+76 DATA 72,138,72,174,291,6,184,293,6, 
+141, 11,212, 141, 24, 2IB, 23B, 23!, 6, 23B, 23 
+3,6,174,233,6,224,218,218,3,161,16 
+
+77 IATA 141,233,6,114,171,114,64 
+
+81 RESTORE B9iFM 1-1 TO UiREM TiS-G 
+•TiPOKE IA4l+l,TiNEIT liPOKE 1662, Mi- 
+ll IF 501W47 THEN BRAPHICS Ii? "FEHL 
+EN IN 7,EILEN4I-8J':END 
+85 DATA '2, 161, 26. Ill, IB, 212, 111, 1.21 
+,111,61 
+
+IB POKE 656,2|F0KE A37,33iR0KE 732,1: 
+■PRESS RETURN' ) 
+B1 IF PEBI7tl)<>12 THEN 8' 
+11 BRAPH1C9 IHiiiPOM 712,BlR0KE 1701 
+
+,iipoke i7n,iiCL0M :«eh for disk m 
+
+E 764,2J9iRUN •JiJOrPAiNT.f 
+
+11 DATA 111, 114, 114, 24, IB!,3, 162, 16, IS 
+
+7,64,3,184, 157,49,!, 111,137,48,3,141, I 
+7, 137, 72, 3, 161 ,1,137, 7!, 3, 32,86, 22B 
+
+12 DAT) 162,16,161,31,117,61,3,164,121 
+,157, 61, 3, 16^,1,197, 72, 3, 164, 31, 157, 73 
+,3,32,86,228 
+
+13 DAT) It2,l6, 161, 12, I!!, 66,3, 76, 86, 2 
+
+
+
+111 DATA 61, 
+
+111 DATA 65, 
+
+112 DATA 95, 
+
+113 DATA 
+111 DATA 6B, 
+
+
+
+1,1,1,1,1,1,1,1 
+
+,l,l,l,lt1,lll,B9,B4,S5 
+,81,89,89,89,171 
+, 1,64, H, Bt, 171 
+
+B3, 89, 83, 89, 89, 21, 5,1 
+71,171,171,171,171,171,17 
+
+
+
+232,136,16,246,46,16 
+61 DATA 171,21": 
+147,235,6,181,11,24,157,11 
+
+
+
+72,175,251,171,111,235,171,17 
+73,251, 175,178, 231, lSt, III, I! 
+74,171,171,291,175,171,171,17 
+75,171,174,187,235,174,174,18 
+76,234, 234, 171, 174, 184, 234, 17 
+77,234, 186, 174, 171, 2)S,2«,B 
+71, 171, 171, 174, 186,234, 251,25 
+
+
+
+Computer Konlakt 1(W85 
+
+B Hftt 79,B4,!JB,254,l7B,lB7,m,19 
+
+,171 
+
+lb MIA Bl, 171, 174, 166,234,171, HI, IB 
+
+a tm bi, 175, 166,234,234,234, 2:4, ib 
+
+,17) 
+116 M7J B2.25B, 17t,171,17i, 171, 171, 17 
+
+,25* 
+
+19 M7A BI,m,iB6,l91,17»,WS,235,23 
+5,155 
+
+Haupt program m 
+
+
+
+129 tm '1,252,19, (8,752,3,12,18, 192 
+151 DAI* 91, J, !!,!!, 172, SJ, 51, 51 ,43 
+131 DATA -I 
+2» POSITION), 
+I.B.'S'iBEIUW 
+
+
+
+
+■ 
+
+
+
+' 
+
+
+
+
+
+
+G05LB «1S9+M!8:? MfWE f)0« SWECI 
+
+
+
+MrtDOIIKM Ml.r 
+
+
+
+
+
+
+Spielen, lernen, arbeiten 
+mit dem ATARI 
+
+
+
+von G. P. Raabe, 
+K.-H. Schmidt 
+Sybex Verlag 
+ca. 270 Sdten. 28.- DM 
+
+
+
+Das Kapilcl "Lemi 
+
+
+
+rl S™B£"™ i™ Atari Fans 
+
+e Prog.aii.rat (z. geSUCllt! 
+
+
+
+r;.unii s -K:«i 
+
+
+
+titer KortaktUVBS TI99/4A 70 
+
+Liebe TI-Freunde Neue version des }2m™M^Zmrtl'ti?r 
+
+iindMSfj . A hck -t,! Druckerinter- s. el„ Beiehi z,™ kronen 
+
+"'"i"n Z faces TI 99-PP J^SSST " ** *"*" 
+
+.■„ i vonPenta 
+
+Electronics ii'ru-i4mr!S ,l ^ n di 1 
+
+
+
+Assembler Kurs II 
+
+
+
+TI99/4A 
+
+Koch (men 
+
+
+
+
+
+
+Mrs. Pacman 
+
+
+
+
+
+
+
+TI 99-PP 
+
+
+
+PEKTA 
+
+
+
+
+Computer- Kontakt 
+
+hat preisgiinstige 
+Kleinanzeigen 
+
+
+
+den TI 99/4A 
+
+
+
+Computer Kontakt 10/B5 
+
+DasGOTO- 
+
+Statement mit 
+
+variabler 
+Zeilennummer 
+
+
+
+
+3 ! POKELISTE GOTO-UTILIT* FUER XBASIC+ 32K 
+
+) ! ERSTELLT AH 2Z-7.85 V. H-P SCHWANECK 
+
+) ADR-9456 
+
+J BEAD A :: IF AO-.i THEN CALL LOADtADR, A) : : ADR=ADR+1 :: GOTO 
+
+) CALL LOAD(S194, 37, 168,63,240) 
+
+1 FOR 1-16368 TO 16383 :: READ A :; CALL LOAD<I,A>:: NEXT I 
+
+) DATA 000,000,000,000,000,000,000,000,000,000,000,000,000,000. 
+
+J DATA 000,000,000,000,000,000,000,000,000,000,000,000,000. 
+
+3 DATA 000,000,000,000,000,001,002,000,031,000,016,002,002, 
+
+
+
+■ 
+
+
+
+D DATA 004,032,032,052,194,138,152,032,131,018,037,021,022,244,004,1 
+3 DATA 002,001,000,001,004,032,032,012,004,032,032,024,018,184,192,1 
+3 DATA 131,074,004,090,004,192,216,000,131,124,002,224,131,224,004,0 
+3 DATA 000,112,002,224,036,244,004,200,004,096,037,104,002,224,036,2 
+3 DATA 002,008,000,001,004,096,037, 104,006, 160,037,036, 192,224, 131,0 
+3 DATA 006,003,006,067,136,003,131,048,017,020,193,003,004,193,208,0 
+DATA 005,132,004,192,208,020,009,128,160,064,128,066,019,003,017,0 
+3 DATA 006,067,016,239,005,195,005,195,005,195,200,003,131,046,006,1 
+DATA 037, 068, 194, 008, 022, 247, 016, 186, 000, 000, 000, 000, 000, 000, 000, C 
+3 DATA -I 
+
+REM NAMENSTABELLE : 
+DATA 074, 085, 077, 080, 032, 032, 037, 092, 07 1,079, 084,079, 032, 032,037,0 
+
+
+
+
+
+
+
+Computer Knntakt K 
+
+
+
+Fin Bildschirm- TI Sound Editor 
+
+editor fiir den Mil aieKm SramdEdimi las _ 
+
+TI99/4A 
+
+
+
+
+Bifdschirni editor 
+
+
+
+(ontafcnc 
+
+
+/B5 TI39/4A 73 
+
+
+
+
+Sound-Editor 
+
+
+!!; si?-.; 
+
+
+;I:f:«', i , : H „ cV.. D "" L ™ ""■"■■" a " * - H c - ' - 
+
+
+I^OtHTt™ 
+
+
+%;!»»*¥(90^P:io'lp.-^;.' r S"u?,[)f30) 
+
+
+
+
+
+
+
+
+Mf UtA as 466 25 145 73 493 25 161 79 523 25 177 30 554 25 133 47 587 25 -03 
+
+
+
+
+=i>li> 
+
+
+IT I--1 THEN i'.'.I I sniriJIji inn, 220, 11: : CALL SOUNDf 100, 440, 3) : : CALL 
+
+- rl" II DISPLAY ATC18,51l" PAUSE = P" 
+HEW W-W-l :: IF U-0 THEM 430 ELSE 440 
+
+
+
+Computer Kontakt 1 C 
+
+
+
+- V 
+
+— 
+
+Computer K 
+
+
+
+
+"JZ Das rororo- 
+
+5, 5t2 SSESSSSS3I Computer-Lexikon 
+
+Sthlangc mil kOciii e c[ U iUc 
+
+
+
+
+
+VonH.-H.Schuize 
+410Sciicn, DM16.80 
+
+KowuliliTasehcnbueh 
+ISBN 3-499-18105-3 
+
+
+Vur^n^.'ni linen vlelc /.u^alz- 
+
+
+Hi! Bi.'(rtf;rn u-ic LiiftK 
+
+
+
+dem spieler 3 Wuisnipfe! 
+
+
+
+Computer KontaM WBS 
+
+
+
+Devil Quest 
+
+Das Grafik-Action Adventure fill den TI 99/4A 
+
+
+
+
+Computer Konlakt10/B5 
+
+
+
+TI99/4A 
+
+
+
+
+iputerKontakt 10/65 
+
+
+
+TI99/4A 
+
+
+
+I ABLEGEN. ED CSGF NICHT LAEKGEK A 
+
+DISPLAY AT<2<f,l);SEG«(Al,A,Z8> 
+CALL SOOSD(10,-1,0) 
+
+
+
+%;■ Michael Naujoks 
+
+
+
+Diesen Monatneu: 
+
+
+
+
+
+Vt^Jfi 55 KLEINANZEIGEN J J 
+
+
+
+
+s p e: o 
+
+REPARATU 
+
+
+r r lj i-f 
+
+RDIENST 
+
+
+Hf ,- Idt ci. 5 Ti)e; b far 
+
+Sfiich*ri#i twii«) M», inrl 
+
+
+Ginntii. tut Hnuh 
+Eintin w Wm.OO 
+
+
+EF*ROM«r- 
+
+
+
+
+AUt guiglgtn EPHMil Incl 
+
+
+Soit.in! W 2M.O0 
+
+
+Balk>nh>ld Com 
+
+felling* Ueg Si, till kll 
+
+
+pu tur ttchni k 
+Tll.l 0!t0i/SS47 
+
+
+
+430," monitor 050,- 
+Opus iAr\ «"««*- OCA 
+
+Discovery I #*HJ,- kopplerS21d ZOU,' 
+
+
+
+
+
+Tn^H-sTflTiDnen | 
+
+
+
+Computer KonlakUO /65 KLEINANZEIGEN 82 
+
+
+
+f lensbwr Computer Uersond 
+
+
+
+Flensburger Computer Versand - M .- L. Sander ■ Am Soot 4 • 2390 Flensburg ■ ® 04 61 / 3 25 33 
+
+
+
+Opus Discovery 
+
+
+die komplette Diakettenstation fur den ZX Spectrum 
+
+
+...und alles urn die Discovery (das Angebot wird laufend erweltert) 
+
+
+
+
+
+
+£^S£S&*iS 
+
+
+|*jMk9HBM 
+
+
+srssssssiSSRS."* " ° K * 
+
+
+&H~£ 
+
+
+
+
+Tentliiivje. Disk DM T9.90 
+
+
+SSwM^ttwaS 
+
+
+
+
+V^ta™er L Sk°n?KZS e ZUr DmUT 
+
+
+
+
+^HLwM| 
+
+
+
+
+Wi. MM dia Discovery 
+
+
+
+
+
+
+
+
+
+
+■™=™™~ 
+
+
+zPj^ 
+
+
+DlTk^r^T^rSi^h 3 DM«.- 
+
+
+
+
+
+
+
+
+
+
+
+
+RumigungsdistietleuridFJljsslghflll DM3&- 
+
+
+Ein Jahr Vollgarantie! 
+
+
+Hardcgpv-SoftwareBK.AiilKasssUB DM39.M 
+
+
+
+
+
+
+Discovery. DM 598.- B«lrtlun fl , n undl n f 0wUr3 ch 0nc h» n S«l.rtte ll n: 
+
+
+
+
+MHS MUller Hard S software. 
+
+
+«*****>.. ...***j 
+
+
+J ■ RaunstraBe 8, 7032 Eindelf Ingen 
+
+
+
+
+J Telefon07031/?1836 
+
+
+J 
+
+
+
+
+* Commodore MBusIubss. MCL- UetzenDurger Str 
+
+&VKPS8KS: SS 90, 100 ° Berlin 1S . Te| e- 
+
+3^ m %^_~~Z_ »i» I f 011 fO / 882 65 90 
+™wm! «wstah, iwltSU I "Bar-BllllcN'Machar" 
+
+--^'HW *?§? 535^™ 
+
+■ '"" I CrlJ 882 65 90 
+
+
+
+POWER-BASIC 464 
+
+
+
+
+
+
+POWEH-BASJC 464/864/B12B Ei»MH DM m 
+
+
+
+
+111: 111 
+
+
+
+
+DISC MECHANIC 464/564/6126 LBkms DM sa - 
+
+
+'■' 
+
+
+IJ§I1 
+
+
+^S£££S?£Z^kX£ 
+
+
+;! 
+
+
+=ss=f 
+
+
+
+
+3-D VOICE CHESS 464/ 
+
+
+fcmi^M 
+
+
+
+
+Sf^iS^iM^to 
+
+
+■ 
+
+
+
+
+ES=H§ : 
+
+
+
+
+pj=||§ 
+
+
+
+
+TTIANS-X 484/664/6128 
+
+
+EU »«™ [*.».- 
+
+
+
+
+
+Computer KomaMli: 
+
+
+
+H1.MJJIJ4J:M.'IM1 
+
+
+
+Kleinanzeigen 
+
+zum 
+
+Superbilligpreis 
+
+
+
+HP-SOFT 
+
+
+
+
+
+
+■ ■ ■ ■ ■■ 
+
+
+
+Compular Konlakt 1 0/65 
+
+
+
+
+
+Das CPC Magazin erscheinl 
+Verlag Ratz Eberle 
+Postfach 1640. 7518 Bretten 
+
+
+
+ACHTUNG 
+
+SCHNEIDER 
+FANS! 
+
+Ab Ende Oktober gibt's 
+
+noch ntehr Tips, Tricks 
+
+und Infos fiir alle 
+
+C PC-User im 
+
+neuen ^gdj 
+
+CPC ^di 
+
+MAGAZIN^gW 
+
+
+
+ZS-SOFT Microtrading 
+
+Spitzensoftware fur Heimcornputer 
+
+• SCHNELLVERSAND 
+
+• Talle Preise 
+
+• Nur ho chwerti qe Produkte 
+
+• SjANDIG NEUH EITEN 
+GLEICH bes tellen fjber die 
+
+HOTLINE 08652/2691-61199 
+oderdirekt bei: 
+
+ZS-SOFT Microtrading 
+
+Peter Herzog 
+
+Postfach 23C1 
+
+8240 Berchtesgaden 
+
+Bgstellungen unter DM 70,- + DM 4,- Porto/Vorpack. 
+
+
+
+
+NEWS NEWS NEWS NEWS NEWS NEWS NEWS 
+
+
+
+• •• DATABERGER*** 
+
+
+
+Sofortbestellen: Preise nur giittig bis 14. 10. 1985, 12.00Uhr 
+
+
+
+Micro Pro Micro-Soft 
+
+Wordstar Multiplan 
+
+Ashton Tate 
+
+dBase II 
+
+
+
+Fiir Ihren Schneider CPC 464, 664 mit Speichererweiterung oder den CPC 6128. Die Speicherer- 
+weiterung ist bei uns fiir 275.- DM erhaltlich. Fur alle drei Programme die wichtigste Uteratur fiir 
+Einsteiger und Profis als Nacdschlagewerk je 49— DM. 
+
+data berger • Im Lichtenfelde 76 
+4790 Paderborn-Telefon 052 51 764852 
+
+
+
+
+
+
+KLEINANZEIGEN 
+
+
+
+
+TOP-Software 
+
+CPC C64 Spectrum 
+
+z- Bsp. z. Bsp.: z. Bsp. 
+
+.„ Allen8 Elite Hyper Sports 
+
+Wizard s Lair Frankie goes to Hollywood Daley Thompson Super Test 
+
+Nightshade Mig Alley Ace Highway Encounter 
+
+Multidata Great American Cross Road Race Glass 
+
+und circa 1 00 weitere Titel und circa 200 weitere Titel und circa 150 weitere Tital 
+
+Ferner f iihren wir Atari, 
+QL und MSX Software 
+
+Zu beziehen bei alien Foto-Porst Computershops, in ausgesuchten Kauf- 
+
+hausabteilungen und im Fachhandel. 
+
+Oder rufen Sie uns an. 
+
+
+
+profjsoft 
+
+
+
+Sutthauser Stra3e 50-52 
+4500 Osnabriick 
+GmbH Tel. 05 41 / 5 39 05, Telex 94966 
+
+
+
+
+
+
+^^r^^r^ srr-s 
+
+
+
+.J31iili i ,.l l ,07!ffi/BiS-31 Such.™*tes<.1tw«..ufOi«IFii. t 101 ^"^ Kfc*»tan ««.' J ffujua-nr,: ::..,'. : . 
+
+IgH SgS ^Ss^ff! aStEr^l ~j™ s!r 
+
+^^S'' .ISS^SS; ==SS1KJ plTiSSlI: 
+
+
+
+
+
+
+i:'v:;I^Si IN^Iflil iSxsSssS |sljs£^ 
+
+
+
+s~SjS: SiilsS^ 3SS| Hl^;§ 
+
+
+
+;■•-; . 
+
+
+
+«™ : as^SSE: --sk^sks; ss: 
+
+
+
+
+
+
+« . " ». 
+
+
+
+••• TI9UUECT.au »■ T: «„ ,",,i,j ... 
+
+
+
+^ip[ fig 
+
+gsgg=r, lgs= ~5™= IiliS=i 
+
+
+
+
+c nm pui.,K M ,kim» KLEINANZEIGEN 
+
+Atari "mw^waST Wrti^s^miu^h^w^* «teTa=fl™^77?^ ^^TJ 
+
+
+
+3 ..-:: »r Pwdle Hlndoi 
+
+Das Conputer-Husli 
+inforniert : 
+
+Der 5R0S5E Speiialist fuer den Texas 
+Instruments TI 3S/*n fuehrt nun auch 
+
+
+
+den ATARI 520 ST 
+
+Hir fuehrer) Hardware, auch von D 
+Dariieberhinaus erstellen Hir in I 
+
+SOFDftT AB LftBER LIEFERflflR: Buecher und Literatur 
+
+
+
+Hir fuehren Hardware, auch von Drittherste]]ern, Software und Zubehoer. i 
+BaruEberhmaus erstellen wir in Honent auch eigene Software. 
+
+
+
+Compute' Kon: 
+
+
+
+KLEINANZEIGEN 
+
+
+
+irl DIsun.nuMion. Bltta ColOUT GeilJe 
+
+
+
+
+
+
+Computer Kontakl 1Q/S5 
+
+
+
+KLEINANZEIGEN 
+
+
+
+
+FUNDGRUBE 
+
+
+
+■■-^^s?3=aa 
+
+
+
+Commodore er- 
+wartet Millionen- 
+
+
+
+Das "Kniippeln" . b ™ ' wmm 
+
+hat ein Ende 
+
+
+
+
+„ Apple warnt vor 
+
+SlSS^A^i; Billig-Angeboten 
+
+'SairsESldte Bt' von nichtautori- 
+
+ii «cr foieaifen. *d.t sierten Handlern 
+
+
+
+
+News aus 
+England 
+
+
+
+FUNDGRUBE 
+
+
+
+Die Gcwinner 
+stehenjetztfest! 
+
+
+
+Drei Dene IZ. «gwr a* iu 
+
+Mastertronic ZZ^Zg^ZZ,, 
+
+Spiele KSSJtK 
+
+
+
+ertolgl durch Eingabe gi 
+
+
+
+
+Das aktuelle Sonderangebot! 
+
+
+
+zan/Kautmann, Spafl mil BASIC, z 
+Daa fluGergewOhrifiche Lehrbuch' 
+
+
+
+Krtian, Spa(! mtt BASIC lilt Prafls, 1 
+
+
+
+Kramer, BASIC mil Pfiff, 240 S 
+Jeffries, PET/CBM-SpalJ und Spiele, 
+Hollerbach, In 60 Minut 
+Reisert, BASIC leichl gelernt, 1 68 
+BASIC SOFTWARE BIBL10THEK 
+
+
+
+u,DM1D,50 
+
+urDM13 — 
+,u.DM13.— 
+
+DM 9,— 
+10,50 
+
+
+
+
+1 ■ 4000 DQBMMorf TW. (02 11) 31 00 10 
+
+
+

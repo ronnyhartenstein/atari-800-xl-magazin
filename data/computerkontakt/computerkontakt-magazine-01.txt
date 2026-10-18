@@ -1,0 +1,3686 @@
+■■■pv ^■■■■■■■■■■III!I! 
+
+
+
+|2,40 DM - Die neue Computer-Zeitung - 5/84 Mai 
+
+
+
+
+I Blldberichte uber User Clubs 
+
+
+
+■ lm Te st: Super Speech 
+Sprach synthesizer 
+
+
+
+IUnsere Les er stellen vor: 
+Die neuesten 
+| Computerbiicher 
+
+
+
+■ Kurse und Termine 
+
+
+
+I Preiswerte Kleinanzeigen 
+
+
+
+J Spiele im Test 
+
+
+
+■ Meekerecke 
+
+
+
+I Progra mme: 
+
+|VC20l. a ufc.chrm,Eli 
+I C 64 Chemiefeiikon 
+
+■ ZX Spectrum 
+
+! ATARI MW.Yarfebtea.Oo. 
+I Apple Ala-ouch. 
+| Tl 99/4A Parachute 
+
+| Dragon L tto« P 
+
+■ Sharp PC-1500 
+
+
+
+Gewinnen Sie den neuen 
+
+OricAtmos48K 
+
+
+
+Machen Sie mit 
+
+bei unserem 
+
+Preisausschreiben 
+
+
+
+
+von tOO DM aus unserem Buchversand 
+
+
+
+APPLE II 4 
+
+ATARI 
+
+CBM 
+
+
+
+cam 
+
+CDITIPUTER 
+
+nanoBUCH 
+
+
+
+MEIM ATARI COMPUTER. L 
+
+
+
+iaui 
+
+
+
+Weiterfiihrende Literatur... 
+
+
+
+
+
+
+
+Liebe Leser, 
+
+
+
+
+
+
+in letzter Zeit schieBen 
+
+
+
+
+
+
+
+
+die Computerzeitschrif ten 
+
+
+
+
+
+
+
+
+ja wie Pilze aus dem Boden . 
+
+
+
+
+
+
+
+
+Wer die alle kaufen will. 
+
+
+
+
+wff 
+
+
+mufl daftir schon eine ganze 
+Mengc Geld hinlegen. Warum 
+
+
+A 
+
+
+wollten ein 
+
+
+
+
+Zeitschrift machen, die 
+
+
+
+
+5 anders aussicht. Sie sollte billiger 
+
+
+
+
+
+
+en Kleinanzeigen durften 
+
+
+
+
+ig kostcn und ein wichtiger Punkt war 
+
+
+
+
+srdem, daU bei uns jeder Ltjser mitmachen | 
+
+
+kon 
+
+
+ate. Das war. 
+
+
+unsere Idee. 
+
+
+Sei 
+
+
+tdem sind nm 
+
+
+einigc Monate vergangen 
+
+
+und 
+
+
+jetzt haben 
+
+
+wir es endlieh geschafft: 
+
+
+Das 
+
+
+erste Heft ist da! 48 Seiten sind es 
+
+
+gew 
+
+
+asden, noch 
+
+
+;twas wenig, aber wenn Sie 
+
+
+
+
+be Leaer uns 
+
+
+trcu bleiben, dann konnen 
+
+
+
+
+sicher bald 
+
+
+60 Oder sogar BO Seiten 
+
+
+dru 
+
+
+^ken - und das alios fur 2,40 DM. 
+
+
+Tja 
+
+
+aber jetzt 
+
+
+koimnt's: Also mit Farbe 
+
+
+
+
+
+
+Bilder konnen wir auch nicht bringen. Tech- 
+
+
+nis 
+
+
+=h ginge das 
+
+
+zwar schon, auch auf Sei- 
+
+
+
+
+gspapier kan 
+
+
+
+
+Ear 
+
+
+
+
+aber das kostet halt Geld 
+
+
+und 
+
+
+fiir 2,40 DM 
+
+
+
+
+
+
+iiachen. fiber 
+
+
+schliefllich koramt es doch 
+
+
+auf 
+
+
+den Inhalt 
+
+
+md nicht auf die Farbe an. 
+
+
+Was 
+
+
+wir jetzt b 
+
+
+-auchen, ist Ihre Unter- 
+
+
+stii 
+
+
+tzung. Mache 
+
+
+i sie mit, schicken Sie uns 
+
+
+lhr 
+
+
+
+
+Texte, Knobeleien, Tips 
+
+
+
+
+Tricks, Meinungen, Leserbrief e , Meeker- | 
+
+
+
+
+efe, dann gi 
+
+
+it das bald eine richtige 
+
+
+Zei 
+
+
+twig. 
+
+
+
+
+Als 
+
+
+□ wie war's. 
+
+
+machen wir eiric Zeitunq 
+
+
+
+
+
+
+, 
+
+
+lm nachsten Heft in 
+
+
+Vie 
+
+
+1 Spaa bis 
+
+
+vie 
+
+
+r Wochen. 
+
+
+
+
+Es 
+
+
+Ti^Sl 
+
+
++U, 
+
+
+I'ho 
+
+
+mas Eberlc, 
+
+
+Ihef redakteur 
+
+
+
+
+EDV-PRACTICLE 
+INSTITUTE 
+
+
+
+WIRTSCHAFTS- 
+
+FACHSCHULE 
+
+BAHH 
+
+in Darmstadt 
+
+
+
+Lebrga ngsa ngebote: 
+
+
+
+
+
+
+INHALTSVERZEICHNIS 
+
+
+
+Inhaltsverzeichnis 
+
+
+
+Super-Speech Sprachsyr 
+
+
+
+*X Spectrum: Die Spielk 
+
+
+
+
+
+
+i5% 
+
+
+
+Bei uns konnen Sie 
+mitmachen 
+
+
+
+US-Universitaten uerden zum 
+Schlachtfeld der Computer!! rmen 
+
+
+
+CLUB-NACHRICHTEN 
+
+
+
+
+Der Computer-Kreis SSS 
+Niederberg 
+
+
+
+
+
+
+inter Kontakt 5/84 
+
+
+
+CLUB-NACHRICHTEN 
+
+
+
+1. Computer-Flohmarkt 
+
+in I iinn 
+
+
+
+!Enn B Hugbiancrn.itn 
+
+
+
+ronsultung pkiSfl Mi 
+
+
+
+ELEKTRONIKA 
+S A A R 
+
+7.-9. SEPT. 1984 
+
+
+
+7. Hobby-tronic 
+
+
+
+
+
+
+Der User Compnterclub 
+Klein-Winternheim 
+
+
+
+**die- 
+
+
+, t nA»l,..«.,!-,.J t ,,Pi,-,.L,..,, 
+
+
+Icnsehr 
+
+
+... 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;;; 1K '^ 
+
+
+Roll*™™ 
+
+
+™™ 
+
+
+CBM 64 User Group Emm 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+in i ... .i 
+
+
+( uluur Gmb CI ul. 
+
+
+
+
+A,cl At.=rie 
+
+
+ill 
+
+
+&na FiaSftiii so 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cmpu- 
+
+
+Chlhtrcffcn: Vn« 
+
+
+
+BOCHER 
+
+
+
+
+Computer fiir Jedermann 
+-ZX 81 + Spectrum 
+
+
+
+
+
+
+dea-Verlag. Puchheim 
+
+
+
+
+
+
+bcmcrfcl. dab Sjtcir 
+
+
+
+
+
+
+
+
+Computer Kontakl 5/84 
+
+
+
+BUCHER 
+
+
+
+The spectrum pocket book SKKSSSSSStTS S 
+
+
+
+
+»Commodore-64« 
+
+VOnlaQ Stewart I hsitlich. Dieses hfnonaeena koIk 
+
+Robin Jones dene Bud isi fur den Neuling sowi 
+
+264 Seiten, 34.0(1 DM IXSo^Si^»K 
+
+Birkhauser Verlag, Basel Er e Snzuug zu dem UurfLigen Con 
+
+ISBN 3-7643-1588-1 mSaeS ftaubu*. Hk. find. 
+
+
+
+
+BUCHER 
+
+
+
+>Der Atari-Assembler« 
+
+
+
+ran Don unci Kurt lm 
+!76Seilen, 36,00 DM 
+Idea Verlag, Pucliticim 
+-88793-025-8 
+
+
+
+
+Basic Software Bibliothek 
+Rund urns Auto 
+
+
+
+Klaus-Diter Kaufmann 
+
+
+
+
+oZd- » ft* «ft. l«*teS 
+
+
+76Seiten, 16,00 DM 
+
+
+
+
+Maa» ™k« rrfVeKLeri kSmafwaM 5e 
+
+
+Idea- Verlag, Puchheim 
+
+
+
+
+
+
+ISRN .VS8793-075-4 
+
+
+
+
+,'.'■; ,'uf k„^"M,'^' ! i™'i!^ 
+
+
+V« kurzem tarn dieier e ota Band 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ss£ 1 
+
+
+™cifn!f BAMC vem!™ n^L*™! 
+
+
+
+
+, r du VVii- darken alien 
+
+
+
+
+
+
+unserea freiea 
+
+
+
+
+
+
+
+
+
+
+
+
+**£ MUarbulttni fib- Ihre 
+
+
+TX^ iL^LS^r^t 
+
+
+^^dH^^™ 
+
+
+™m- tatkrSftige 
+
+
+
+
+
+
+■ ■■"'] UnterstHttuax. 
+
+
+
+
+
+
+
+
+m^^™S^^Si 
+
+
+^^"i^Amo'lin 
+
+
+i'-.;' 1 ^ Die RedaktioB 
+
+
+die LislinB" ttrde BASIC-Dialekut 
+
+
+
+
+'"■' ir - 1 
+
+
+
+l?ll;fiTiUl 
+
+
+
+BASIC fiir TischcoiriDuter 
+
+
+
+
+breite Spektmii 
+
+
+ihrer Anwen- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rZhhl" 
+
+
+ele Menscheri 
+
+
+
+
+■ V 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+... Pflaum 
+
+
+keitsnvonTi 
+
+
+
+
+lichkeiten von BASIC beschrieben. ■ 
+
+
+■ Verlag 
+
+
+
+Com p Liter Konlakt 5/aa 
+
+
+
+BERICHT 
+
+
+
+Die Sprachplatine 
+
+Super-Speech Sprachsynthesiier 
+
+
+
+Mctir:llinii.,-illS| 1 id7 t -LL: 
+
+
+
+
+Mein Computer: 
+das COLOUR-GENIE 
+
+
+
+ra Uchligriffel. E< gflu fur ds 
+
+
+
+
+
+
+nmoBiii-ln Lkiii; iiTihtiiiB! i- 
+
+
+
+HLS-SOFT 
+
+
+
+
+SPIEL-REVIEWS 
+
+
+
+-'■ ■■■■■■■■■■■■■ 
+
+MpSSS SPIELE 1M TEST J" 
+
+JAMMIN 
+
+jnderes Spiel ffir den Comn 
+
+
+
+
+ANDROMEDA 
+
+Ein Spiel ffir das Colour-Genie 
+
+
+
+
+oricL-nL 
+
+
+
+JOUST 
+
+
+
+
+ESCAPE MCP 
+
+Die Flucht vor dem Microcomputer 
+
+
+
+JANGLER 
+
+
+
+
+
+
+
+Computer Kontakt 5/S4 
+
+
+SPIEL-REVIEWS 1 
+
+
+4 
+
+
+
+
+Fin besonderes Spiel 
+
+
+The Hobbit von Melbourne House 
+
+
+
+
+Fiir dm ZX-Speeinim 48K und Commodore 64 
+
+
+Endc im crchicn &« Pro- i 
+
+
+ttft M M hdfen. Av.Bc,*™ HHH .rum cm «&*» B.ld fta Cache dcto watagW*" w.rden. Unit, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ra.n.ucMurdwY&M. 
+
+
+
+
+GrL.ndkenriuiissc. 
+
+
+lata ahoi m .;nj!!i»i:lfi SpnJiul 
+
+
+^JLJ 
+
+
+ssHbr 
+
+
+irirHtelien Wilck-rlaml jl. Em Spisl 
+
+
+
+
+
+
+sind Sie dcr klcinc HuhMt Hilhi 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+I ^"^wljoch 
+
+
+>■•»«. 
+
+
+?, : r.' 7ij H - h DM BB!T 
+
+
+
+
+
+
+System: ZX Specif um -Ifi K 
+
+
+
+
+
+
+
+
+^ Tbortr. be,**... ft, jt * K ei, 
+
+
+^^^^MHMHH^^^^ Htraellcr: Melt™,™ House 
+
+
+
+
+Profisoft-Toolkit 
+
+
+
+
+Fur den Sinclair ZX Spectrum 1&748K 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+^DrtAiT'tlafenrd^ 1 !"^ l 
+
+
+
+
+COTOt un d OOSUBl 
+
+
+v. i,.. Iaak « «K ■ ^^±&?m 
+
+
+
+
+Iter V™!,. niithlrtiglidl 0.dr,u.r, 6 jj 
+
+
+mfk 
+
+
+
+
+■do. * 
+
+
+Mrtrfhts Ira Vcrglcict,™ aide* ausrechner, Sana, leviel Spcicher- « , :wJ * 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_^_^__ _^ , 
+
+
+16K-Sf>eclnim » nutitn kOniieii. t 
+
+
+^amfcrar h -n * Ni-M,rf ii™h"oraifcKiiiAlii-J 
+
+
+
+
+
+
+wr^,n a "^ f s ^„!'^rru?ri^„; s 
+
+
+feeder (wbIibisiw Werte Jl J 
+
+
+
+
+
+
+iter Antoi bcstrchl. -.Icn g;>ftlf n 1 1- 
+
+
+i^^^r^r*, ft m " : „ v*" h -^-i 
+
+
+
+PROGRAMME 5 
+
+
+
+!>*--'-W*| 
+
+PROGRAMME 
+
+Laufschrift 
+
+Ein Hilfsprogramni filr die VC20-Gnindversio 
+oder ]ede beliebige Speichererweiterung 
+
+
+
+Spielkiste 
+
+F'iir <ien ZX Spectrum 1&4SK 
+
+
+
+L"m Spci^crplarz n: sp 
+
+
+
+^h ri ilpi n aii r utkn Rli-i 
+
+
+
+MHUER "" 
+
+
+
+Sic linden die Program m listings fan 
+
+
+
+
+ab Seile 42 
+
+
+Ftiketten-Dnick 
+
+
+*bSeite29 
+
+
+
+
+ab Seile 30 
+
+
+mptiiniiii 
+
+
+ab Seile 28 
+
+
+
+
+
+
+Atomsuche 
+
+Fiirden Apple II 
+
+
+
+Etiketten-Druck 
+
+Konfiguration: VC-20 + Drucker ISIS 
+
+
+
+
+
+
+.i-lfri-ii,- [>.!!»■: .H„ll ,■: k-,k- 
+
+
+
+ben. mm man aulpln zeigl ikr 
+
+
+
+PROGRAMME 
+
+
+
+
+Parachute .lumber 
+
+Ein Pmgramm fur denT] W mi t Extended BASIC 
+
+
+
+DASSUPERDINGfur139. 
+
+
+
+
+(MusikanEgab, 
+Enfaeh Co^aon i 
+
+
+
+DIE ZUKUNFT HAT BEGONNEN 
+
+Cwl\L electronic 
+
+ErlenmeyerstraBe 3 -D-6204 Taunusstein 4 
+*Lieferung erfolgt per Nachnahme, solange Vorrat 
+
+
+
+BW' 
+
+
+
+Computet Knntakt 5/B4 
+
+
+
+
+1 1 iPii ^ 
+I ill 
+
+* if 
+
+
+
+f * 
+
+
+
+IP I 
+
+Ifiiili in n 1 1 
+
+
+
+[m 
+
+
+
+
+m 
+
+
+
+I ^ i 
+
+
+
+TTj 
+
+
+
+fH 
+
+
+
+\ if! 
+
+
+
+vlli 
+
+
+
+Mini-Variablen-Crossreference 
+fur den ATARI 
+
+Ein fcleines Programm zur Vereinfachung dcr Programrmerong 
+
+
+
+iiblr inzeigl. DahiiHvnvcrdcnallcZeileiiniiiniiieni 
+
+lend difsc Variable vdrtomml. Als Ertnitcning kun etvviis iibe: 
+
+Ic Spetcht rune vim BASIC-Frogfimnicil in BAM dcsAT.MIL 
+
+
+
+!. J.-t-i'M-.Ki i|, 
+i (.HKMVht.Kf.il; 
+
+
+
+
+
+
+- BvI^^Iul^.. Dlii H,l'i".ii k-> 
+
+
+
+Computer Kontakt 5/B4 
+
+
+
+
+
+
+■ ■ ■ SpHze! ■ ■ ■ 
+
+
+
+Spect'um DoppelpacK: Ah 
+diedums-UolarUaiJ 32^ 
+Zaxxon AtarlComp.C 89,- 
+
+
+
+
+W'osind 
+Bayerns kliigste Kopfe ? 
+
+
+
+MJWlMnflMilMa 
+
+
+
+
+
+Listing zu 
+
+
+Mini-Variablen-Crossreference 
+
+
+32000 
+
+
+REM HHMMaiMtlwHHHI 
+
+
+
+
+REM Varlabteri-Crossfefererics 
+
+
+
+
+REM (c) by Thomas Tausend 
+
+
+32030 
+
+
+
+
+
+
+REM 8764 Klainheubach 
+
+
+32050 
+
+
+REM Tel.: (09371 J/4847 
+
+
+
+
+
+
+
+
+7 "Minl-Variablen-Cro33reterence" 
+
+
+
+
+
+
+
+
+
+
+32100 
+
+
+
+
+
+
+VA-P6EK (1 30) + 2 56.PE EK (1 3 1 ] 
+
+
+
+
+VE-PEEK(132)+256-PEEK(133)-1 
+
+
+32130 
+
+
+
+
+
+
+PA-FEEK(136)-256.PEEK(137) 
+
+
+
+
+PE= PEEK (1 401 I-256.PEEK (1 41 ) - 1 
+
+
+
+
+FORN=VATOVE 
+
+
+
+
+A=PEEK(N) 
+
+
+
+
+IF A>127 THEN A-A-128:T=T+1 :? CHRS 
+
+
+
+
+(A);" = ";: GOTO 32220 
+
+
+
+
+?CHRS(A)- 
+
+
+
+
+IFN-VETHENEND 
+
+
+32210 
+
+
+
+
+32220 
+
+
+
+
+
+
+ZN=PEEK(B)+256.PEEK(Bi1) 
+
+
+32240 
+
+
+ZL=PEEK(S+2) 
+
+
+
+
+FOR M-B ' 3 TO B+ZL 
+
+
+
+
+IFPEEK(M>=TTHEN?ZN;", "i 
+
+
+
+
+NEXTM 
+
+
+
+
+B-B+ZL 
+
+
+as 
+
+
+IF B>PE THEN ? :GOTO 32200 
+
+
+
+Parachute-J umber 
+
+
+
+
+
+
+,10) i "6052 MOCISBURG" 
+
+W AT(20',12):"JUL¥ '£ 
+■1 TO 5BB i: NEXT A : 
+"DER flUSFALL DER BOF 
+
+
+
+RUNS AUF 
+
+DIE DOCHPLANE "i"DES LASTWAGENS C 
+20B PRINT "AUFPRALLSESCHWfNDIGKEI 
+210 PRINT :: PRINT H PRINT TABtf 
+
+
+
+?)H0ECH5T£R"i 
+
+
+
+1 DURCH0OENGE": 
+
+
+
+: 102 , " 103B7C7CFEFE4444 " ) 
+
+, "CBFeE3FEC0C0C0ca" > 
+
+:104,"037FC77F03BT0303") 
+:i06,"00B00B00FAFBFF52"> 
+
+
+
+Computer Konlakt 5/64 
+
+
+
+) COLL SOUND ( 1 
+
+
+
+>ITIDN<*&,Z2, 
+
+
+
+9so if ZKiea i 
+
+
+
+.01,2,20,62, 
+
+
+
+. AE=1 t: RB=I 
+
+
+
+I WERT2M00 1 
+
+
+
+i coll Det-WRITEf ALL> u CfiLL f 
+
+
+
+jj"C? "■■!!■■■■■■■■■■ MESSEN 
+
+[J f--W)mm MECKERECKE J| 
+
+Made in Germany 
+
+[at da dcr Wuim drill ? 
+
+line Anzeige, in der es heUH: '1011% Apple kompatfbel-s kaan 
+inch bedeuten, daft es noch »iel Geld kosiet Bad clBlgcr Umtuuilen 
+Hn bemr dai risk Apple Pnifnmni BMh, tin besondtrs prcls- 
+mules Angcbot wird mm let 
+
+ikw Aalwort erhillcn. Es eibt 
+
+
+
+MECKERECKE 21 
+
+
+
+
+
+
+
+
+
+«... .i,„™ 
+
+
+^^"^nr"';::^ 
+
+
+
+
+""*• «"*" 
+
+
+^^^.-ZT-" 
+
+
+du: 
+
+
+
+
+r^'r^-riiZ^Sk 
+
+
+
+
+
+
+
+
+
+
+CAMl'M-l/ojiipuKrUraph. 
+
+
+
+
+
+
+
+
+
+
+(DE) 
+
+
+Au^lci: .,„;., sk-iL-Sii-.-iliL-: Mi-.,...', 
+
+
+,w 
+
+
+
+
+
+
+schreiben. Wir drncken fast alles ab. 
+
+
+
+
+Computer Kantakl 5/8 J 
+
+
+
+COMPUTER-BUCHVERSAND ;, 
+
+
+
+Lnn Pools urcfl Maty Borchws 
+
+
+taWM 
+
+
+U,„,.. U ..M„i. 
+
+
+HW. 
+
+
+u» 
+
+
+B 
+
+
+p 
+
+
+■Km 
+
+
+1 
+
+
+
+
+I1IJ31 
+
+
+Kssr 
+
+
+"—«-*— 
+
+
+Petar Kri;an/ Klaus-Dialer Kaufmann 
+
+
+Don 1 nman/ Kurt Inman 
+
+
+^=^ 
+
+
+,|5Hp 
+
+
+nr 
+
+
+flltl 
+
+
+I )er EMI 
+Assembler 
+
+
+E£x^.* 
+
+
+jj|| 
+
+
+Es£™ 
+
+
+
+
+
+
+° B 7^J^j"j«?™ 
+
+
+
+
+
+
+
+
+Tips a Tricks 
+
+
+
+
+ssw 
+
+
+
+
+Das Graflkbuch 
+
+
+„ »» 
+
+
+64 
+
+
+§3~l§ 
+
+
+VC-20 
+
+
+=§lf§ 
+
+
+— 
+
+
+Sis 
+
+
+-_ 
+
+
+
+
+SS^»Thln^FS£- 
+
+
+
+
+
+
+" a * PraB ™™~ 
+
+
+
+
+
+
+SPf 
+
+
+£ M 
+
+
+£«* 
+
+
+
+
+ssra 
+
+
+N£U 
+
+
+64 
+
+
+1 i= rCs 
+
+
+64 
+
+
+S=S : 
+
+
+f> r 
+
+
+BK&ilgE 
+
+
+
+
+
+
+„ — 
+
+
+
+
+1 ESjjJSs 
+
+
+
+
+-™— "■ 
+
+
+
+
+
+
+
+
+tJIIlIP 
+
+
+
+Computer Kontakt 5/84 
+
+
+
+COMPUTER-BUCHVERSAND 
+
+
+
+
+
+
+C61 -Graphics 
+
+
+
+
+C-Ustlng etnes Computers find 9n -i 
+■■■■■ ■■■■■-: . i Nijeitenkcnnen Siesofo 
+
+
+
+wesene VallBtandlgkelt von BASIC-Diah 
+rtantgefallet (1 ,3475 m 2 ] und 96Seilen, F 
+
+
+
+nummerLU404 
+
+
+
+orsoat, u -HoM>yBandZ: 
+
+
+
+-H-^S^S 
+
+
+
+
+
+
+
+i 
+
+
+
+DAS HUE6ER S0F1 
+
+
+
+
+■PROGRAUM, Has 
+
+:nden 10 Papartiack-TilBln in tiir- 
+zer Z-eit Einen glanzenden Hatz am Mark! ar- 
+ubert hat. gehBI schon hsule zi 
+
+
+
+i;. B f i'-j.i«:':.:' isiiN i n nns^-j ISRH.1 
+
+
+
+WARE PROGRAMM 
+
+
+
+
+Q SOFTWARE 
+
+
+
+£NU 
+
+
+
+ter-Moglichkelteii * 
+
+oen Buchhandel geWacftt; BOdt 
+Software JeM slarlBl der Veil 
+
+Heiiticofnfiifler-Tasdit 
+
+
+
+
+niitzer UBerprtJff und bearWtel. Jeder Ba 
+kostet DM 11.80. Die Relhe HUEBER EOF 
+
+
+Spleie fur Ihren ATARI, 
+
+
+DM 14 BQ 
+
+
+Spiste Wr linen Dragon 3? 
+ISBN 3-19-008311-1 
+
+
+DM14 80 
+
+
+Spiele iur ihren BBC, 
+ISBN 3- 19-0062 16-2 
+
+
+DM 14,80 
+
+
+SpiBe fllr Hiran VIC 20. 
+ISBN 3- 19-0082 15-4 
+
+
+DM 14.80 
+
+
+SpiBe fur 
+ISBN 
+
+
+ren TRS 80, 
+-I9 00B214-6 
+
+
+DM 14.80 
+
+
+Spiele fur 
+ISBN 
+
+
+nsn 0HIC1. 
+
+■ :■.. .. v 
+
+
+DM 14.80 
+
+
+Solele fiir 
+
+
+-I9-006213-8 
+
+
+R DM'.4,80 
+
+
+Spiale fllr 
+ISBN 
+
+
+ran 2X61. 
+- 19-0082 12-X 
+
+
+OM 14.80 
+
+
+
+
+softwir! 
+
+
+COLLECTID 
+
+
+Eine Paperback-Belte fur Sen fortgesclsrf 
+
+Mile 1BS4 utilsr dem Tilel HUEBER SI 
+WARF COI 1 ECTION: 6 Bande mil je 60 
+
+puler, |e eln Band Wr SINCLAIR ZX SRI 
+TRLIU, DRAGON 32, ORIC 1. BBC, COM 
+DORE 61 und VIC 20. Da? erklarte Ztol 
+
+Helen, »... die das voile Potential der Ml 
+
+
+
+Ma«-HueDer-Stra8e 4 . 3045 Ismani 
+
+
+
+COMPUTER-BUCHVERSAND 
+
+
+
+Das Interface At 
+
+■■■lllllllll 
+
+""ill!! 
+
+mi 
+■uiiiiin 
+
+■minimi 
+
+
+ill§I 
+
+
+Basic-Kurs fur Beginner 
+
+
+■ 
+
+
+A-DnpKe 
+
+
+Hich oidday 
+
+
+r 
+
+
+Mein erstes Basic Pronramin 
+
+■Hip 
+
+
+mil deni Tl 90/4A 
+
+
+Meir. Dra U ar. 32 
+
+
+■1 
+
+
+Logih des Programmiprcns 
+
+8 'wwSmumeiamm 
+
+
+64 Programme fur (fen Commodore 84 
+
+
+
+Computer Kontafct 5/8-1 
+
+
+
+COMPUTER-BUCHVERSANP 21 
+
+
+
+
+
+
+
+BUCH-BESTELLKARTE 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ZX SPECTRUM 
+
+
+
+Die Spielkiste 
+
+
+
+
+
+
+ife.S; BRIGHT B> n|9|*i.t^ 
+
+
+
+
+
+
+930 FOR nna TO SB lltH i ; 
+
+
+
+
+
+
+XfeK;;< "i";lf s ife% 5 «n; r n ^ 
+
+
+
+^fsPSrj^S-i^W*"h»W 
+
+
+
+i-n ,25; I " 
+
+
+
+
+
+
+BOP FDR 1 =■» TO : 
+l» PRINT Sid 19 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LENRflTEN."; INK c^, PBPEH BjflT B, 
+
+
+
+
+
+
+
+
+
+
+□ R'n=l n TO B\ PRINT PIT f>*2',2jnj ") 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PF1PER 4JHT ar + 11. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PBPEfi *t RT " tll i° 
+
+
+
+
+1*4-0 TF n=4. MNP ill Ul ^B 111 OR m( 
+
+
+
+
+
+
+
+
+EKT^n: 'lF h LSchl=E 
+
+
+6 T the:V'gc"to a 
+
+
+1(360 FUR f=g TO 28 STEP 2 
+
+
+300 LET lOCh2=0: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1050 PRINT P3T (,5;Bt: P^IU5E 3.0 
+
+
+
+
+
+
+use for n=i to i: j f » i EI?ti?'- f |-f 
+
+
+
+
+
+
+
+
+
+
+
+
+#?*0»lJ~n . LET pOsi=POSi*2 
+1110 NEfcT n._ 2a THEN PRlrJT pnPER 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gP .2,0: PEr=' .E.=' SEEP .3,16: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+iUPL Ki»EMJ TlltfJ L-EEP .-lC-,-16.- PR 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+. JEXT »: NEXT n 
+
+
+
+
+
+
+
+
+
+
+
+
+117B BEEP -5,-PO: PRINT PSPER 3J 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+910 FDR J-^toI 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+940 mtr 50,126, 
+
+
+
+
+
+
+
+
+
+
+9998 CLERP. : SWE "5PIELKISTE " I. 
+
+
+
+
+
+
+
+
+960 EEEP -0S. 16 
+
+
+
+
+S999 STOP 
+
+
+Etiketten-Druck 
+
+
+
+
+
+
+100 rem- 
+
+
+COPYRIGHT B 
+
+
+
+
+
+
+VOLKER MUECKE 
+
+
+
+
+
+
+
+
+230 REM- 
+
+
+5 ISO ESCHWE 
+
+
+ILER 
+
+
+300 REM- 
+
+
+TEL. : 02403/ 
+
+
+
+
+330 i 
+
+
+
+
+
+
+
+
+K0NF1QURAT10N1 VC-20 * 1515 
+
+
+450 : 
+
+
+
+
+
+
+500 : 
+
+
+
+
+
+
+550 PRINTCHR*< 14) 
+
+
+
+
+
+
+600 POKE36979,]24 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+UM-AUTE DEFINIEREN- 
+
+
+733 : 
+
+
+
+
+
+
+900 flE*=CHR*< 160) 
+
+
+CHRSC213)+CHR*(E 
+
+
+12)tCHR*< 189J+CHR*( 192J+CHRH 129) 
+
+
+830 OE*-CHR*( 134 1 
+
+
+CHR*( I97)-CHRS< 
+
+
+
+
+
+
+CHRK 193)+CHR*< 
+
+
+92HCMRS; 193^+CHRSl 1 SB ) tCHRSC 123) 
+
+
+
+
+CHR*( 145)+GHRS< 
+
+
+65>+CHRS< 165)+CHR*< 154)+CHR»t 128) 
+
+
+1000 flPUS=CHR*(2S3>*CHR*< 147>+CHR*< 146)+CHR*< ] 47 > *CHR*C 253 > *CHRS< 129) 
+
+
+1050 O0l*=CHR*t. 199)+CHR*( 195>*CHRS( 194}»CHR*< 195J*CHR*C 1S3)+CHR*( 12BJ 
+
+
+1100 UUL*=CHR*C lS0)+CHR*t 193)»CHRS( ia2J-fCHR*< 193J1-CHR*C 190>*CHR«< 1281 
+
+
+1150 PIE*=CHR?< 160 
+
+
+tCHR«<213J+CHR*( 
+
+
+2!2)*CHRS< 189»*CHR*e 132)+CHR*< 129) 
+
+
+
+■ ■ Ki:ntakt5/84 
+
+
+
+VC20 
+
+
+
+) FOR OP-1 TO ■ 
+
+
+
+TEXT AUSDRUCKEN" 
+
+
+
+ft=l TO LEN<Z«) 
+
+
+
+S230 FOR IA=1 TO LEN(Z*) 
+
+S3ae i 
+
+E350 REM" 
+
+
+
+esea : 
+esse ; 
+
+
+
+£850 NEXT i 
+ES50 REM" 
+
+
+
+- u fTHENfllS! 
+
+
+fl> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+= "<-"THENflJ*( 
+
+
+
+
+• • l"THENHI«( 
+
+
+
+
+-"1 "THENfll*< 
+
+
+
+
+-— "THENflI*< 
+
+
+ft) 
+
+
+
+)I**CHR*< 15) 
+
+
+
+TEXT ZOSOMMENFUEGEN" 
+
+
+
+iO50 FOR lfl=l TO LEN(Z*) 
+1100 ZlS=Zl**ei*t IP) 
+<150 NEXTIfl'BOTQ 1600 
+
+
+
+10 REM COPYRIGHT BY! 
+3B REM VOLKER MUECKE 
+
+
+
+50 REM 3 180 ESCHWE1LER 
+4000 PRINT-J" 
+
+5000 REftDX*: IFXS-"tt n THENRESTOREi| 
+6000 DftTlVLAUFSCHRIFT 
+
+
+
+B530 hCXTE!BOTO3000 
+
+
+
+DRAGON 32 31 
+
+
+
+Lottotip 
+
+EinkomtortaWesLotloprogrammfQr den DRAGON 3: 
+
+
+
+glricku W, 
+cntsprlclM. J 
+
+l.inlcwn... In litT nut-tun 
+
+ticllini I ri-Oi'r/rfhlunt. 
+
+
+
+el tin on Voreehlag t 
+
+
+
+Computer Kontakt 5/B4 
+
+
+
+
+ComputerKoni.: 
+
+
+
+Chemie-Lexikon 
+
+
+
+, •BS1Q3S4S3B 
+
+
+
+1 L> D D D D CI D EJ D D D D □ O (J O U B D D D D DDO DO n I 
+1 B c h e m i a - lcxiKon = -G4 B ' 
+' JFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFPFK 
+
+
+
+
+
+
+■ Kontakt 5/84 
+
+
+
+C64 
+
+
+
+4050 input "SS-tn 
+
+
+
+3803 sosNb^eae 
+
+
+
+LebrpUne ab iIct 
+
+
+
+
+:e54£a6, 15:poKe54577,£ 
+
+
+
+:e54p:7B, l£B:poKe54£76,; 
+
+
+
+7750 POKe54£9S, IS i PQK BS4S77 , IE 
+7800 PQKe54£76,17:-Forop-£to53G 
+7850 POKa34276,0ipoKe54£77,0M 
+
+
+
+:*54e78,£4SipoKe54£73, : 
+
+
+
+■ 1"," 1.06797 ",■!-, "1 
+
+
+
+Computer Kantakt 5/54 
+
+
+
+-3. a- ,'14.007'' , 
+
+
+
+
+
+
+.' , "2. B", "74. 922", "33", "5-, 
+:" ,'£.a m , m 73.BB» ,°3f r -G' ,' 
+■ , "B . 8 " , -79 ■ 809 * , -35 * , '7 ■ , ■ 
+'Kr ■ , "0 ■ , ■ 83 . 80 " , "36 • , ■ e " „ ■ 
+. "Rb","0.8","85.47","37","l 
+
+
+
+"1.8 ","116.68 ","50 ","4*, "5" 
+
+
+
+. "0.8 ",-137. 34', r 56", ■a", *6" 
+n '■ , "1.8", "284.37", "81", "3", "t 
+
+•,"].9","209,98","89",'S","6" 
+; r",-0.7","ea3","B7-,-l" J -7" 
+
+
+
+Electronic (Br Mann 
+
+
+
+Universale 
+
+Datenerhebung 
+
+
+nor 
+
+
+Ort 
+
+
+und zugehoiigen a 
+
+
+Si 
+
+
+2*. 
+
+
+Diese una ande-e Softw 
+
+
+
+
+fiir den SHARP PC- 
+Flohrtelchatr 
+
+
+
+
+Tel. 06J1 /6 
+
+
+763 
+
+
+
+Tel.072 52/42948. 
+
+
+
+Der Vokabel-Trainer 
+
+Learning English with PC- 1500 
+
+
+
+Id Hit Lhrer Qmys*lchh in Fnglsch Oder Laltl 
+
+
+
+i i-.-.:;,.,-h,- VV...JL ;.jr V.riinzulu 
+
+
+
+
+
+
+Computer Kontakt 5/84 
+
+
+
+SHARP PC-1500 37 
+
+
+
+
+
+
+
+
+
+
+g^T 
+
+
+
+Y///7/7//iin T iT\m\\\^SJ gssc 
+
+
+
+Klaus Jest like 
+
+
+
+SHARP PC-1500 
+
+
+
+
+0:BEt1 nfUOKfiBEL 
+-TRfiJNERT»* 
+
+F . UOKBBE'L 
+
+
+
+40:" * EJNGEBEN * 
+50: "*-*¥T****¥¥Y** 
+
+
+
+itJS&l-li IF D 
+>235LET E=25S 
+
+
+
+
+
+
+GQTQ 23B 
+210:PRINT £*->Sl 
+
+
+
+C ! ENTER 
+M=5*-*"_LEKV'- 
+
+L*+"'DSTf " 
+
+
+
+
+
+
+
+
+
+= lNKEfi .' IF 
+
+
+
+
+
+
+
+
+= ""THt"N 8.30 
+
+
+HFFP 1 
+
+
+.PRINT " 
+
+
+
+
+
+
+NOTE' 
+
+
+: "jh ; 
+
+
+850: P 
+
+
+
+
+
+■nnnitttnt 
+
+
+
+von JBF.UQKflBElX 
+In >B. UQKflBEL< 
+
+r B.UOKPBEL 
+
+
+
+
+
+
+M*JpR»H 1 
+
+
+"uV'-U 
+
+
+428lfl*»S** fl 
+
+
+
+
+138: INPUT ■'UIEUIEL. 
+
+uDKPBEL-PfliaRf 
+
+
+
+
+IBB: INPUT « 
+
+
+
+
+2S0:n*=S** ,, .LEK'T i, -> 
+
+
+lul " ru 
+
+
+
+
+
+
+
+.rlicitnni; mhl I II.UIIl 
+
+
+
+
+Computer Kontakt 5/84 TERMINE 4C 
+
+
+
+TERMINER 
+
+
+
+■ ft- VllMILU .111 lT.-L-S,hlcin 
+
+
+
+FnV-BILDL\GSZEWHHJflt, Mi 
+
+
+
+
+
+
+■ ■ ; hi -LL1 . Uiuntcr Wi| 41, SIM Pu 
+
+
+
+tn,TiL 07143/77713 
+
+
+
+
+
+
+Computer Kontaki 5/81 
+
+
+
+: ■ ■ 
+
+
+
+Computer KontaM 5/84 
+
+
+
+KLEINANZEIGEN 
+
+
+
+jTW^ SB KLEINANZEIGEN Jg 
+■■ ■■■■■■■■■■■■■■■ 
+
+
+
+SHARP 
+
+
+
+SPECTRUM 
+
+
+
+Hardware 
+
+
+
+Texas Instruments 
+
+
+
+VC20.VC64 ssra 
+
+
+
+Computer Kontakt 5/84 
+
+
+
+KLEINANZEIGEN 46 
+
+
+
+
+Bestellschein fur private Klelnanzelgen 
+
+Bitta varfiffandlchan Sia in der nachsten Au&gabefolgende Anleige: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+»..„._ M .„ 
+
+
+
+
+stasssSr- 1 
+
+
+
+
+flrri Icti b:«-iii> i-ps 
+
+
+TSlSBmi.n 
+
+
+
+;• r-vf 
+
+
+
+Wir suchen 
+
+noch Mitarbeiter. 
+
+lhr direkter Drahl 
+
+zur Redaklion: 
+
+Tel. 07252/42948. 
+
+
+
+PREISAUSSCHREIBEN « 
+
+
+
+Preisausschreiben 
+
+Enter Preis: Der iiouc Oric Atmos 48 K 
+
+
+
+Die Daten zum neucn Oric-Atmns 
+
+
+
+
+
+
+Ofttnilk-liuiia 90 DM. Abcr Ml 
+
+
+
+Gr*wbs«n Tlmega 
+
+jmvare-Hanlw^- Service Bugabt 
+
+
+
+AifrJernWinl«l27 
+
+
+Ta.a237i,'6iai2(bi 3 2HJhri 
+
+
+
+
+VIDEO GENIE und TRS-80. 
+
+
+
+
+
+
+mpreasum 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ZX Spectrum 
+Super-Software 
+
+
+
+BETA BASIC (Betasoft 1 8/48 K) - 
+
+
+
+DM55,00 
+IE QUILL (Gilaott 48 K] - otine detallllerte Prograi 
+
+
+
+gramme automatlsch In Maschi none ode 
+urn, auch Strings und Flieflzahlen 
+
+Masterjker (Softak IS/48 K) - frei deflnlerbare Funk- 
+tionalaaten fiir Hirer, Spectrum, On Error/ 
+On Break * Eclitzeltuhr 
+
+
+
+•r Action- und Adventureprogramme ganz 
+d aingatroffan. Fordem Sle unsar Informa- 
+n. Bestellungeri per Vorkaas* 1+ DM 3,00), 
+
+
+
+ULTRASOFT 
+
+Kamperweg 1 67, 4000 Dusseldprf 1 2 
+
+
+
+NEUE SUPERHITS 
+RUND UM COMMODORE 
+
+
+
+state 
+
+
+
+i 
+
+
+
+. and natiirlich die bewahrten Bestseller aus bester Hand 
+
+
+
+S™5™teSSi™SK?S. 
+
+
+arsss 
+
+
+""■»'" '" 
+
+
+
+
+
+
+
+
+
+
+
+
+■■era 
+
+
+■i 
+
+
+"1 
+
+
+64 1 
+
+=1 
+
+
+64 
+
+
+F '£ES!' 
+
+
+ve-20 
+
+
+VC-20 
+
+
+
+
+
+
+__| 
+
+
+— 
+
+
+
+
+
+Darauf haben 
+Siegewartet! 
+
+
+
+$; 
+
+
+
+MR GROSSER PARTNER FUR KLEINE COMPUTER 
+
+DATA BECKER 
+
+
+
+Dusaeldort Tel (0111)310010 il 
+
+
+
+
+
+
