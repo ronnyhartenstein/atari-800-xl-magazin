@@ -16,6 +16,18 @@ Dieser Ordner enthält das abgetippte Original und zwei spielbare Fassungen für
 
 Beide sind eigenständige HTML-Dateien: herunterladen oder im Browser öffnen, fertig. Es gibt keine Installation und kein Netz, und beide laufen auch auf dem Handy.
 
+## Woher der Originalcode stammt
+
+Die Suche begann mit Papas Erinnerung: Ein Spiel namens „Rollerball“ aus dem „Atari Magazin“, abgetippt um 1986/87, mit Rohrteilen auf einem Raster, durch die eine Kugel rollt.
+
+1. **ATARImagazin:** Die Inhaltsverzeichnisse aller Hefte von 1987 stehen in [`../index.html`](../index.html). Dort kommt Rollerball nicht vor, und Hefte von 1986 gibt es nicht, weil das ATARImagazin erst im Januar 1987 startete.
+2. **Listing-Verzeichnisse:** In der Listing-Sammlung von [atari-archive.de](https://www.atari-archive.de/listings.htm) und bei [Atarimania](http://www.atarimania.com/game-atari-400-800-xl-xe-rollerball-ii_4434.html) fand sich „Rollerball II“ von Thomas Tausend. Es stand nicht im ATARImagazin, sondern in **Computer Kontakt Nr. 20 (Juni/Juli 1986)**, Atari-Teil, Titel „Rollerball II – das Superspiel!“. Die Spielbeschreibung passte genau: Rohrteile ins Loch schieben, bis die Kugel durchrollen kann.
+3. **Der Scan:** Das ganze Heft liegt als Scan auf [archive.org](https://archive.org/details/computerkontakt-magazine-20). Die kleine Vorschau-PDF war kaum lesbar. Die Programmdatei bei [Fandal](https://a8.fandal.cz/detail.php?files_id=2808) ist nicht mehr erreichbar.
+4. **Volle Auflösung:** archive.org ist aus meiner Arbeitsumgebung heraus gesperrt. Deshalb lädt eine GitHub Action ([`../.github/workflows/scan-seiten.yml`](../.github/workflows/scan-seiten.yml) mit [`../tools/scan_seiten.py`](../tools/scan_seiten.py)) die große PDF und das Archiv mit einem Bild pro Seite herunter. Das Skript schneidet die PDF-Seiten 76 bis 78 heraus (gedruckt sind das die Seiten 77 bis 79) und legt alles unter [`../scans/`](../scans/) ab, also die ganze PDF, den Ausschnitt und die Einzelseiten als PNG und hochaufgelöstes JPG.
+5. **Abtippen:** Von diesen Seitenbildern habe ich das Listing Zeile für Zeile abgeschrieben, insgesamt 204 Zeilen, in [`rollerball2.txt`](rollerball2.txt).
+
+Ein vorher von Gemini erzeugtes „Rollerball“-Listing war übrigens erfunden. Es benutzte unter anderem `ELSE`, das es in Atari BASIC nicht gibt, und ist deshalb nicht mehr im Repo.
+
 ## Das Spiel
 
 Das Spielfeld besteht aus 18 × 11 zufällig verteilten Rohrteilen. Es gibt sieben Sorten: waagrecht, senkrecht, Kreuzung und vier Kurven. Ein Feld ist ein Loch, und ein Nachbarteil lässt sich hineinschieben, so wie bei einem Schiebepuzzle.
@@ -35,9 +47,21 @@ Hier läuft das abgetippte Programm unverändert auf einem emulierten Atari 800 
 - **Programm:** [`ROLLER.BAS`](ROLLER.BAS) ist das tokenisierte BASIC-Programm. Es wurde mit [`../tools/emulator/tokenize.ts`](../tools/emulator/tokenize.ts) erzeugt: Das Listing wird im Emulator eingetippt und das Programm danach aus dem Speicher geholt.
 - **Neu bauen:** `python3 tools/emulator/build.py` setzt aus [`../tools/emulator/page.html`](../tools/emulator/page.html), dem Emulator, den ROMs und `ROLLER.BAS` die Datei `spielen.html` zusammen.
 
+### Der Weg vom Scan zum laufenden Programm
+
+1. **Abschrift mit Platzhaltern:** Atari-Listings enthalten Grafikzeichen, Cursorsteuerung und inverse Buchstaben, die man im Heft nur als Symbole sieht. In [`rollerball2.txt`](rollerball2.txt) stehen sie lesbar als `{^A}`, `{DOWN}`, `{INV}…{/INV}`. [`../tools/atascii_lst.py`](../tools/atascii_lst.py) übersetzt das in echte ATASCII-Bytes, das ergibt [`ROLLER.LST`](ROLLER.LST).
+2. **Emulator wählen:** Es musste ein Atari-800-XL-Emulator sein, der komplett im Browser läuft und frei lizenziert ist. [Sfotty Pie](https://github.com/cyco130/sfotty-pie) ist in TypeScript geschrieben und steht unter der MIT-Lizenz. Als Betriebssystem und BASIC dienen die freien Altirra-ROMs statt der Atari-Originale. Mit esbuild wird der Emulator zu einer einzigen JavaScript-Datei gebündelt ([`../tools/emulator/vendor/`](../tools/emulator/vendor/)).
+3. **Eintippen lassen:** Der Emulator kann Text so in die Tastatur einspeisen, als würde jemand tippen. So „tippt“ er das Listing ein wie Papa damals, nur schneller.
+4. **Fehlersuche:** Beim ersten Lauf zählten die Punkte endlos hoch. Ursache war ein Lesefehler: In Zeile 154/155 hatte ich `NS` statt `MS` gelesen. Mit `MS` als Hilfsvariable läuft alles. Ein paar weitere Stellen waren im Scan unsicher (siehe unten). Das Spiel läuft damit, aber dort könnte noch ein Zeichen anders gemeint sein.
+5. **Programm sichern:** Das Eintippen dauert im Emulator eine Weile. Deshalb holt [`../tools/emulator/tokenize.ts`](../tools/emulator/tokenize.ts) nach dem Eintippen das fertige, von BASIC übersetzte Programm aus dem Speicher und speichert es als [`ROLLER.BAS`](ROLLER.BAS), so wie `SAVE "D:ROLLER.BAS"` auf dem echten Atari. Das Skript läuft innerhalb eines Sfotty-Pie-Checkouts mit Node.
+6. **Eine Datei bauen:** [`../tools/emulator/build.py`](../tools/emulator/build.py) packt Emulator, ROMs und `ROLLER.BAS` in die Seite [`../tools/emulator/page.html`](../tools/emulator/page.html). Beim Öffnen baut sie eine Boot-Diskette mit dem Programm, startet den Atari im PAL-Modus und lässt `RUN` laufen. Dazu kommen Tastatur- und Touch-Steuerung für Joystick, Feuer und START.
+7. **Testen:** Mit einem automatisch gesteuerten Browser (Playwright) habe ich Runden gespielt und Screenshots geprüft: Titelbild, Spielfeld, Schieben, Kugel rollt, Punkte, Fehlerbildschirm.
+
 ## Variante 2: die Neuauflage (`modern.html`)
 
 Die Neuauflage spielt sich wie das Original, ist aber in reinem JavaScript auf einem Canvas neu geschrieben.
+
+Für den Look habe ich Screenshots des Emulators ausgewertet: die Rohrteile Pixel für Pixel aus dem Spielfeld, die Farben aus der PAL-Palette des Emulators und die Schrift aus dem AltirraOS-ROM. Die Spiellogik ist aus den BASIC-Zeilen übersetzt.
 
 **Was vom Original stammt:**
 
